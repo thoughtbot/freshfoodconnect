@@ -13,6 +13,7 @@ en:
   profiles:
     show:
       supported: "%{zipcode} is a supported zipcode"
+      unsupported: "%{zipcode} isn't a supported zipcode. We'll notify you when Fresh Food Connect comes to your area."
 
   time:
     formats:

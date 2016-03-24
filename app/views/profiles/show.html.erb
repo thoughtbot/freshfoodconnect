@@ -1,1 +1,5 @@
-<%= t(".supported", zipcode: @profile.zipcode) %>
+<% if @profile.supported? %>
+  <%= t(".supported", zipcode: @profile.zipcode) %>
+<% else %>
+  <%= t(".unsupported", zipcode: @profile.zipcode) %>
+<% end %>

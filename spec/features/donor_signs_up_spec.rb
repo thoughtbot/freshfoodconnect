@@ -3,13 +3,25 @@ require "rails_helper"
 feature "Donor signs up" do
   context "for supported zipcode" do
     scenario "they're notified and prompted for their address" do
-      supported_zipcode = "80221"
+      supported_zipcode = User::SUPPORTED_ZIPCODES.first
 
       visit root_path
       click_on_sign_up
       register_donor(email: "user@example.com", zipcode: supported_zipcode)
 
       expect(page).to have_supported_zipcode_text(supported_zipcode)
+    end
+  end
+
+  context "for unsupported zipcode" do
+    scenario "they're put on the waiting list" do
+      unsupported_zipcode = "90210"
+
+      visit root_path
+      click_on_sign_up
+      register_donor(email: "user@example.com", zipcode: unsupported_zipcode)
+
+      expect(page).to have_unsupported_zipcode_text(unsupported_zipcode)
     end
   end
 
@@ -25,6 +37,10 @@ feature "Donor signs up" do
         :password,
       ),
     )
+  end
+
+  def have_unsupported_zipcode_text(zipcode)
+    have_text t("profiles.show.unsupported", zipcode: zipcode)
   end
 
   def have_supported_zipcode_text(zipcode)
