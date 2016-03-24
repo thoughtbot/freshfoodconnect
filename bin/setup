@@ -19,25 +19,17 @@ mkdir -p .git/safe
 # Only if this isn't CI
 # if [ -z "$CI" ]; then
 # fi
-          
+
 if heroku join --app freshfoodconnect-staging &> /dev/null; then
   git remote add staging git@heroku.com:freshfoodconnect-staging.git || true
-  printf 'You are a collaborator on the "freshfoodconnect-staging" Heroku app
-'
+  printf 'You are a collaborator on the "freshfoodconnect-staging" Heroku app'
 else
-  printf 'Ask for access to the "freshfoodconnect-staging" Heroku app
-'
+  printf 'Ask for access to the "freshfoodconnect-staging" Heroku app'
 fi
 
-          
 if heroku join --app freshfoodconnect-production &> /dev/null; then
   git remote add production git@heroku.com:freshfoodconnect-production.git || true
-  printf 'You are a collaborator on the "freshfoodconnect-production" Heroku app
-'
+  printf 'You are a collaborator on the "freshfoodconnect-production" Heroku app'
 else
-  printf 'Ask for access to the "freshfoodconnect-production" Heroku app
-'
+  printf 'Ask for access to the "freshfoodconnect-production" Heroku app'
 fi
-
-
-          git config heroku.remote staging

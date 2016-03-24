@@ -6,6 +6,14 @@ en:
       with_weekday:
         "%a %m/%d/%y"
 
+  marketing:
+    index:
+      sign_up: "Sign Up"
+
+  profiles:
+    show:
+      supported: "%{zipcode} is a supported zipcode"
+
   time:
     formats:
       default:
