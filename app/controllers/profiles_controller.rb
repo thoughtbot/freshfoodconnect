@@ -11,6 +11,8 @@ class ProfilesController < ApplicationController
     @profile = build_profile
 
     if @profile.update(profile_params)
+      GeocodeJob.perform_later(@profile.location)
+
       redirect_to profile_url
     else
       render :edit

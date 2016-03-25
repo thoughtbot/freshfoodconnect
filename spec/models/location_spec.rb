@@ -20,6 +20,14 @@ describe Location do
   it { should validate_presence_of(:zipcode) }
   it { should validate_presence_of(:zone) }
 
+  it { should validate_numericality_of(:latitude).is_greater_than_or_equal_to(-90) }
+  it { should validate_numericality_of(:latitude).is_less_than_or_equal_to(90) }
+  it { should validate_numericality_of(:latitude).allow_nil }
+
+  it { should validate_numericality_of(:longitude).is_greater_than_or_equal_to(-180) }
+  it { should validate_numericality_of(:longitude).is_less_than_or_equal_to(180) }
+  it { should validate_numericality_of(:longitude).allow_nil }
+
   describe "#zipcode=" do
     it "trims whitespace" do
       location = Location.new(zipcode: "    90210 ")

@@ -12,6 +12,16 @@ class Location < ActiveRecord::Base
   }
 
   validates :address, presence: true
+  validates :latitude, numericality: {
+    greater_than_or_equal_to: -90,
+    less_than_or_equal_to: 90,
+    allow_nil: true,
+  }
+  validates :longitude, numericality: {
+    greater_than_or_equal_to: -180,
+    less_than_or_equal_to: 180,
+    allow_nil: true,
+  }
   validates :location_type, presence: true
   validates :user, presence: true
   validates :zipcode, presence: true, zipcode: { country_code: :us }

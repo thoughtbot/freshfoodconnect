@@ -1,8 +1,6 @@
 class LocationsController < ApplicationController
   def update
-    @location = find_location
-
-    @location.update!(location_params)
+    location.update!(location_params)
 
     redirect_to profile_url, flash: { success: t(".success") }
   end
@@ -13,7 +11,7 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:location_type, :grown_on_site)
   end
 
-  def find_location
+  def location
     current_user.location
   end
 end

@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20160414211851) do
     t.integer "user_id",                      null: false
     t.integer "location_type", default: 0,    null: false
     t.boolean "grown_on_site", default: true, null: false
+    t.decimal "latitude",  precision: 15, scale: 10
+    t.decimal "longitude", precision: 15, scale: 10
   end
 
   create_table "scheduled_pickups", force: :cascade do |t|

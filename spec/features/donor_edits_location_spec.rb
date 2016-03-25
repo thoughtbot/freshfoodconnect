@@ -2,19 +2,25 @@ require "rails_helper"
 
 feature "Donor edits location" do
   scenario "from profile" do
-    zone = create(:zone)
+    zone = create(:zone, zipcode: "80205")
     location = create(:location, :supported)
     donor = create(:user, location: location)
     new_pickup_location = {
-      address: "123 Fake Street Denver CO",
+      address: "123 Fake St.",
       zipcode: zone.zipcode,
       notes: "on my porch",
     }
+    coordinates = {
+      latitude: 39.8,
+      longitude: -104.6,
+    }
+    stub_geocoding_for("123 Fake St. #{zone.zipcode}", coordinates)
 
     visit root_path(as: donor)
     click_on_profile
     edit_pickup_location(new_pickup_location)
 
+    expect(location.reload).to have_attributes(coordinates)
     expect(page).to have_text(new_pickup_location[:address])
     expect(page).to have_text(new_pickup_location[:notes])
     expect(page).to have_text(new_pickup_location[:zipcode])
@@ -29,6 +35,19 @@ feature "Donor edits location" do
 
       expect(page).to have_address_errors
     end
+  end
+
+  def stub_geocoding_for(address, latitude:, longitude:)
+    Geocoder::Lookup::Test.add_stub(
+      address, [{
+        "latitude" => latitude,
+        "longitude" => longitude,
+      }],
+    )
+  end
+
+  def have_supported_zipcode_text(zipcode)
+    have_text t("profiles.show.supported", zipcode: zipcode)
   end
 
   def click_on_profile
