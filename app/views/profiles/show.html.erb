@@ -3,3 +3,9 @@
 <% else %>
   <%= t(".unsupported", zipcode: @profile.zipcode) %>
 <% end %>
+
+<%= render("locations/form", location: @profile.location || @profile.build_location) %>
+
+<% if @profile.location.persisted? %>
+  <%= t(".pickup") %>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resource :location, only: [:create]
   resource :profile, only: [:show]
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]

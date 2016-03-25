@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   include Clearance::User
 
+  has_one :location, dependent: :destroy
+
   validates :email, presence: true
   validates :password, presence: true
   validates :zipcode, presence: true

@@ -1,4 +1,8 @@
 en:
+  application:
+    navigation:
+      profile: "Profile"
+
   date:
     formats:
       default:
@@ -12,6 +16,7 @@ en:
 
   profiles:
     show:
+      pickup: "We pick up in your area on Thursdays from 9 until noon."
       supported: "%{zipcode} is a supported zipcode"
       unsupported: "%{zipcode} isn't a supported zipcode. We'll notify you when Fresh Food Connect comes to your area."
 
