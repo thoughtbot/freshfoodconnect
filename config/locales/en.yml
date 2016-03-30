@@ -6,10 +6,10 @@ en:
       with_weekday:
         "%a %m/%d/%y"
 
-  marketing:
-    index:
-      profile: "Sign In"
-      sign_up: "Sign Up"
+  application:
+    profile: "Sign In"
+    sign_up: "Sign Up"
+    sign_out: "Sign Out"
 
   profiles:
     show:

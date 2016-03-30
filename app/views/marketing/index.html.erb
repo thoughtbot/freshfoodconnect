@@ -1,32 +1,9 @@
-<header class="homepage-header">
-  <div class="nav-wrapper">
-    <a href="" class="logo">
-      <h1>
-        <img src="" alt="Fresh Food Connect">
-      </h1>
-    </a>
-
-    <nav class="homepage-nav">
-      <ul>
-        <li>
-          <%= link_to profile_path do %>
-            <%= t(".profile") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to sign_up_path do %>
-            <%= t(".sign_up") %>
-          <% end %>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<%= render "partials/main_header" %>
 
 <section class="hero">
   <div class="content-wrapper-narrow">
     <h2>
-      This is a heading about Fresh Food Connect
+      Get started with Fresh Food Connect
     </h2>
     <p class="hero__subheading">
       It's so simple. If you are harvesting more from your garden than you can eat, let us pick up your extra veggies, and we'll share it with people in your area who can really use it! Enter your zipcode below to see if our service is available in your area.

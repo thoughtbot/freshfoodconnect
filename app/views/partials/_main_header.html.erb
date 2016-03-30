@@ -1,0 +1,29 @@
+<header class="main-header">
+  <div class="nav-wrapper">
+    <a href="" class="logo">
+      <h1>
+        <img src="" alt="Fresh Food Connect">
+      </h1>
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li>
+          <%= link_to profile_path do %>
+            <%= t("application.profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to sign_up_path do %>
+            <%= t("application.sign_up") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to sign_out_path, method: :delete do %>
+            <%= t("application.sign_out") %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

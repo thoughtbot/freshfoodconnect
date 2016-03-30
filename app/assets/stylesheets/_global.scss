@@ -1,8 +1,33 @@
+body {
+  background: $light-gray;
+}
+
+.content-container {
+  background: $white;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  margin-top: $base-spacing;
+  padding: $base-spacing;
+}
+
 .nav-wrapper {
   @include outer-container;
+  height: 100%;
 }
 
 .content-wrapper-narrow {
   @include span-columns(6);
   @include shift(3);
+}
+
+.opt-out-link {
+  margin: 0 $small-spacing;
+}
+
+.next-steps {
+  margin: $large-spacing 0;
+
+  li {
+    margin: $base-spacing 0;
+  }
 }

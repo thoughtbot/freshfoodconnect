@@ -13,20 +13,24 @@ $heading-line-height: 1.2;
 $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
+$large-spacing: $base-spacing * 2;
 $base-z-index: 0;
+$header-height: 3.125em;
 
 // Colors
+$brand-teal: #1abc9c;
 $blue: #1565c0;
 $dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
+$medium-gray: #e6e6e6;
+$light-gray: #f7f7f7;
+$white: #fff;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$action-color: $blue;
+$action-color: $brand-teal;
 
 // Border
-$base-border-color: $light-gray;
+$base-border-color: $medium-gray;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors

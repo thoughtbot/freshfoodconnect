@@ -1,14 +1,28 @@
-.homepage-header {
+.main-header {
+  background: $white;
+  height: $header-height;
 
   .logo {
     float: left;
   }
+
+  h1 {
+    margin: 0;
+  }
 }
 
-.homepage-nav {
+.main-nav {
+  align-items: center;
+  display: flex;
   float: right;
+  height: 100%;
 
   li {
     display: inline-block;
+    margin-right: $small-spacing;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

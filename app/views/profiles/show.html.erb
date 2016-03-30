@@ -1,11 +1,16 @@
-<% if @profile.supported? %>
-  <%= t(".supported", zipcode: @profile.zipcode) %>
-<% else %>
-  <%= t(".unsupported", zipcode: @profile.zipcode) %>
-<% end %>
+<%= render "partials/main_header" %>
+<%= render "partials/welcome_modal" %>
 
-<%= render("locations/form", location: @profile.location || @profile.build_location) %>
+<div class="content-wrapper-narrow content-container">
+  <% if @profile.supported? %>
+    <%= t(".supported", zipcode: @profile.zipcode) %>
+  <% else %>
+    <%= t(".unsupported", zipcode: @profile.zipcode) %>
+  <% end %>
 
-<% if @profile.location.persisted? %>
-  <%= t(".pickup") %>
-<% end %>
+  <%= render("locations/form", location: @profile.location || @profile.build_location) %>
+
+  <% if @profile.location.persisted? %>
+    <%= t(".pickup") %>
+  <% end %>
+</div>
