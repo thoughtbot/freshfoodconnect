@@ -1,8 +1,4 @@
 en:
-  application:
-    navigation:
-      profile: "Profile"
-
   date:
     formats:
       default:
@@ -12,6 +8,7 @@ en:
 
   marketing:
     index:
+      profile: "Sign In"
       sign_up: "Sign Up"
 
   profiles:
