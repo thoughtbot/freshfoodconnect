@@ -12,11 +12,11 @@
 
   <header class="profile-header">
     <h2 class="profile-header__heading">firstName lastName</h2>
+    <a class="profile-header__edit">Edit Profile</a>
   </header>
 
   <section class="profile-section">
     <h3 class="profile-section__heading">Contact</h3>
-    <span class="profile-section__edit">Edit</span>
     <dl>
       <dt>Email</dt>
       <dd>user@example.com</dd>
@@ -24,8 +24,7 @@
   </section>
 
   <section class="profile-section">
-    <h3 class="profile-section__heading">Pickup Info</h3>
-    <span class="profile-section__edit">Edit</span>
+    <h3 class="profile-section__heading">Location</h3>
     <dl>
       <div class="dl-group">
         <dt>Street Address for Pickup</dt>
@@ -35,6 +34,12 @@
         <dt>Zip</dt>
         <dd>80202</dd>
       </div>
+    </dl>
+  </section>
+
+  <section class="profile-section">
+    <h3 class="profile-section__heading">Pickup Info</h3>
+    <dl>
       <div class="dl-group">
         <dt>Scheduled Pickup Time</dt>
         <dd>
@@ -42,6 +47,10 @@
             <%= t(".pickup") %>
           <% end %>
         </dd>
+      </div>
+      <div class="dl-group">
+        <dt>Donation Status for <span class="next-pickup-date">03/31/15</span></dt>
+        <dd class="donation-status pending">Pending...</dd>
       </div>
       <div class="dl-group">
         <dt>Pickup Notes (e.g. On the table on the front porch)</dt>
@@ -60,19 +69,15 @@
 
   <section class="profile-section">
     <h3 class="profile-section__heading">Additional Info</h3>
-    <form action="">
-      <div class="label-input-group">
-        <label for="">Is your pickup Location</label>
-        <input type="radio" name="group1" value="Residence"> A Residence<br>
-        <input type="radio" name="group1" value="Community Garden"> A Community Garden<br>
-        <input type="radio" name="group1" value="Business"> A Business<br>
-        <input type="radio" name="group1" value="Other"> Other
+    <dl>
+      <div class="dl-group">
+        <dt>Pickup Location Type</dt>
+        <dd>Residence</dd>
       </div>
-      <div class="label-input-group">
-        <label for="">Where are you growing the food you are donating?</label>
-        <input type="radio" name="group2" value="Residence"> At the pickup address.<br>
-        <input type="radio" name="group2" value="Community Garden"> A location other than the pickup address.
+      <div class="dl-group">
+        <dt>Where are you growing the food you are donating?</dt>
+        <dd>At the pickup address</dd>
       </div>
-    </form>
+    </dl>
   </section>
 </div>

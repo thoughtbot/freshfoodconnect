@@ -1,9 +1,11 @@
 .main-header {
   background: $white;
   height: $header-height;
+  position: relative;
 
   .logo {
-    float: left;
+    @include size(75px);
+    display: inline-block;
   }
 
   h1 {

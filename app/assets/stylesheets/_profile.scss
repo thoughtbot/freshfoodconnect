@@ -1,9 +1,17 @@
 .profile-header {
   border-bottom: $base-border;
+  text-align: center;
 
   &__heading {
     color: $brand-teal;
-    text-align: center;
+    display: inline-block;
+  }
+
+  &__edit {
+    color: $blue;
+    cursor: pointer;
+    padding: 0 $small-spacing;
+    text-decoration: underline;
   }
 }
 
@@ -19,15 +27,35 @@
   &__heading {
     display: inline-block;
   }
-
-  &__edit {
-    color: $brand-teal;
-    cursor: pointer;
-    padding: 0 $small-spacing;
-    text-decoration: underline;
-  }
 }
 
 .preferences-label {
   display: inline-block;
 }
+
+.next-pickup-date {
+  color: $base-font-color;
+}
+
+.donation-status {
+  border-radius: $base-border-radius;
+  display: inline-block;
+  margin-top: $small-spacing / 2;
+  padding: 0 ($small-spacing / 2);
+}
+
+.donation-status.confirmed {
+  background: transparentize($brand-teal, 0.8);
+  border: 1px solid $brand-teal;
+}
+
+.donation-status.pending {
+  background: $light-gray;
+  border: 1px solid $medium-gray;
+}
+
+.donation-status.declined {
+  background: transparentize(red, 0.8);
+  border: 1px solid red;
+}
+
