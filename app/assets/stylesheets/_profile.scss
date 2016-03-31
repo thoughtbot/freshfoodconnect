@@ -1,0 +1,33 @@
+.profile-header {
+  border-bottom: $base-border;
+
+  &__heading {
+    color: $brand-teal;
+    text-align: center;
+  }
+}
+
+.profile-section {
+  border-bottom: $base-border;
+  padding: $base-spacing 0;
+
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &__heading {
+    display: inline-block;
+  }
+
+  &__edit {
+    color: $brand-teal;
+    cursor: pointer;
+    padding: 0 $small-spacing;
+    text-decoration: underline;
+  }
+}
+
+.preferences-label {
+  display: inline-block;
+}

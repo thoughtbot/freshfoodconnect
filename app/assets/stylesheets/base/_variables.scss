@@ -4,6 +4,7 @@ $heading-font-family: $base-font-family;
 
 // Font Sizes
 $base-font-size: 1em;
+$label-font-size: $base-font-size / 1.5;
 
 // Line height
 $base-line-height: 1.75;
@@ -28,6 +29,7 @@ $white: #fff;
 // Font Colors
 $base-font-color: $dark-gray;
 $action-color: $brand-teal;
+$label-font-color: darken($medium-gray, 25%);
 
 // Border
 $base-border-color: $medium-gray;

@@ -2,15 +2,77 @@
 <%= render "application/welcome_modal" %>
 
 <div class="content-wrapper-narrow content-container">
+  <!--
   <% if @profile.supported? %>
     <%= t(".supported", zipcode: @profile.zipcode) %>
   <% else %>
     <%= t(".unsupported", zipcode: @profile.zipcode) %>
   <% end %>
+  -->
 
-  <%= render("locations/form", location: @profile.location || @profile.build_location) %>
+  <header class="profile-header">
+    <h2 class="profile-header__heading">firstName lastName</h2>
+  </header>
 
-  <% if @profile.location.persisted? %>
-    <%= t(".pickup") %>
-  <% end %>
+  <section class="profile-section">
+    <h3 class="profile-section__heading">Contact</h3>
+    <span class="profile-section__edit">Edit</span>
+    <dl>
+      <dt>Email</dt>
+      <dd>user@example.com</dd>
+    </dl>
+  </section>
+
+  <section class="profile-section">
+    <h3 class="profile-section__heading">Pickup Info</h3>
+    <span class="profile-section__edit">Edit</span>
+    <dl>
+      <div class="dl-group">
+        <dt>Street Address for Pickup</dt>
+        <dd>1450 Example Address</dd>
+      </div>
+      <div class="dl-group">
+        <dt>Zip</dt>
+        <dd>80202</dd>
+      </div>
+      <div class="dl-group">
+        <dt>Scheduled Pickup Time</dt>
+        <dd>
+          <% if @profile.location.persisted? %>
+            <%= t(".pickup") %>
+          <% end %>
+        </dd>
+      </div>
+      <div class="dl-group">
+        <dt>Pickup Notes (e.g. On the table on the front porch)</dt>
+        <dd>Leaving my veggies on railing no the front porch.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="profile-section">
+    <h3 class="profile-section__heading">Preferences</h3>
+    <form action="">
+      <input type="checkbox">
+      <label for="" class="preferences-label">I would like to receive news and updates about Fresh Food Connect</label>
+    </form>
+  </section>
+
+  <section class="profile-section">
+    <h3 class="profile-section__heading">Additional Info</h3>
+    <form action="">
+      <div class="label-input-group">
+        <label for="">Is your pickup Location</label>
+        <input type="radio" name="group1" value="Residence"> A Residence<br>
+        <input type="radio" name="group1" value="Community Garden"> A Community Garden<br>
+        <input type="radio" name="group1" value="Business"> A Business<br>
+        <input type="radio" name="group1" value="Other"> Other
+      </div>
+      <div class="label-input-group">
+        <label for="">Where are you growing the food you are donating?</label>
+        <input type="radio" name="group2" value="Residence"> At the pickup address.<br>
+        <input type="radio" name="group2" value="Community Garden"> A location other than the pickup address.
+      </div>
+    </form>
+  </section>
 </div>

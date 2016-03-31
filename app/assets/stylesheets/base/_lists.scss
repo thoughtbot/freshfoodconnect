@@ -9,11 +9,24 @@ dl {
   margin-bottom: $small-spacing;
 
   dt {
+    color: $label-font-color;
     font-weight: 600;
+    font-size: $label-font-size;
+    letter-spacing: 0.1em;
     margin-top: $small-spacing;
+    text-transform: uppercase;
   }
 
   dd {
     margin: 0;
+  }
+}
+
+.dl-group,
+.label-input-group {
+  padding-bottom: $small-spacing;
+
+  &:last-child {
+    padding-bottom: 0;
   }
 }
