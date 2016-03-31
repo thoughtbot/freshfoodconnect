@@ -1,13 +1,9 @@
-<%= render "partials/main_header" %>
+<%= render "application/main_header" %>
 
 <section class="hero">
   <div class="content-wrapper-narrow">
-    <h2>
-      Get started with Fresh Food Connect
-    </h2>
-    <p class="hero__subheading">
-      It's so simple. If you are harvesting more from your garden than you can eat, let us pick up your extra veggies, and we'll share it with people in your area who can really use it! Enter your zipcode below to see if our service is available in your area.
-    </p>
+    <h2><%= t(".heading") %></h2>
+    <p class="hero__subheading"><%= t(".subheading") %></p>
     <form action="">
       <input type="text">
       <input type="submit">

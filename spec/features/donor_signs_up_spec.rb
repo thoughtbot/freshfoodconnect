@@ -48,6 +48,6 @@ feature "Donor signs up" do
   end
 
   def click_on_sign_up
-    click_on t("marketing.index.sign_up")
+    click_on t("application.main_header.sign_up")
   end
 end
