@@ -8,8 +8,8 @@ en:
 
   application:
     main_header:
+      profile: "Profile"
       sign_in: "Sign In"
-      sign_up: "Sign Up"
       sign_out: "Sign Out"
 
   marketing:

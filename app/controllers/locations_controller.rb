@@ -1,8 +1,6 @@
 class LocationsController < ApplicationController
-  def create
-    @location = build_location
-
-    if update_location?
+  def update
+    if location.update(location_params)
       redirect_to profile_url
     else
       @profile = current_user
@@ -13,13 +11,8 @@ class LocationsController < ApplicationController
 
   private
 
-  def update_location?
-    @location.update(location_params) &&
-      current_user.update(zipcode: location_params[:zipcode])
-  end
-
-  def build_location
-    current_user.location || current_user.build_location
+  def location
+    current_user.location
   end
 
   def location_params

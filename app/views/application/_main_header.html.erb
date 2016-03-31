@@ -10,6 +10,11 @@
       <ul>
         <% if signed_in? %>
           <li>
+            <%= link_to profile_path do %>
+              <%= t(".profile") %>
+            <% end %>
+          </li>
+          <li>
             <%= link_to sign_out_path, method: :delete do %>
               <%= t(".sign_out") %>
             <% end %>

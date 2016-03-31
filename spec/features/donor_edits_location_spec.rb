@@ -2,7 +2,8 @@ require "rails_helper"
 
 feature "Donor edits location" do
   scenario "from profile" do
-    donor = create(:user, zipcode: "90210")
+    location = create(:location, zipcode: "80205")
+    donor = create(:user, location: location)
 
     visit root_path(as: donor)
     click_on_profile
@@ -13,12 +14,11 @@ feature "Donor edits location" do
     )
 
     expect(page).to have_pickup_time_text
-    expect(page).to have_supported_zipcode_text("80221")
   end
 
   context "when the location is invalid" do
     scenario "it prompts the user for corrections" do
-      donor = create(:user)
+      donor = create(:donor)
 
       visit profile_path(as: donor)
       submit_pickup_location(address: "", zipcode: "")
@@ -27,18 +27,14 @@ feature "Donor edits location" do
     end
   end
 
-  def have_supported_zipcode_text(zipcode)
-    have_text t("profiles.show.supported", zipcode: zipcode)
-  end
-
   def click_on_profile
-    click_on t("application.main_header.sign_in")
+    click_on t("application.main_header.profile")
   end
 
   def submit_pickup_location(address:, zipcode:, notes: "")
     fill_form_and_submit(
       :location,
-      :new,
+      :edit,
       address: address,
       zipcode: zipcode,
       notes: notes,

@@ -29,5 +29,9 @@ FactoryGirl.define do
   factory :user do
     email
     password "password"
+
+    factory :donor do
+      location
+    end
   end
 end

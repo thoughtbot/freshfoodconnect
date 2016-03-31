@@ -13,17 +13,6 @@ feature "Donor signs up" do
     end
   end
 
-  context "for unsupported zipcode" do
-    scenario "they're put on the waiting list" do
-      unsupported_zipcode = "90210"
-
-      visit root_path
-      sign_up_with_zipcode(unsupported_zipcode)
-
-      expect(page).to have_unsupported_zipcode_text(unsupported_zipcode)
-    end
-  end
-
   def register_donor(address:)
     attributes = attributes_for(:registration).merge(address: address)
 

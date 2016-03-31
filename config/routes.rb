@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :location, only: [:create]
+  resource :location, only: [:update]
   resource :profile, only: [:show]
 
   resources :registrations, only: [:create, :new]
