@@ -20,8 +20,12 @@ en:
   profiles:
     show:
       pickup: "We pick up in your area on Thursdays from 9 until noon."
-      supported: "%{zipcode} is a supported zipcode"
-      unsupported: "%{zipcode} isn't a supported zipcode. We'll notify you when Fresh Food Connect comes to your area."
+
+  registrations:
+    new:
+      supported:
+        header: "Our service is available in your area!"
+        prompt: "In order to participate in our program, you'll need to create an account so we know where to come make the pickup and to let us know each week if you have veggies available to donate. Please provide us with some information below:"
 
   time:
     formats:
@@ -33,4 +37,6 @@ en:
         "%B %d"
 
   titles:
-    application: Freshfoodconnect
+    application: Fresh Food Connect
+
+  unsupported: "We're sorry, our service is not available in %{zipcode} at this time."

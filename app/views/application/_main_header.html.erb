@@ -8,21 +8,19 @@
 
     <nav class="main-nav">
       <ul>
-        <li>
-          <%= link_to profile_path do %>
-            <%= t(".sign_in") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to sign_up_path do %>
-            <%= t(".sign_up") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to sign_out_path, method: :delete do %>
-            <%= t(".sign_out") %>
-          <% end %>
-        </li>
+        <% if signed_in? %>
+          <li>
+            <%= link_to sign_out_path, method: :delete do %>
+              <%= t(".sign_out") %>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to sign_in_path do %>
+              <%= t(".sign_in") %>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </div>

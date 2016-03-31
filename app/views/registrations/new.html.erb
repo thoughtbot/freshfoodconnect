@@ -1,0 +1,10 @@
+<%= render "application/main_header" %>
+
+<section class="no-service-message">
+  <div class="content-wrapper-narrow content-container">
+    <h3><%= t(".supported.header") %></h3>
+    <p><%= t(".supported.prompt") %></p>
+
+    <%= render "registrations/form", registration: @registration %>
+  </div>
+</section>

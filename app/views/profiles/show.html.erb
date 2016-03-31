@@ -2,18 +2,12 @@
 <%= render "application/welcome_modal" %>
 
 <div class="content-wrapper-narrow content-container">
-  <!--
-  <% if @profile.supported? %>
-    <%= t(".supported", zipcode: @profile.zipcode) %>
-  <% else %>
-    <%= t(".unsupported", zipcode: @profile.zipcode) %>
-  <% end %>
-  -->
-
   <header class="profile-header">
     <h2 class="profile-header__heading">firstName lastName</h2>
     <a class="profile-header__edit">Edit Profile</a>
   </header>
+
+  <%= render("locations/form", location: @profile.location || @profile.build_location) %>
 
   <section class="profile-section">
     <h3 class="profile-section__heading">Contact</h3>

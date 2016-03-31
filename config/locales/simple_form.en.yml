@@ -2,7 +2,11 @@ en:
   helpers:
     submit:
       location:
-        create: "Save Pickup Address"
+        update: "Save Pickup Address"
+      pre_registration:
+        create: "Donate"
+      registration:
+        create: "Sign Up"
 
   simple_form:
     "yes": 'Yes'

@@ -4,10 +4,8 @@
   <div class="content-wrapper-narrow">
     <h2><%= t(".heading") %></h2>
     <p class="hero__subheading"><%= t(".subheading") %></p>
-    <form action="">
-      <input type="text">
-      <input type="submit">
-    </form>
+
+    <%= render "pre_registrations/form", pre_registration: @pre_registration %>
   </div>
 </section>
 
