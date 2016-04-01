@@ -10,7 +10,7 @@ describe Profile do
 
   describe "#update" do
     context "when valid" do
-      it "can update Location" do
+      it "updates the Location" do
         location = build(
           :location,
           address: "original",
@@ -28,14 +28,40 @@ describe Profile do
 
         expect(profile.location).to have_attributes(updated_attributes)
       end
+
+      it "updates the User" do
+        donor = build(
+          :donor,
+          email: "old@example.com",
+          name: "old",
+        )
+        profile = Profile.new(user: donor)
+        updated_attributes = {
+          email: "new@example.com",
+          name: "new",
+        }
+
+        profile.update(updated_attributes)
+
+        expect(profile.user).to have_attributes(updated_attributes)
+      end
     end
 
     context "when invalid" do
       it "exposes errors from the Location" do
-        location = build(:location)
+        location = build_stubbed(:location)
         profile = Profile.new(user: location.user)
 
         profile.update(address: nil)
+
+        expect(profile.errors).not_to be_empty
+      end
+
+      it "exposes errors from the User" do
+        donor = build_stubbed(:donor)
+        profile = Profile.new(user: donor)
+
+        profile.update(email: nil)
 
         expect(profile.errors).not_to be_empty
       end

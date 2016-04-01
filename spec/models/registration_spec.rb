@@ -59,6 +59,7 @@ describe Registration do
           invalid?: false,
         )
         expect(user).to have_attributes(
+          name: registration.name,
           email: registration.email,
           location: location,
           persisted?: true,

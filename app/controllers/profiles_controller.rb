@@ -24,6 +24,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:address, :notes, :zipcode)
+    params.require(:profile).permit(:address, :email, :name, :notes, :zipcode)
   end
 end

@@ -5,7 +5,9 @@ class Profile
 
   delegate(
     :email,
+    :email=,
     :name,
+    :name=,
     :location,
     to: :user,
   )
@@ -27,12 +29,16 @@ class Profile
     end
 
     if valid?
-      location.save
+      ActiveRecord::Base.transaction do
+        user.save!
+        location.save!
+      end
     end
   end
 
   def valid?
     super
+    user.validate
     location.validate
 
     expose_errors
@@ -43,8 +49,13 @@ class Profile
   private
 
   def expose_errors
-    location.errors.each do |key, message|
-      errors[key] = message
+    [
+      user,
+      location,
+    ].each do |relationship|
+      relationship.errors.each do |key, message|
+        errors[key] = message
+      end
     end
   end
 end

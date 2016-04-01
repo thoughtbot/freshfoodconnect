@@ -15,6 +15,8 @@ class Registration
   delegate(
     :email,
     :email=,
+    :name,
+    :name=,
     :password,
     :password=,
     to: :user,

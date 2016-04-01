@@ -1,14 +1,12 @@
 <%= simple_form_for profile do |f| %>
   <fieldset class="profile-edit-section">
     <h3 class="profile-edit-section__heading">Name</h3>
-    <label for="">Name</label>
-    <input type="text">
+    <%= f.input :name %>
   </fieldset>
 
   <fieldset class="profile-edit-section">
     <h3 class="profile-edit-section__heading">Contact</h3>
-    <label for="">Email</label>
-    <input type="text">
+    <%= f.input :email %>
   </fieldset>
 
   <fieldset class="profile-edit-section">
