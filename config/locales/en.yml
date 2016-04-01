@@ -17,6 +17,12 @@ en:
       heading: "Get started with Fresh Food Connect"
       subheading: "It's so simple. If you are harvesting more from your garden than you can eat, let us pick up your extra veggies, and we'll share it with people in your area who can really use it! Enter your zipcode below to see if our service is available in your area."
 
+  pages:
+    thanks:
+      header: "Thanks for submitting your email!"
+      text: "We'll be in touch with you once we begin servicing your area. We look forward to your contributions to Fresh Food Connect!"
+      action: "Sounds Great!"
+
   profiles:
     show:
       pickup: "We pick up in your area on Thursdays from 9 until noon."
@@ -26,6 +32,10 @@ en:
       supported:
         header: "Our service is available in your area!"
         prompt: "In order to participate in our program, you'll need to create an account so we know where to come make the pickup and to let us know each week if you have veggies available to donate. Please provide us with some information below:"
+
+  subscriptions:
+    form:
+      decline: "No thanks"
 
   time:
     formats:

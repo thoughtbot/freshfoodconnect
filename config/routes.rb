@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   resource :location, only: [:update]
   resource :profile, only: [:show]
 
-  resources :registrations, only: [:create, :new]
   resources :pre_registrations, only: [:create]
+  resources :registrations, only: [:create, :new]
+  resources :subscriptions, only: [:create, :new]
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  get "/pages/*id" => 'pages#show', as: :page, format: false
 
   constraints Clearance::Constraints::SignedIn.new do
     get "/" => redirect("/profile")

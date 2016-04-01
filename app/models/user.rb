@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_one :location, dependent: :destroy
 
-  validates :email, presence: true
+  validates :email, presence: true, email: true
   validates :password, presence: true
 
   delegate :supported?, to: :location, allow_nil: true

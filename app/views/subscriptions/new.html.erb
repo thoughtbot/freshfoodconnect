@@ -8,11 +8,7 @@
     <p>
       But there's good news! If you'd like to provide us with your email, we will notify you once we begin service in your area.
     </p>
-    <form action="">
-      <label for="">Email</label>
-      <input type="text">
-      <input type="submit">
-      <a href="" class="opt-out-link">No thanks</a>
-    </form>
+
+    <%= render "subscriptions/form", subscription: @subscription %>
   </div>
 </section>
