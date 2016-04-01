@@ -5,6 +5,4 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, email: true
   validates :password, presence: true, on: :create
-
-  delegate :supported?, to: :location, allow_nil: true
 end

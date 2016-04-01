@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Unsupported donor subscribes" do
   scenario "they're prompted for their email" do
-    unsupported_location = build(:location, :unsupported)
+    unsupported_location = build_stubbed(:location, :unsupported)
     user = build(:user)
 
     visit root_path

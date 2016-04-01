@@ -1,15 +1,11 @@
 class Location < ActiveRecord::Base
-  SUPPORTED_ZIPCODES = %w[80221].freeze
-
   belongs_to :user, touch: true
+  belongs_to :delivery_zone, foreign_key: :zipcode, primary_key: :zipcode
 
   validates :address, presence: true
+  validates :delivery_zone, presence: true
   validates :user, presence: true
   validates :zipcode, presence: true, zipcode: { country_code: :us }
-
-  def supported?
-    SUPPORTED_ZIPCODES.include?(zipcode)
-  end
 
   def zipcode=(zipcode)
     super(zipcode.to_s.strip)

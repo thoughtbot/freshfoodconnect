@@ -1,12 +1,9 @@
 FactoryGirl.define do
   sequence(:email) { |i| "user#{i}@example.com" }
+  sequence(:zipcode) { |i| i.to_s.rjust(5, "0") }
 
-  trait :supported do
-    zipcode Location::SUPPORTED_ZIPCODES.first
-  end
-
-  trait :unsupported do
-    zipcode "90210"
+  factory :delivery_zone do
+    zipcode
   end
 
   factory :location do
@@ -15,6 +12,13 @@ FactoryGirl.define do
     user
 
     supported
+
+    trait :supported do
+      delivery_zone
+    end
+
+    trait :unsupported do
+    end
   end
 
   factory :registration do
@@ -22,7 +26,6 @@ FactoryGirl.define do
     name "New User"
     password "password"
 
-    supported
     email
   end
 
@@ -31,6 +34,14 @@ FactoryGirl.define do
     password "password"
 
     factory :donor do
+      with_location
+    end
+
+    trait :admin do
+      admin true
+    end
+
+    trait :with_location do
       location
     end
   end

@@ -1,8 +1,8 @@
 class Registration
   include ActiveModel::Model
 
-  validate :location_is_supported, if: :present?
   validates :name, presence: true
+  validate :zipcode_is_supported
 
   attr_accessor(
     :address,
@@ -70,9 +70,9 @@ class Registration
 
   private
 
-  def location_is_supported
-    unless location.supported?
-      errors[:zipcode] = I18n.t(".unsupported", zipcode: location.zipcode)
+  def zipcode_is_supported
+    unless zipcode.blank? || DeliveryZone.supported?(zipcode)
+      errors[:zipcode] = I18n.t(".unsupported", zipcode: zipcode)
     end
   end
 

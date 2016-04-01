@@ -1,21 +1,23 @@
 <header class="application-header">
   <div class="nav-wrapper">
-    <a href="" class="logo">
+    <%= link_to root_path, class: "logo" do %>
       <h1>
         <%= image_tag "logo.png", alt: "Fresh Food Connect", class: "logo-image" %>
       </h1>
-    </a>
+    <% end %>
 
     <nav class="admin-nav">
       <ul>
         <li>
-          <a href="">
-            Zipcodes
-          </a>
+          <%= link_to delivery_zones_path do %>
+            <%= t(".zipcodes") %>
+          <% end %>
         </li>
-          <a href="">
+        <li>
+          <a href="#">
             Users
           </a>
+        </li>
         <li>
       </ul>
     </nav>

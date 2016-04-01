@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/pages/*id" => 'pages#show', as: :page, format: false
 
+  constraints Clearance::Constraints::SignedIn.new(&:admin?) do
+    resources :delivery_zones, only: [:create, :index, :new, :show]
+
+    get "/" => redirect("/delivery_zones")
+  end
+
   constraints Clearance::Constraints::SignedIn.new do
     get "/" => redirect("/profile")
   end

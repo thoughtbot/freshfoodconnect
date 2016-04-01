@@ -1,6 +1,8 @@
 en:
   helpers:
     submit:
+      delivery_zone:
+        create: "Create Zipcode"
       location:
         update: "Save Pickup Address"
       pre_registration:

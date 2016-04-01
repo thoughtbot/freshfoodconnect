@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401213541) do
+ActiveRecord::Schema.define(version: 20160401222800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20160401213541) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "delivery_zones", force: :cascade do |t|
+    t.string   "zipcode",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "delivery_zones", ["zipcode"], name: "index_delivery_zones_on_zipcode", unique: true, using: :btree
+
   create_table "locations", force: :cascade do |t|
     t.string  "address",              null: false
     t.string  "zipcode",              null: false
@@ -50,13 +58,14 @@ ActiveRecord::Schema.define(version: 20160401213541) do
   add_index "subscriptions", ["zipcode"], name: "index_subscriptions_on_zipcode", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.string   "email",                                       null: false
-    t.string   "encrypted_password", limit: 128,              null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.string   "email",                                          null: false
+    t.string   "encrypted_password", limit: 128,                 null: false
     t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128,              null: false
-    t.string   "name",                           default: "", null: false
+    t.string   "remember_token",     limit: 128,                 null: false
+    t.string   "name",                           default: "",    null: false
+    t.boolean  "admin",                          default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

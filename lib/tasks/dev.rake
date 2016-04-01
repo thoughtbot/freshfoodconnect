@@ -7,8 +7,9 @@ if Rails.env.development? || Rails.env.test?
       include FactoryGirl::Syntax::Methods
 
       create(
-        :registration,
-        :supported,
+        :user,
+        :admin,
+        name: "Super User",
         email: "user@example.com",
         password: "password",
       )

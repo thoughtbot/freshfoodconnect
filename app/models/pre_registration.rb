@@ -6,7 +6,7 @@ class PreRegistration
   validates :zipcode, presence: true, zipcode: { country_code: :us }
 
   def supported?
-    location.supported?
+    DeliveryZone.supported?(zipcode)
   end
 
   private

@@ -7,10 +7,21 @@ en:
         "%a %m/%d/%y"
 
   application:
+    admin_header:
+      zipcodes: "Zipcodes"
     main_header:
       profile: "Profile"
       sign_in: "Sign In"
       sign_out: "Sign Out"
+
+  delivery_zones:
+    index:
+      active: "Active Zipcodes"
+      inactive: "Inactive Zipcodes"
+      new: "Add Zipcode"
+      suppliers:
+        one: "%{count} Supplier"
+        other: "%{count} Suppliers"
 
   marketing:
     index:
