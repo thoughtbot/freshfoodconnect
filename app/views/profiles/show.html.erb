@@ -3,15 +3,17 @@
 
 <div class="content-wrapper-narrow content-container">
   <header class="profile-header">
-    <h2 class="profile-header__heading">firstName lastName</h2>
-    <a href="edit" class="profile-header__edit">Edit Profile</a>
+    <h2 class="profile-header__heading"><%= @profile.name %></h2>
+    <%= link_to edit_profile_path, class: "profile-header__edit" do %>
+      <%= t(".edit") %>
+    <% end %>
   </header>
 
   <section class="profile-section">
     <h3 class="profile-section__heading">Contact</h3>
     <dl>
       <dt>Email</dt>
-      <dd>user@example.com</dd>
+      <dd><%= @profile.email %></dd>
     </dl>
   </section>
 
@@ -20,11 +22,11 @@
     <dl>
       <div class="dl-group">
         <dt>Street Address for Pickup</dt>
-        <dd>1450 Example Address</dd>
+        <dd><%= @profile.address %></dd>
       </div>
       <div class="dl-group">
         <dt>Zip</dt>
-        <dd>80202</dd>
+        <dd><%= @profile.zipcode %></dd>
       </div>
     </dl>
   </section>
@@ -34,11 +36,7 @@
     <dl>
       <div class="dl-group">
         <dt>Scheduled Pickup Time</dt>
-        <dd>
-          <% if @profile.location.persisted? %>
-            <%= t(".pickup") %>
-          <% end %>
-        </dd>
+        <dd>We pick up in your area on Thursdays from 9 until noon.</dd>
       </div>
       <div class="dl-group">
         <dt>Donation Status for <span class="next-pickup-date">03/31/15</span></dt>
@@ -46,7 +44,7 @@
       </div>
       <div class="dl-group">
         <dt>Pickup Notes (e.g. On the table on the front porch)</dt>
-        <dd>Leaving my veggies on railing no the front porch.</dd>
+        <dd><%= @profile.notes %></dd>
       </div>
     </dl>
   </section>

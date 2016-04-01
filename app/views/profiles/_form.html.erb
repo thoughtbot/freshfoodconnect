@@ -1,5 +1,4 @@
-<form action="">
-
+<%= simple_form_for profile do |f| %>
   <fieldset class="profile-edit-section">
     <h3 class="profile-edit-section__heading">Name</h3>
     <label for="">Name</label>
@@ -14,10 +13,8 @@
 
   <fieldset class="profile-edit-section">
     <h3 class="profile-edit-section__heading">Location</h3>
-    <label for="">Street Address for Pickup</label>
-    <input type="text">
-    <label for="">Zipcode</label>
-    <input type="text">
+    <%= f.input :address %>
+    <%= f.input :zipcode %>
   </fieldset>
 
   <fieldset class="profile-edit-section">
@@ -36,8 +33,7 @@
       <option value="">Yes, I will be making a donation this week.</option>
       <option value="">No, I will not be making a donation this week.</option>
     </select>
-    <label for="">Pickup Notes</label>
-    <textarea name="" id="" cols="1" rows="3"></textarea>
+    <%= f.input :notes, as: :text %>
   </fieldset>
 
   <fieldset class="profile-edit-section">
@@ -57,4 +53,4 @@
   </fieldset>
 
   <input type="submit" value="Update Profile">
-</form>
+<% end %>

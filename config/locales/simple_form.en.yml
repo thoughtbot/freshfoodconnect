@@ -5,6 +5,8 @@ en:
         update: "Save Pickup Address"
       pre_registration:
         create: "Donate"
+      profile:
+        update: "Update Profile"
       registration:
         create: "Sign Up"
       subscription:
@@ -21,6 +23,11 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    labels:
+      profile:
+        address: "Street Address for Pickup"
+        notes: "Pickup Notes"
+
     # Examples
     # labels:
     #   defaults:

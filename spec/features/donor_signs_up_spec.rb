@@ -3,28 +3,22 @@ require "rails_helper"
 feature "Donor signs up" do
   context "for supported zipcode" do
     scenario "they're notified and prompted for their address" do
-      supported_location = build(:location, :supported)
+      supported_location = build_stubbed(:location, :supported)
+      user = supported_location.user
 
       visit root_path
       pre_register_with_zipcode(supported_location.zipcode)
-      register_donor(address: supported_location.address)
+      register_donor(address: supported_location.address, email: user.email)
 
-      expect(page).to have_pickup_text
+      expect(page).to have_text(user.email)
     end
   end
 
-  def register_donor(address:)
-    attributes = attributes_for(:registration).merge(address: address)
+  def register_donor(address:, email:)
+    attributes = attributes_for(:registration).
+      merge(address: address, email: email)
 
     fill_form_and_submit(:registration, :new, attributes)
-  end
-
-  def have_unsupported_zipcode_text(zipcode)
-    have_text t("profiles.show.unsupported", zipcode: zipcode)
-  end
-
-  def have_supported_zipcode_text(zipcode)
-    have_text t("profiles.show.supported", zipcode: zipcode)
   end
 
   def pre_register_with_zipcode(zipcode)

@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true
 
   delegate :supported?, to: :location, allow_nil: true
+
+  def name
+    "first last"
+  end
 end
