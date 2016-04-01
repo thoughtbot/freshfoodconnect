@@ -8,10 +8,6 @@
     margin-bottom: 0;
   }
 
-  .modal-state {
-    display: none;
-  }
-
   .modal-fade-screen {
     // overlay
     @include position(fixed, 0 0 0 0);
@@ -57,7 +53,7 @@
     }
   }
 
-  .modal-state:checked + .modal-fade-screen {
+  #welcome:target + .modal-fade-screen {
     opacity: 1;
     visibility: visible;
   }

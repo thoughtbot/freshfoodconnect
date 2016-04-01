@@ -1,5 +1,6 @@
 <div class="modal">
-  <input class="modal-state" id="modal-1" type="checkbox"  />
+  <div id="welcome"></div>
+
   <div class="modal-fade-screen">
     <div class="modal-inner content-container">
       <div class="modal-content">
@@ -20,8 +21,11 @@
           </li>
         </ol>
         <div class="modal-actions">
-          <div class="btn modal-confirm">Got It! Take me to my profile.</div>
+          <%= link_to "#", class: "btn modal-confirm" do %>
+            Got It! Take me to my profile.
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
 </div>

@@ -15,7 +15,7 @@ class RegistrationsController < ApplicationController
     if @registration.save
       sign_in(@registration.user)
 
-      redirect_to profile_url
+      redirect_to profile_url(anchor: :welcome)
     else
       render :new
     end
