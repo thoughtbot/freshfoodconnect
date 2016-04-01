@@ -33,12 +33,10 @@ ActiveRecord::Schema.define(version: 20160331202005) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "locations", force: :cascade do |t|
-    t.string  "address",                                          null: false
-    t.string  "zipcode",                                          null: false
-    t.string  "notes",                               default: "", null: false
-    t.integer "user_id",                                          null: false
-    t.decimal "latitude",  precision: 15, scale: 10
-    t.decimal "longitude", precision: 15, scale: 10
+    t.string  "address",              null: false
+    t.string  "zipcode",              null: false
+    t.string  "notes",   default: "", null: false
+    t.integer "user_id",              null: false
   end
 
   create_table "users", force: :cascade do |t|
