@@ -15,11 +15,12 @@
   }
 }
 
-.profile-section {
+.profile-section,
+.profile-edit-section {
   border-bottom: $base-border;
   padding: $base-spacing 0;
 
-  &:last-child {
+  &:last-of-type {
     border-bottom: 0;
     padding-bottom: 0;
   }

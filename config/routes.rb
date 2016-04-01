@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resource :location, only: [:update]
-  resource :profile, only: [:show]
+  resource :profile, only: [:show, :edit]
 
   resources :pre_registrations, only: [:create]
   resources :registrations, only: [:create, :new]
