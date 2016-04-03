@@ -31,3 +31,23 @@ body {
     margin: $base-spacing 0;
   }
 }
+
+.user-type-section {
+  margin-bottom: $large-spacing;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.table-action {
+  text-align: right;
+
+  .table-delete {
+    color: red;
+
+    &:hover {
+      color: darken(red, 15%);
+    }
+  }
+}
