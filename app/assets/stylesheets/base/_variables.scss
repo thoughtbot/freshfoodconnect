@@ -28,8 +28,9 @@ $white: #fff;
 
 // Font Colors
 $base-font-color: $dark-gray;
+$secondary-font-color: darken($medium-gray, 25%);
 $action-color: $brand-teal;
-$label-font-color: darken($medium-gray, 25%);
+$label-font-color: $secondary-font-color;
 
 // Border
 $base-border-color: $medium-gray;

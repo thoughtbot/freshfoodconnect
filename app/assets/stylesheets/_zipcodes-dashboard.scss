@@ -1,0 +1,29 @@
+.zipcode-group {
+  margin: $base-spacing 0 $large-spacing;
+}
+
+.zipcode-tile {
+  background: $white;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  color: $secondary-font-color;
+  cursor: pointer;
+  display: block;
+  margin: $small-spacing 0;
+  padding: $small-spacing;
+  transition: all $base-duration $base-timing;
+
+  h3 {
+    color: $action-color;
+  }
+
+  &:hover {
+    color: $action-color;
+    border-color: $action-color;
+  }
+
+  &__zipcode {
+    line-height: 1;
+    margin-bottom: 0;
+  }
+}
