@@ -1,0 +1,40 @@
+.zipcode-header {
+  border-bottom: $base-border;
+  padding-bottom: $base-spacing;
+
+  h2 {
+    color: $action-color;
+    display: inline-block;
+    line-height: 1;
+    margin: 0;
+  }
+}
+
+.zipcode-activation-status {
+  float: right;
+}
+
+.supplier-donation-status {
+  float: right;
+}
+
+.zipcode-content-section {
+  margin: $base-spacing 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.supplier-map {
+  margin-top: $base-spacing;
+}
+
+.edit-link {
+  float: right;
+}
+
+.map-placeholder {
+  @include size(100%, 300px);
+  background: $light-gray;
+}
