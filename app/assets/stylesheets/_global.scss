@@ -3,6 +3,7 @@ body {
 }
 
 .content-container {
+  @include clearfix;
   background: $white;
   border: $base-border;
   border-radius: $base-border-radius;
@@ -40,7 +41,7 @@ body {
   }
 }
 
-.table-action {
+.table-actions {
   text-align: right;
 
   .table-delete {
@@ -51,3 +52,45 @@ body {
     }
   }
 }
+
+.table-link {
+  margin: 0 $xsmall-spacing;
+  text-decoration: underline;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.supplier-name {
+  color: $action-color;
+}
+
+.pickup-confirmation::before {
+  @include size(10px);
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  margin-right: $xsmall-spacing;
+}
+
+.pickup-confirmation.success::before {
+  background-color: $action-color;
+}
+
+.pickup-confirmation.failure::before {
+  background-color: red;
+}
+
+.pickup-confirmation.no-donation {
+  color: $label-font-color;
+
+  &::before {
+    background-color: $label-font-color;
+  }
+}
+
