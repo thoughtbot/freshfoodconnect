@@ -5,7 +5,7 @@ class Location < ActiveRecord::Base
 
   validates :address, presence: true
   validates :user, presence: true
-  validates :zipcode, presence: true
+  validates :zipcode, presence: true, zipcode: { country_code: :us }
 
   def supported?
     SUPPORTED_ZIPCODES.include?(zipcode)

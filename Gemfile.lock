@@ -245,6 +245,8 @@ GEM
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
     uniform_notifier (1.9.0)
+    validates_zipcode (0.0.9)
+      activemodel (>= 3.2.0)
     web-console (3.1.1)
       activemodel (>= 4.2)
       debug_inspector
@@ -305,6 +307,7 @@ DEPENDENCIES
   timecop
   title
   uglifier
+  validates_zipcode
   web-console
   webmock
 

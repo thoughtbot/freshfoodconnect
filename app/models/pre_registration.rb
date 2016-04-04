@@ -3,7 +3,7 @@ class PreRegistration
 
   attr_accessor :zipcode
 
-  validates :zipcode, presence: true
+  validates :zipcode, presence: true, zipcode: { country_code: :us }
 
   def supported?
     location.supported?

@@ -25,6 +25,7 @@ gem "sprockets", ">= 3.0.0"
 gem "sprockets-es6"
 gem "title"
 gem "uglifier"
+gem "validates_zipcode"
 
 group :development do
   gem "quiet_assets"
