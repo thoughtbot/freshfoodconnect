@@ -21,6 +21,11 @@ body {
   @include shift(3);
 }
 
+.content-wrapper-large {
+  @include span-columns(8);
+  @include shift(2);
+}
+
 .opt-out-link {
   margin: 0 $small-spacing;
 }
@@ -92,5 +97,9 @@ body {
   &::before {
     background-color: $label-font-color;
   }
+}
+
+.pickup-checklist-date {
+  color: $action-color;
 }
 
