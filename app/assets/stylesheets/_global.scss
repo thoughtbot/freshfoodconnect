@@ -21,7 +21,8 @@ body {
   padding: 0 $xsmall-spacing;
 }
 
-.page-wrapper {
+.page-wrapper,
+.section-wrapper {
   @include outer-container;
   padding: 0 $xsmall-spacing;
 

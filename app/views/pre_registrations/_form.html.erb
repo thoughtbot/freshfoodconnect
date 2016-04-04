@@ -1,5 +1,4 @@
-<%= simple_form_for pre_registration do |f| %>
-  <%= f.input :zipcode %>
-
+<%= simple_form_for pre_registration, html: { class: "homepage-zipcode-form" } do |f| %>
+  <%= f.input :zipcode, wrapper_html: { class: "zipcode-input" }  %>
   <%= f.submit %>
 <% end %>

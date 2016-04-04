@@ -16,11 +16,13 @@ $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $xsmall-spacing: $small-spacing / 2;
 $large-spacing: $base-spacing * 2;
+$xlarge-spacing: $large-spacing * 1.5;
 $base-z-index: 0;
 $header-height: 3.125em;
 
 // Colors
 $brand-teal: #1abc9c;
+$brand-orange: #fbb040;
 $blue: #1565c0;
 $red: lighten(#f00000, 25%);
 $dark-gray: #333;

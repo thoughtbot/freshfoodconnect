@@ -1,8 +1,41 @@
 <section class="hero">
-  <div class="content-wrapper-narrow">
-    <h2><%= t(".heading") %></h2>
-    <p class="hero__subheading"><%= t(".subheading") %></p>
-
-    <%= render "pre_registrations/form", pre_registration: @pre_registration %>
+  <h2 class="hero__heading">Fresh Food Connect</h2>
+  <div class="hero-text">
+    <div class="content-wrapper-narrow">
+      <h2 class="hero-subheading"><%= t(".heading") %></h2>
+      <p><%= t(".subheading") %></p>
+      <%= render "pre_registrations/form", pre_registration: @pre_registration %>
+    </div>
   </div>
 </section>
+<section class="about">
+  <div class="section-wrapper">
+    <h2 class="section-heading">About Us</h2>
+    <div class="about__tile">
+      <div class="tile-image-container">
+        <%= image_tag("cyclist.jpg") %>
+      </div>
+      <h3>How does it work?</h3>
+      <p>Use the field above to check if we service your zipcode. Once you give us some information about you and your donation, simply leave out your extra produce each week and we'll come by to collect it!</p>
+    </div>
+    <div class="about__tile">
+      <div class="tile-image-container">
+        <a href="https://www.youtube.com/watch?v=T2XTSZGAv5s" target="_blank" class="video-thumbnail">
+          <%= image_tag("video-thumbnail.jpg") %>
+        </a>
+      </div>
+      <h3>Watch our short intro video</h3>
+      <p>Learn more about the process and the people behind Fresh Food Connect.</p>
+    </div>
+    <div class="about__tile">
+      <div class="tile-image-container">
+        <%= image_tag("waste.jpg") %>
+      </div>
+      <h3>Don't Waste!</h3>
+      <p>In the USA, 30-40% of the food supply is wasted, equaling more than 20 pounds of food per person per month. Don't be a part of this statistic!</p>
+    </div>
+  </div>
+</section>
+
+<footer class="homepage-footer">
+</footer>
