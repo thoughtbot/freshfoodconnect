@@ -4,7 +4,9 @@ class PickupScheduler
   end
 
   def schedule!
-    scheduled_pickup.save!
+    if current_scheduled_pickup.nil?
+      schedule_pickup!
+    end
   end
 
   private
@@ -12,14 +14,15 @@ class PickupScheduler
   attr_reader :delivery_zone
 
   delegate(
+    :current_scheduled_pickup,
     :end_hour,
     :start_hour,
     :weekday,
     to: :delivery_zone,
   )
 
-  def scheduled_pickup
-    @scheduled_pickup ||= delivery_zone.scheduled_pickups.build(
+  def schedule_pickup!
+    delivery_zone.scheduled_pickups.create!(
       start_at: start_time,
       end_at: end_time,
     )
