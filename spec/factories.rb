@@ -8,6 +8,12 @@ FactoryGirl.define do
     weekday 0
 
     zipcode
+
+    trait :with_scheduled_pickups do
+      after(:create) do |delivery_zone|
+        PickupScheduler.new(delivery_zone).schedule!
+      end
+    end
   end
 
   factory :location do

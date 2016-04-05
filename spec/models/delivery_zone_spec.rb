@@ -17,11 +17,11 @@ describe DeliveryZone do
     it "returns the current ScheduledPickup" do
       delivery_zone = create(
         :delivery_zone,
+        :with_scheduled_pickups,
         start_hour: 0,
         end_hour: 1,
         weekday: 0,
       )
-      PickupScheduler.new(delivery_zone).schedule!
 
       current_scheduled_pickup = delivery_zone.current_scheduled_pickup
 
