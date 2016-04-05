@@ -103,3 +103,11 @@ body {
   color: $action-color;
 }
 
+.section-label {
+  color: $label-font-color;
+  font-size: $label-font-size;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-top: $small-spacing;
+  text-transform: uppercase;
+}
