@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405152728) do
+ActiveRecord::Schema.define(version: 20160405191126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,12 @@ ActiveRecord::Schema.define(version: 20160405152728) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "delivery_zones", force: :cascade do |t|
-    t.string   "zipcode",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "zipcode",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "start_hour", default: 0, null: false
+    t.integer  "end_hour",   default: 0, null: false
+    t.integer  "weekday",    default: 0, null: false
   end
 
   add_index "delivery_zones", ["zipcode"], name: "index_delivery_zones_on_zipcode", unique: true, using: :btree
@@ -50,9 +53,9 @@ ActiveRecord::Schema.define(version: 20160405152728) do
   end
 
   create_table "scheduled_pickups", force: :cascade do |t|
-    t.string   "time_range",       null: false
-    t.time     "scheduled_for",    null: false
     t.integer  "delivery_zone_id", null: false
+    t.datetime "start_at",         null: false
+    t.datetime "end_at",           null: false
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

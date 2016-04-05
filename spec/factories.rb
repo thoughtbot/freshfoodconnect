@@ -3,6 +3,10 @@ FactoryGirl.define do
   sequence(:zipcode) { |i| i.to_s.rjust(5, "0") }
 
   factory :delivery_zone do
+    start_hour 0
+    end_hour 0
+    weekday 0
+
     zipcode
   end
 
@@ -30,8 +34,8 @@ FactoryGirl.define do
   end
 
   factory :scheduled_pickup do
-    # scheduled_for { 1.day.from_now }
-    time_range "12PM to 1PM"
+    start_at { Time.current - 1.hour }
+    end_at { Time.current + 1.hour }
 
     delivery_zone
   end

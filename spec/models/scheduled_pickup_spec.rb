@@ -4,26 +4,33 @@ describe ScheduledPickup do
   it { should belong_to(:delivery_zone) }
 
   it { should validate_presence_of(:delivery_zone) }
-  it { should validate_presence_of(:scheduled_for) }
-  it { should validate_presence_of(:time_range) }
+  it { should validate_presence_of(:end_at) }
+  it { should validate_presence_of(:start_at) }
 
   describe ".current" do
     it "includes scheduled pickups from today and onward" do
-      today = Time.current
-      create(:scheduled_pickup, scheduled_for: today - 1.day, time_range: "at noon")
-      create(:scheduled_pickup, scheduled_for: today, time_range: "at midnight")
-      create(:scheduled_pickup, scheduled_for: today + 1.day, time_range: "whenever")
+      _yesterday_at_noon = create(:scheduled_pickup, start_at: yesterday + 12.hours)
+      today_at_noon = create(:scheduled_pickup, start_at: today + 12.hours)
+      tomorrow_at_noon = create(:scheduled_pickup, start_at: tomorrow + 12.hours)
 
       current = ScheduledPickup.current
 
-      expect(current.pluck(:time_range)).to match_array([
-        "at midnight",
-        "whenever",
+      expect(current).to match_array([
+        today_at_noon,
+        tomorrow_at_noon,
       ])
     end
 
-    # around do |example|
-    #   Timecop.freeze { example.run }
-    # end
+    def today
+      Time.current.beginning_of_day
+    end
+
+    def tomorrow
+      today + 1.day
+    end
+
+    def yesterday
+      today - 1.day
+    end
   end
 end
