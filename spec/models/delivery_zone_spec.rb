@@ -13,25 +13,21 @@ describe DeliveryZone do
     it { should validate_uniqueness_of(:zipcode).case_insensitive }
   end
 
-  describe "#current_scheduled_pickup" do
+  describe "#current_scheduled_pickup", :rake do
     it "returns the current ScheduledPickup" do
-      delivery_zone = create(:delivery_zone)
-      create(
-        :scheduled_pickup,
-        delivery_zone: delivery_zone,
-        scheduled_for: 1.day.ago,
-        time_range: "at midnight",
+      delivery_zone = create(
+        :delivery_zone,
+        start_hour: 0,
+        end_hour: 1,
+        weekday: 0,
       )
-      create(
-        :scheduled_pickup,
-        delivery_zone: delivery_zone,
-        scheduled_for: 1.day.from_now.ago,
-        time_range: "at noon",
-      )
+      PickupScheduler.new(delivery_zone).schedule!
 
       current_scheduled_pickup = delivery_zone.current_scheduled_pickup
 
-      expect(current_scheduled_pickup.time_range).to eq("at noon")
+      expect(current_scheduled_pickup.start_at.hour).to eq(0)
+      expect(current_scheduled_pickup.end_at.hour).to eq(1)
+      expect(current_scheduled_pickup.start_at.wday).to eq(0)
     end
   end
 end

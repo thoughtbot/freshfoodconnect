@@ -22,6 +22,8 @@ en:
       suppliers:
         one: "%{count} Supplier"
         other: "%{count} Suppliers"
+    show:
+      no_pickup: "There are no pickups scheduled for this week."
 
   marketing:
     index:
@@ -37,6 +39,9 @@ en:
   profiles:
     show:
       edit: "Edit Profile"
+
+  scheduled_pickups:
+    format: "%{weekday} from %{start_at} to %{end_at}"
 
   registrations:
     new:
