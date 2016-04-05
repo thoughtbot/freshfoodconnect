@@ -29,6 +29,13 @@ FactoryGirl.define do
     email
   end
 
+  factory :scheduled_pickup do
+    # scheduled_for { 1.day.from_now }
+    time_range "12PM to 1PM"
+
+    delivery_zone
+  end
+
   factory :user do
     email
     password "password"
