@@ -13,6 +13,14 @@ if Rails.env.development? || Rails.env.test?
         email: "user@example.com",
         password: "password",
       )
+
+      create(
+        :delivery_zone,
+        zipcode: "80225",
+        start_hour: 13,
+        end_hour: 15,
+        weekday: Date::DAYNAMES.index("Thursday"),
+      )
     end
   end
 end

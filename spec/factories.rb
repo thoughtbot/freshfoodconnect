@@ -3,7 +3,17 @@ FactoryGirl.define do
   sequence(:zipcode) { |i| i.to_s.rjust(5, "0") }
 
   factory :delivery_zone do
+    start_hour 0
+    end_hour 0
+    weekday 0
+
     zipcode
+
+    trait :with_scheduled_pickups do
+      after(:create) do |delivery_zone|
+        PickupScheduler.new(delivery_zone).schedule!
+      end
+    end
   end
 
   factory :location do
@@ -27,6 +37,13 @@ FactoryGirl.define do
     password "password"
 
     email
+  end
+
+  factory :scheduled_pickup do
+    start_at { Time.current - 1.hour }
+    end_at { Time.current + 1.hour }
+
+    delivery_zone
   end
 
   factory :user do

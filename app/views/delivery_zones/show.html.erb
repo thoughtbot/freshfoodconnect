@@ -7,8 +7,15 @@
   </header>
   <section class="zipcode-content-section">
     <h2 class="section-label">Scheduled Pickup Time</h2>
-    <span>Thusdays from 9:00am to 12:00am</span>
-    <a href="" class="edit-link">Edit</a>
+    <% if @delivery_zone.current_scheduled_pickup %>
+      <span><%= format_pickup_time(@delivery_zone.current_scheduled_pickup) %></span>
+
+      <a href="#" class="edit-link">
+        Edit
+      </a>
+    <% else %>
+      <span><%= t(".no_pickup") %></span>
+    <% end %>
   </section>
   <section class="zipcode-content-section">
     <h2 class="section-label">Suppliers</h2>
