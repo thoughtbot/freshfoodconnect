@@ -16,7 +16,7 @@ if Rails.env.development? || Rails.env.test?
 
       create(
         :delivery_zone,
-        zipcode: "80225",
+        zipcode: "80205",
         start_hour: 13,
         end_hour: 15,
         weekday: Date::DAYNAMES.index("Thursday"),

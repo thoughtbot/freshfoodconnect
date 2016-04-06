@@ -7,12 +7,11 @@ en:
         "%a %m/%d/%y"
 
   application:
-    admin_header:
-      zipcodes: "Zipcodes"
-    main_header:
+    header:
       profile: "Profile"
       sign_in: "Sign In"
       sign_out: "Sign Out"
+      zipcodes: "Zipcodes"
 
   delivery_zones:
     index:

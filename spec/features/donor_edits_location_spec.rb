@@ -32,7 +32,7 @@ feature "Donor edits location" do
   end
 
   def click_on_profile
-    click_on t("application.main_header.profile")
+    click_on t("application.header.profile")
   end
 
   def edit_pickup_location(address:, zipcode:, notes: "")
