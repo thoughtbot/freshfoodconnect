@@ -10,6 +10,24 @@
   </header>
 
   <section class="profile-section">
+    <h3 class="profile-section__heading">Pickup Info</h3>
+    <dl>
+      <div class="dl-group">
+        <dt>Scheduled Pickup Time</dt>
+        <dd>We pick up in your area on Thursdays from 9 until noon.</dd>
+      </div>
+      <div class="dl-group">
+        <dt>Donation Status for <span class="next-pickup-date">03/31/15</span></dt>
+        <dd class="donation-status pending">Pending...</dd>
+      </div>
+      <div class="dl-group">
+        <dt>Pickup Notes (e.g. On the table on the front porch)</dt>
+        <dd><%= @profile.notes %></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="profile-section">
     <h3 class="profile-section__heading">Contact</h3>
     <dl>
       <dt>Email</dt>
@@ -27,24 +45,6 @@
       <div class="dl-group">
         <dt>Zip</dt>
         <dd><%= @profile.zipcode %></dd>
-      </div>
-    </dl>
-  </section>
-
-  <section class="profile-section">
-    <h3 class="profile-section__heading">Pickup Info</h3>
-    <dl>
-      <div class="dl-group">
-        <dt>Scheduled Pickup Time</dt>
-        <dd>We pick up in your area on Thursdays from 9 until noon.</dd>
-      </div>
-      <div class="dl-group">
-        <dt>Donation Status for <span class="next-pickup-date">03/31/15</span></dt>
-        <dd class="donation-status pending">Pending...</dd>
-      </div>
-      <div class="dl-group">
-        <dt>Pickup Notes (e.g. On the table on the front porch)</dt>
-        <dd><%= @profile.notes %></dd>
       </div>
     </dl>
   </section>
