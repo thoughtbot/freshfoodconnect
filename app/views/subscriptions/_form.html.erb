@@ -1,8 +1,8 @@
 <%= simple_form_for subscription do |f| %>
   <div class="form-container__body">
-    <p>But there's good news! If you'd like to provide us with your email, we will notify you once we begin service in your area:</p>
-    <%= f.input :email, label: false %>
-    <%= f.input :zipcode, as: :hidden %>
+    <p><%= t(".prompt") %></p>
+    <%= f.input :email %>
+    <%= f.input :zipcode %>
   </div>
   <footer class="form-container__footer">
     <%= f.submit %>
