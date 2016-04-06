@@ -1,4 +1,21 @@
 class DeliveryZone < ActiveRecord::Base
+  validates :end_hour,
+    presence: true,
+    numericality: {
+      greater_than_or_equal_to: 0,
+      less_than_or_equal_to: Hour.count,
+      only_integer: true,
+    }
+  validates :start_hour,
+    presence: true,
+    numericality: {
+      greater_than_or_equal_to: 0,
+      less_than_or_equal_to: Hour.count,
+      only_integer: true,
+    }
+  validates :weekday,
+    presence: true,
+    inclusion: { in: Weekday.all.map(&:value) }
   validates :zipcode,
     presence: true,
     uniqueness: { case_sensitive: false },

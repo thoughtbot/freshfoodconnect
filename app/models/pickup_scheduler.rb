@@ -5,8 +5,12 @@ class PickupScheduler
 
   def schedule!
     if current_scheduled_pickup.nil?
-      schedule_pickup!
+      scheduled_pickup.save!
     end
+  end
+
+  def scheduled_pickup
+    @scheduled_pickup ||= current_scheduled_pickup || build_scheduled_pickup
   end
 
   private
@@ -21,8 +25,8 @@ class PickupScheduler
     to: :delivery_zone,
   )
 
-  def schedule_pickup!
-    delivery_zone.scheduled_pickups.create!(
+  def build_scheduled_pickup
+    delivery_zone.scheduled_pickups.build(
       start_at: start_time,
       end_at: end_time,
     )

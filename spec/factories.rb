@@ -7,7 +7,11 @@ FactoryGirl.define do
     end_hour 0
     weekday 0
 
+    unscheduled
     zipcode
+
+    trait :unscheduled do
+    end
 
     trait :with_scheduled_pickups do
       after(:create) do |delivery_zone|

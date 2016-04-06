@@ -1,7 +1,18 @@
 require "rails_helper"
 
 describe DeliveryZone do
+  it { should validate_presence_of(:start_hour) }
+  it { should validate_presence_of(:end_hour) }
+  it { should validate_presence_of(:weekday) }
   it { should validate_presence_of(:zipcode) }
+
+  it { should validate_numericality_of(:end_hour).is_less_than_or_equal_to(Hour.count) }
+  it { should validate_numericality_of(:end_hour).is_greater_than_or_equal_to(0) }
+  it { should validate_numericality_of(:end_hour).only_integer }
+  it { should validate_numericality_of(:start_hour).is_less_than_or_equal_to(Hour.count) }
+  it { should validate_numericality_of(:start_hour).is_greater_than_or_equal_to(0) }
+  it { should validate_numericality_of(:start_hour).only_integer }
+  it { should validate_inclusion_of(:weekday).in_array(Weekday.all.map(&:value)) }
 
   it { should have_many(:locations) }
   it { should have_many(:scheduled_pickups) }

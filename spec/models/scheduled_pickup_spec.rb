@@ -7,6 +7,8 @@ describe ScheduledPickup do
   it { should validate_presence_of(:end_at) }
   it { should validate_presence_of(:start_at) }
 
+  it { should delegate_method(:zipcode).to(:delivery_zone) }
+
   describe ".current" do
     it "includes scheduled pickups from today and onward" do
       _yesterday_at_noon = create_scheduled_pickup(yesterday + 12.hours)

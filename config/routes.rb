@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   get "/pages/*id" => 'pages#show', as: :page, format: false
 
   constraints Clearance::Constraints::SignedIn.new(&:admin?) do
-    resources :delivery_zones, only: [:create, :index, :new, :show]
+    resources :delivery_zones, only: [:create, :index, :new, :show] do
+      resources :scheduled_pickups, only: [:edit, :show, :new, :create, :update]
+    end
 
     get "/" => redirect("/delivery_zones")
   end

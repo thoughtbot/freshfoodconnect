@@ -5,6 +5,31 @@ en:
         "%m/%d/%Y"
       with_weekday:
         "%a %m/%d/%y"
+    hours:
+      - "12:00 am"
+      - "1:00 am"
+      - "2:00 am"
+      - "3:00 am"
+      - "4:00 am"
+      - "5:00 am"
+      - "6:00 am"
+      - "7:00 am"
+      - "8:00 am"
+      - "9:00 am"
+      - "10:00 am"
+      - "11:00 am"
+      - "12:00 pm"
+      - "1:00 pm"
+      - "2:00 pm"
+      - "3:00 pm"
+      - "4:00 pm"
+      - "5:00 pm"
+      - "6:00 pm"
+      - "7:00 pm"
+      - "8:00 pm"
+      - "9:00 pm"
+      - "10:00 pm"
+      - "11:00 pm"
 
   application:
     header:
@@ -14,6 +39,9 @@ en:
       zipcodes: "Zipcodes"
 
   delivery_zones:
+    defaults:
+      prompt:
+        "Pickups for %{zipcode} are usually scheduled for %{day} between %{start} and %{end}"
     index:
       active: "Active Zipcodes"
       inactive: "Inactive Zipcodes"
@@ -21,6 +49,10 @@ en:
       suppliers:
         one: "%{count} Supplier"
         other: "%{count} Suppliers"
+    new:
+      header: "Activate a Zipcode"
+      prompt: "Be sure to include weekday and time range pickups will typically be scheduled for."
+
     show:
       no_pickup: "There are no pickups scheduled for this week."
 
@@ -40,7 +72,17 @@ en:
       edit: "Edit Profile"
 
   scheduled_pickups:
+    edit:
+      header: "Edit this scheduled pickup"
+      prompt: "Be sure to include the earliest and latest pickup times."
     format: "%{weekday} from %{start_at} to %{end_at}"
+    new:
+      header: "Schedule the next pickup"
+      prompt: "Be sure to include the earliest and latest pickup times."
+    show:
+      edit: "Edit"
+    update:
+      success: "The pickup has been rescheduled."
 
   registrations:
     form:

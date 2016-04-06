@@ -1,18 +1,17 @@
 <div class="content-wrapper-narrow content-container">
   <header class="zipcode-header">
-    <h2><%= @delivery_zone.zipcode %></h2>
+    <h2><%= @scheduled_pickup.zipcode %></h2>
     <span class="zipcode-activation-status">Active</span>
   </header>
   <section class="zipcode-content-section">
     <h2 class="section-label">Scheduled Pickup Time</h2>
-    <% if @delivery_zone.current_scheduled_pickup %>
-      <span><%= format_pickup_time(@delivery_zone.current_scheduled_pickup) %></span>
+    <span><%= format_pickup_time(@scheduled_pickup) %></span>
 
-      <a href="#" class="edit-link">
-        Edit
-      </a>
-    <% else %>
-      <span><%= t(".no_pickup") %></span>
+    <%= link_to(
+      [:edit, @scheduled_pickup.delivery_zone, @scheduled_pickup],
+      class: "edit-link",
+    ) do %>
+      <%= t(".edit") %>
     <% end %>
   </section>
   <section class="zipcode-content-section">
@@ -25,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @delivery_zone.users.each do |user| %>
+        <% @scheduled_pickup.users.each do |user| %>
           <tr>
             <td><%= user.name %></td>
             <td>Donating</td>

@@ -17,7 +17,7 @@ feature "Admin views pickup time", :rake do
   end
 
   def wednesday
-    Date::WEEKDAYS["wednesday"]
+    Weekday.find(3).value
   end
 
   def view_delivery_zone(delivery_zone)

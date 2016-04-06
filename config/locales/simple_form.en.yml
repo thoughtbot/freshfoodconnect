@@ -11,6 +11,9 @@ en:
         update: "Update Profile"
       registration:
         create: "Sign Up"
+      scheduled_pickup:
+        create: "Schedule Pickup"
+        update: "Re-schedule Pickup"
       subscription:
         create: "Tell me when you launch!"
 
@@ -29,6 +32,13 @@ en:
       profile:
         address: "Street Address for Pickup"
         notes: "Pickup Notes"
+      delivery_zone:
+        end_hour: "Latest pickup"
+        start_hour: "Earliest pickup"
+        weekday: "Pickup day"
+      scheduled_pickup:
+        end_at: "Latest pickup"
+        start_at: "Earliest pickup"
 
     # Examples
     # labels:

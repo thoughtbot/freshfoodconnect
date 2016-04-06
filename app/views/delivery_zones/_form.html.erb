@@ -1,5 +1,23 @@
 <%= simple_form_for delivery_zone do |f| %>
   <%= f.input :zipcode %>
+  <%= f.input(
+    :weekday,
+    collection: Weekday.all,
+    label_method: :label,
+    value_method: :value,
+  ) %>
+  <%= f.input(
+    :start_hour,
+    collection: Hour.all,
+    label_method: :label,
+    value_method: :value,
+  ) %>
+  <%= f.input(
+    :end_hour,
+    collection: Hour.all,
+    label_method: :label,
+    value_method: :value,
+  ) %>
 
   <%= f.submit %>
 <% end %>
