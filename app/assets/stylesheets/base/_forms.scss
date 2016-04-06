@@ -31,7 +31,7 @@ select {
 
 #{$all-text-inputs},
 select[multiple] {
-  background-color: $base-background-color;
+  background-color: lighten($light-gray, 2);
   border: $base-border;
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
@@ -86,4 +86,42 @@ select {
   margin-bottom: $base-spacing;
   max-width: 100%;
   width: auto;
+}
+
+.form-container {
+  background: $white;
+  margin: $base-spacing 0;
+
+  &__header,
+  &__footer,
+  &__body {
+    padding: $base-spacing;
+  }
+
+  &__header {
+    border-top-left-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
+    border: $base-border;
+
+    h2,
+    h3 {
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  &__body {
+    border-left: $base-border;
+    border-right: $base-border;
+  }
+
+  &__footer {
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
+    border-bottom: $base-border;
+    border-left: $base-border;
+    border-right: $base-border;
+    padding-top: 0;
+    text-align: center;
+  }
 }

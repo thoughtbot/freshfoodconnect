@@ -1,9 +1,13 @@
 <%= simple_form_for registration do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :zipcode %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-
-  <%= f.submit %>
+  <div class="form-container__body">
+    <p><%= t(".supported.prompt") %></p>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :zipcode %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+  </div>
+  <footer class="form-container__footer">
+    <%= f.submit %>
+  </footer>
 <% end %>

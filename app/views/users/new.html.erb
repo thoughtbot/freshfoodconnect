@@ -1,17 +1,23 @@
-<div class="content-wrapper-narrow content-container">
+<div class="content-wrapper-narrow form-container">
   <div id="clearance" class="sign-up">
-    <h2><%= t(".title") %></h2>
+    <header class="form_container__header">
+      <h2><%= t(".title") %></h2>
+    </header>
 
     <%= form_for @user do |form| %>
-      <%= render partial: '/users/form', object: form %>
-
-      <div class="submit-field">
-        <%= form.submit %>
+      <div class="form-container__body">
+        <%= render partial: '/users/form', object: form %>
       </div>
 
-      <div class="other-links">
-        <%= link_to t(".sign_in"), sign_in_path %>
-      </div>
+      <footer class="form-container__footer">
+        <div class="submit-field">
+          <%= form.submit %>
+        </div>
+
+        <div class="other-links">
+          <%= link_to t(".sign_in"), sign_in_path %>
+        </div>
+      </footer>
     <% end %>
   </div>
 </div>

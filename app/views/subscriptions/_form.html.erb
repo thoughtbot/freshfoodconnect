@@ -1,10 +1,14 @@
 <%= simple_form_for subscription do |f| %>
-  <%= f.input :email %>
-  <%= f.input :zipcode, as: :hidden %>
+  <div class="form-container__body">
+    <p>But there's good news! If you'd like to provide us with your email, we will notify you once we begin service in your area:</p>
+    <%= f.input :email, label: false %>
+    <%= f.input :zipcode, as: :hidden %>
+  </div>
+  <footer class="form-container__footer">
+    <%= f.submit %>
 
-  <%= f.submit %>
-
-  <%= link_to root_path, class: "opt-out-link" do %>
-    <%= t(".decline") %>
-  <% end %>
+    <%= link_to root_path, class: "opt-out-link" do %>
+      <%= t(".decline") %>
+    <% end %>
+  </footer>
 <% end %>

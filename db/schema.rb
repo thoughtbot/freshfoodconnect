@@ -44,12 +44,10 @@ ActiveRecord::Schema.define(version: 20160405191126) do
   add_index "delivery_zones", ["zipcode"], name: "index_delivery_zones_on_zipcode", unique: true, using: :btree
 
   create_table "locations", force: :cascade do |t|
-    t.string  "address",                                          null: false
-    t.string  "zipcode",                                          null: false
-    t.text    "notes",                               default: "", null: false
-    t.integer "user_id",                                          null: false
-    t.decimal "latitude",  precision: 15, scale: 10
-    t.decimal "longitude", precision: 15, scale: 10
+    t.string  "address",              null: false
+    t.string  "zipcode",              null: false
+    t.text    "notes",   default: "", null: false
+    t.integer "user_id",              null: false
   end
 
   create_table "scheduled_pickups", force: :cascade do |t|
