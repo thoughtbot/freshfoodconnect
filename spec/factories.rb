@@ -2,7 +2,7 @@ FactoryGirl.define do
   sequence(:email) { |i| "user#{i}@example.com" }
   sequence(:zipcode) { |i| i.to_s.rjust(5, "0") }
 
-  factory :delivery_zone do
+  factory :zone do
     start_hour 0
     end_hour 0
     weekday 0
@@ -14,8 +14,8 @@ FactoryGirl.define do
     end
 
     trait :with_scheduled_pickups do
-      after(:create) do |delivery_zone|
-        PickupScheduler.new(delivery_zone).schedule!
+      after(:create) do |zone|
+        PickupScheduler.new(zone).schedule!
       end
     end
   end
@@ -28,7 +28,7 @@ FactoryGirl.define do
     supported
 
     trait :supported do
-      delivery_zone
+      zone
     end
 
     trait :unsupported do
@@ -47,7 +47,7 @@ FactoryGirl.define do
     start_at { Time.current - 1.hour }
     end_at { Time.current + 1.hour }
 
-    delivery_zone
+    zone
   end
 
   factory :user do

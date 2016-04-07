@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405191126) do
+ActiveRecord::Schema.define(version: 20160407145239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,17 +32,6 @@ ActiveRecord::Schema.define(version: 20160405191126) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "delivery_zones", force: :cascade do |t|
-    t.string   "zipcode",                null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "start_hour", default: 0, null: false
-    t.integer  "end_hour",   default: 0, null: false
-    t.integer  "weekday",    default: 0, null: false
-  end
-
-  add_index "delivery_zones", ["zipcode"], name: "index_delivery_zones_on_zipcode", unique: true, using: :btree
-
   create_table "locations", force: :cascade do |t|
     t.string  "address",              null: false
     t.string  "zipcode",              null: false
@@ -51,11 +40,11 @@ ActiveRecord::Schema.define(version: 20160405191126) do
   end
 
   create_table "scheduled_pickups", force: :cascade do |t|
-    t.integer  "delivery_zone_id", null: false
-    t.datetime "start_at",         null: false
-    t.datetime "end_at",           null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "zone_id",    null: false
+    t.datetime "start_at",   null: false
+    t.datetime "end_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -81,5 +70,16 @@ ActiveRecord::Schema.define(version: 20160405191126) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+
+  create_table "zones", force: :cascade do |t|
+    t.string   "zipcode",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "start_hour", default: 0, null: false
+    t.integer  "end_hour",   default: 0, null: false
+    t.integer  "weekday",    default: 0, null: false
+  end
+
+  add_index "zones", ["zipcode"], name: "index_zones_on_zipcode", unique: true, using: :btree
 
 end

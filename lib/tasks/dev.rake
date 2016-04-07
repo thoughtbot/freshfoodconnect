@@ -6,8 +6,8 @@ if Rails.env.development? || Rails.env.test?
     task prime: "db:setup" do
       include FactoryGirl::Syntax::Methods
 
-      delivery_zone = create(
-        :delivery_zone,
+      zone = create(
+        :zone,
         zipcode: "80205",
         start_hour: 13,
         end_hour: 15,
@@ -18,7 +18,7 @@ if Rails.env.development? || Rails.env.test?
         name: "Super User",
         email: "user@example.com",
         password: "password",
-        zipcode: delivery_zone.zipcode,
+        zipcode: zone.zipcode,
       )
       registration.user.update!(admin: true)
     end

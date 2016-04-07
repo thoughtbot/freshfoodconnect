@@ -6,19 +6,19 @@ describe PickupScheduler do
       beginning_of_week = Time.current.sunday.beginning_of_day
 
       Timecop.freeze(beginning_of_week) do
-        delivery_zone = create(
-          :delivery_zone,
+        zone = create(
+          :zone,
           start_hour: 0,
           end_hour: 1,
           weekday: beginning_of_week.wday,
         )
         create(
           :scheduled_pickup,
-          delivery_zone: delivery_zone,
+          zone: zone,
           start_at: beginning_of_week - 1.day,
           end_at: beginning_of_week - 1.day,
         )
-        scheduler = PickupScheduler.new(delivery_zone)
+        scheduler = PickupScheduler.new(zone)
 
         scheduler.schedule!
         scheduled_pickup = ScheduledPickup.last
@@ -36,17 +36,17 @@ describe PickupScheduler do
       beginning_of_week = Time.current.sunday.beginning_of_day
 
       Timecop.freeze(beginning_of_week) do
-        delivery_zone = create(
-          :delivery_zone,
+        zone = create(
+          :zone,
           weekday: beginning_of_week.wday,
         )
         create(
           :scheduled_pickup,
-          delivery_zone: delivery_zone,
+          zone: zone,
           start_at: beginning_of_week + 1.hour,
           end_at: beginning_of_week + 2.hours,
         )
-        scheduler = PickupScheduler.new(delivery_zone)
+        scheduler = PickupScheduler.new(zone)
 
         scheduler.schedule!
 

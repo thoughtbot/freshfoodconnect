@@ -5,8 +5,8 @@ feature "Admin schedules pickup time" do
     weekday = Weekday.all.first
     start_hour = Hour.all.first
     end_hour = Hour.all.last
-    delivery_zone = create(
-      :delivery_zone,
+    zone = create(
+      :zone,
       :unscheduled,
       start_hour: start_hour.value,
       end_hour: end_hour.value,
@@ -14,10 +14,10 @@ feature "Admin schedules pickup time" do
       zipcode: "90210",
     )
 
-    visit delivery_zone_path(delivery_zone, as: create(:user, :admin))
+    visit zone_path(zone, as: create(:user, :admin))
     schedule_pickup_with_defaults
 
-    expect(page).to have_text(delivery_zone.zipcode)
+    expect(page).to have_text(zone.zipcode)
     expect(page).to have_text(start_hour.label)
     expect(page).to have_text(end_hour.label)
     expect(page).to have_text(weekday.label)

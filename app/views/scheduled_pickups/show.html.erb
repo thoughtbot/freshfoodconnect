@@ -8,7 +8,7 @@
     <span><%= format_pickup_time(@scheduled_pickup) %></span>
 
     <%= link_to(
-      [:edit, @scheduled_pickup.delivery_zone, @scheduled_pickup],
+      [:edit, @scheduled_pickup.zone, @scheduled_pickup],
       class: "edit-link",
     ) do %>
       <%= t(".edit") %>

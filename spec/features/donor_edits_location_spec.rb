@@ -2,12 +2,12 @@ require "rails_helper"
 
 feature "Donor edits location" do
   scenario "from profile" do
-    delivery_zone = create(:delivery_zone)
+    zone = create(:zone)
     location = create(:location, :supported)
     donor = create(:user, location: location)
     new_pickup_location = {
       address: "123 Fake Street Denver CO",
-      zipcode: delivery_zone.zipcode,
+      zipcode: zone.zipcode,
       notes: "on my porch",
     }
 

@@ -1,13 +1,13 @@
 require "rails_helper"
 
 describe ScheduledPickup do
-  it { should belong_to(:delivery_zone) }
+  it { should belong_to(:zone) }
 
-  it { should validate_presence_of(:delivery_zone) }
+  it { should validate_presence_of(:zone) }
   it { should validate_presence_of(:end_at) }
   it { should validate_presence_of(:start_at) }
 
-  it { should delegate_method(:zipcode).to(:delivery_zone) }
+  it { should delegate_method(:zipcode).to(:zone) }
 
   describe ".current" do
     it "includes scheduled pickups from today and onward" do

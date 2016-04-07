@@ -9,7 +9,7 @@ describe Registration do
   describe "validations" do
     context "when a Location has an unsupported zipcode" do
       it "exposes errors for :zipcode" do
-        create(:delivery_zone, zipcode: "90210")
+        create(:zone, zipcode: "90210")
         registration = build(:registration, zipcode: "00000")
 
         registration.validate

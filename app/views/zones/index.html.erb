@@ -1,11 +1,11 @@
 <div class="content-wrapper-narrow">
   <section class="zipcode-group">
     <h2 class="section-label"><%= t(".active") %></h2>
-    <% @delivery_zones.each do |delivery_zone| %>
-      <%= link_to delivery_zone, class: "zipcode-tile" do %>
-        <h3 class="zipcode-tile__zipcode"><%= delivery_zone.zipcode %></h2>
+    <% @zones.each do |zone| %>
+      <%= link_to zone, class: "zipcode-tile" do %>
+        <h3 class="zipcode-tile__zipcode"><%= zone.zipcode %></h2>
         <span class="zipcode-tile__supplier-count">
-          <%= t(".suppliers", count: delivery_zone.locations.count) %>
+          <%= t(".suppliers", count: zone.locations.count) %>
         </span>
       <% end %>
     <% end %>
@@ -15,7 +15,7 @@
     <h2 class="section-label"><%= t(".inactive") %></h2>
   </section>
 
-  <%= link_to new_delivery_zone_path do %>
+  <%= link_to new_zone_path do %>
     <%= t(".new") %>
   <% end %>
 </div>

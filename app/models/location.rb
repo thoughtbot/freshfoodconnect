@@ -1,9 +1,9 @@
 class Location < ActiveRecord::Base
   belongs_to :user, touch: true
-  belongs_to :delivery_zone, foreign_key: :zipcode, primary_key: :zipcode
+  belongs_to :zone, foreign_key: :zipcode, primary_key: :zipcode
 
   validates :address, presence: true
-  validates :delivery_zone, presence: true
+  validates :zone, presence: true
   validates :user, presence: true
   validates :zipcode, presence: true, zipcode: { country_code: :us }
 

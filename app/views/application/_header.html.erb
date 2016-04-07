@@ -11,7 +11,7 @@
         <% if signed_in? %>
           <% if current_user.admin? %>
             <li>
-              <%= link_to delivery_zones_path do %>
+              <%= link_to zones_path do %>
                 <%= t(".zipcodes") %>
               <% end %>
             </li>

@@ -1,13 +1,13 @@
 require "rails_helper"
 
-feature "Admin creates delivery zone" do
+feature "Admin creates zone" do
   scenario "from the dashboard" do
     weekday = Weekday.all.first
     start_hour = Hour.all.first
     end_hour = Hour.all.last
 
     visit_homepage_as_admin
-    create_delivery_zone(
+    create_zone(
       zipcode: "90210",
       start_hour: start_hour.label,
       end_hour: end_hour.label,
@@ -21,10 +21,10 @@ feature "Admin creates delivery zone" do
   end
 
   scenario "displays validation errors" do
-    delivery_zone = create(:delivery_zone, zipcode: "90210")
+    zone = create(:zone, zipcode: "90210")
 
     visit_homepage_as_admin
-    create_delivery_zone(zipcode: delivery_zone.zipcode)
+    create_zone(zipcode: zone.zipcode)
 
     expect(page).to have_errors
   end
@@ -33,15 +33,15 @@ feature "Admin creates delivery zone" do
     visit root_path(as: create(:user, :admin))
   end
 
-  def create_delivery_zone(**options)
+  def create_zone(**options)
     attributes = options.reverse_merge(
       start_hour: Hour.all.first.label,
       end_hour: Hour.all.last.label,
       weekday: Weekday.all.first.label,
     )
-    click_on t("delivery_zones.index.new")
+    click_on t("zones.index.new")
 
-    fill_form_and_submit(:delivery_zone, :new, attributes)
+    fill_form_and_submit(:zone, :new, attributes)
   end
 
   def have_errors

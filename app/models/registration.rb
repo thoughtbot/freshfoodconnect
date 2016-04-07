@@ -71,7 +71,7 @@ class Registration
   private
 
   def zipcode_is_supported
-    unless zipcode.blank? || DeliveryZone.supported?(zipcode)
+    unless zipcode.blank? || Zone.supported?(zipcode)
       errors[:zipcode] = I18n.t("validations.unsupported", zipcode: zipcode)
     end
   end

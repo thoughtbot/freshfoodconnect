@@ -1,6 +1,6 @@
 <%= simple_form_for(
   scheduled_pickup,
-  url: [scheduled_pickup.delivery_zone, scheduled_pickup],
+  url: [scheduled_pickup.zone, scheduled_pickup],
   ) do |f| %>
   <%= f.input :start_at %>
   <%= f.input :end_at %>

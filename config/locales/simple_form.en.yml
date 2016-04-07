@@ -1,7 +1,7 @@
 en:
   helpers:
     submit:
-      delivery_zone:
+      zone:
         create: "Create Zipcode"
       location:
         update: "Save Pickup Address"
@@ -32,7 +32,7 @@ en:
       profile:
         address: "Street Address for Pickup"
         notes: "Pickup Notes"
-      delivery_zone:
+      zone:
         end_hour: "Latest pickup"
         start_hour: "Earliest pickup"
         weekday: "Pickup day"

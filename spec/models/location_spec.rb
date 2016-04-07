@@ -2,10 +2,10 @@ require "rails_helper"
 
 describe Location do
   it { should belong_to(:user).touch(true) }
-  it { should belong_to(:delivery_zone) }
+  it { should belong_to(:zone) }
 
   it { should validate_presence_of(:address) }
-  it { should validate_presence_of(:delivery_zone) }
+  it { should validate_presence_of(:zone) }
   it { should validate_presence_of(:user) }
   it { should validate_presence_of(:zipcode) }
 

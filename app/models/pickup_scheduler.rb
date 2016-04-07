@@ -1,6 +1,6 @@
 class PickupScheduler
-  def initialize(delivery_zone)
-    @delivery_zone = delivery_zone
+  def initialize(zone)
+    @zone = zone
   end
 
   def schedule!
@@ -15,18 +15,18 @@ class PickupScheduler
 
   private
 
-  attr_reader :delivery_zone
+  attr_reader :zone
 
   delegate(
     :current_scheduled_pickup,
     :end_hour,
     :start_hour,
     :weekday,
-    to: :delivery_zone,
+    to: :zone,
   )
 
   def build_scheduled_pickup
-    delivery_zone.scheduled_pickups.build(
+    zone.scheduled_pickups.build(
       start_at: start_time,
       end_at: end_time,
     )

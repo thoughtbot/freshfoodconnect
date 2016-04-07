@@ -3,12 +3,12 @@ require "rails_helper"
 feature "Donor signs up" do
   context "for supported zipcode" do
     scenario "they're notified and prompted for their address" do
-      delivery_zone = create(:delivery_zone)
-      supported_location = build(:location, delivery_zone: delivery_zone)
+      zone = create(:zone)
+      supported_location = build(:location, zone: zone)
       user = build(:user)
 
       visit root_path
-      pre_register_with_zipcode(delivery_zone.zipcode)
+      pre_register_with_zipcode(zone.zipcode)
       register_donor(address: supported_location.address, email: user.email)
 
       expect(page).to have_text(user.email)

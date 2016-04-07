@@ -1,4 +1,4 @@
-class DeliveryZone < ActiveRecord::Base
+class Zone < ActiveRecord::Base
   validates :end_hour,
     presence: true,
     numericality: {

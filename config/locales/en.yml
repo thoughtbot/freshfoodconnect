@@ -38,7 +38,7 @@ en:
       sign_out: "Sign Out"
       zipcodes: "Zipcodes"
 
-  delivery_zones:
+  zones:
     defaults:
       prompt:
         "Pickups for %{zipcode} are usually scheduled for %{day} between %{start} and %{end}"

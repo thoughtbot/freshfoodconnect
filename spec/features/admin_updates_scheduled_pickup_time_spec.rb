@@ -4,13 +4,13 @@ feature "Admin updates schedule pickup time" do
   scenario "from the dashboard" do
     original_start_at = 1.week.ago
     new_start_at = 1.week.from_now
-    delivery_zone = create(
-      :delivery_zone,
+    zone = create(
+      :zone,
       :with_scheduled_pickups,
       weekday: original_start_at.wday,
     )
 
-    visit_as_admin(delivery_zone)
+    visit_as_admin(zone)
     update_current_scheduled_pickup(start_at: new_start_at)
 
     expect(page).to have_text(dayname_for(new_start_at))
@@ -21,8 +21,8 @@ feature "Admin updates schedule pickup time" do
     have_text t("scheduled_pickups.update.success")
   end
 
-  def visit_as_admin(delivery_zone)
-    visit delivery_zone_path(delivery_zone, as: create(:user, :admin))
+  def visit_as_admin(zone)
+    visit zone_path(zone, as: create(:user, :admin))
   end
 
   def dayname_for(datetime)
