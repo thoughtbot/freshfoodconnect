@@ -40,10 +40,11 @@ describe Registration do
           location = build(:location, :supported)
           registration = build(:registration, zipcode: location.zipcode)
 
-          registration.save
+          saved = registration.save
           user = registration.user
           location = registration.location
 
+          expect(saved).to be true
           expect(registration).to have_attributes(
             valid?: true,
             invalid?: false,
@@ -62,6 +63,38 @@ describe Registration do
             persisted?: true,
             valid?: true,
           )
+        end
+
+        context "when the Zone can accept donors" do
+          it "creates a Donation for their Zone's current scheduled pickup" do
+            zone = create(:zone, :with_scheduled_pickups)
+            registration = build(:registration, zipcode: zone.zipcode)
+
+            saved = registration.save
+            user = registration.user
+            current_donation = user.current_donation
+
+            expect(saved).to be true
+            expect(current_donation).to have_attributes(
+              confirmed?: false,
+              declined?: false,
+              invalid?: false,
+              pending?: true,
+              persisted?: true,
+              valid?: true,
+            )
+          end
+        end
+
+        context "when the Zone can't accept donors" do
+          it "returns true" do
+            zone = create(:zone, :unscheduled)
+            registration = build(:registration, zipcode: zone.zipcode)
+
+            saved = registration.save
+
+            expect(saved).to be true
+          end
         end
       end
 

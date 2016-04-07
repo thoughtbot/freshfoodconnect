@@ -1,5 +1,7 @@
 <%= simple_form_for profile do |f| %>
   <div class="form-container__body">
+    <%= render("donations/current", donation: profile.current_donation) %>
+
     <fieldset class="profile-edit-section">
       <h3 class="profile-edit-section__heading">Name</h3>
       <%= f.input :name %>
@@ -14,24 +16,6 @@
       <h3 class="profile-edit-section__heading">Location</h3>
       <%= f.input :address %>
       <%= f.input :zipcode %>
-    </fieldset>
-
-    <fieldset class="profile-edit-section">
-      <h3 class="profile-edit-section__heading">Pickup Info</h3>
-      <div class="dl-group">
-        <dl>
-          <dt>Scheduled Pickup Time</dt>
-          <dd>
-            Next Thursday
-          </dd>
-        </dl>
-      </div>
-      <label for="">Donation Status for <span class="next-pickup-date">03/31/15</span></label>
-      <select name="" id="">
-        <option value="">Pending</option>
-        <option value="">Yes, I will be making a donation this week.</option>
-        <option value="">No, I will not be making a donation this week.</option>
-      </select>
       <%= f.input :notes, as: :text %>
     </fieldset>
 
@@ -53,6 +37,6 @@
   </div>
 
   <footer class="form-container__footer">
-    <input type="submit" value="Update Profile">
+    <%= f.submit %>
   </footer>
 <% end %>

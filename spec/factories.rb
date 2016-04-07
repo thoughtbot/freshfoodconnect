@@ -2,22 +2,9 @@ FactoryGirl.define do
   sequence(:email) { |i| "user#{i}@example.com" }
   sequence(:zipcode) { |i| i.to_s.rjust(5, "0") }
 
-  factory :zone do
-    start_hour 0
-    end_hour 0
-    weekday 0
-
-    unscheduled
-    zipcode
-
-    trait :unscheduled do
-    end
-
-    trait :with_scheduled_pickups do
-      after(:create) do |zone|
-        PickupScheduler.new(zone).schedule!
-      end
-    end
+  factory :donation do
+    location
+    scheduled_pickup
   end
 
   factory :location do
@@ -44,10 +31,19 @@ FactoryGirl.define do
   end
 
   factory :scheduled_pickup do
-    start_at { Time.current - 1.hour }
-    end_at { Time.current + 1.hour }
+    current
 
     zone
+
+    trait :current do
+      start_at { Time.current + 1.hour }
+      end_at { Time.current + 2.hour }
+    end
+
+    trait :past do
+      start_at { 1.week.ago }
+      end_at { 1.week.ago + 1.hour }
+    end
   end
 
   factory :user do
@@ -64,6 +60,23 @@ FactoryGirl.define do
 
     trait :with_location do
       location
+    end
+  end
+
+  factory :zone do
+    start_hour 0
+    end_hour 0
+    weekday 0
+
+    unscheduled
+    zipcode
+
+    trait :unscheduled
+
+    trait :with_scheduled_pickups do
+      after(:create) do |zone|
+        PickupScheduler.new(zone).schedule!
+      end
     end
   end
 end

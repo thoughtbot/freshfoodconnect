@@ -1,6 +1,7 @@
 require "rails_helper"
 
 describe Location do
+  it { should have_many(:donations).dependent(:destroy) }
   it { should belong_to(:user).touch(true) }
   it { should belong_to(:zone) }
 

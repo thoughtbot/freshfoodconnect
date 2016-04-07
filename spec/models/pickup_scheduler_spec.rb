@@ -54,4 +54,15 @@ describe PickupScheduler do
       end
     end
   end
+
+  it "enrolls Donors in the Zone" do
+    zone = create(:zone, :unscheduled)
+    location = create(:location, zone: zone)
+    scheduler = PickupScheduler.new(zone)
+
+    scheduler.schedule!
+
+    expect(Donation.count).to eq(1)
+    expect(Donation.all.map(&:donor)).to eq([location.user])
+  end
 end

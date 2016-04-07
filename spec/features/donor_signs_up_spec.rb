@@ -4,8 +4,8 @@ feature "Donor signs up" do
   context "for supported zipcode" do
     scenario "they're notified and prompted for their address" do
       zone = create(:zone)
-      supported_location = build(:location, zone: zone)
-      user = build(:user)
+      supported_location = build_stubbed(:location, zone: zone)
+      user = build_stubbed(:user)
 
       visit root_path
       pre_register_with_zipcode(zone.zipcode)

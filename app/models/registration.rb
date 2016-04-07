@@ -58,6 +58,9 @@ class Registration
       ActiveRecord::Base.transaction do
         user.save!
         location.save!
+        donor_enrollment.save!
+
+        true
       end
     end
   end
@@ -69,6 +72,10 @@ class Registration
   end
 
   private
+
+  def donor_enrollment
+    @donor_enrollment ||= DonorEnrollment.new(location: location)
+  end
 
   def zipcode_is_supported
     unless zipcode.blank? || Zone.supported?(zipcode)

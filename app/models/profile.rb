@@ -9,6 +9,7 @@ class Profile
     :name,
     :name=,
     :location,
+    :current_donation,
     to: :user,
   )
 

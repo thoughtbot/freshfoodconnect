@@ -38,24 +38,24 @@ en:
       sign_out: "Sign Out"
       zipcodes: "Zipcodes"
 
-  zones:
-    defaults:
-      prompt:
-        "Pickups for %{zipcode} are usually scheduled for %{day} between %{start} and %{end}"
-    index:
-      active: "Active Zipcodes"
-      inactive: "Inactive Zipcodes"
-      new: "Add Zipcode"
-      suppliers:
-        one: "%{count} Supplier"
-        other: "%{count} Suppliers"
-    new:
-      header: "Activate a Zipcode"
-      prompt: "Be sure to include weekday and time range pickups will typically be scheduled for."
+  confirmations:
+    create:
+      success: "Your pickup has been confirmed."
+    destroy:
+      success: "You have opted out of donating this week."
 
-    show:
-      no_pickup: "There are no pickups scheduled for this week."
-
+  donations:
+    current:
+      header: "Pickup Info"
+      pickup_time: "Scheduled Pickup Time"
+      notes: "Pickup Notes (e.g. On the table on the front porch)"
+      confirm: "Yes, I will be making a donation this week."
+      decline: "No, I will not be making a donation this week."
+      none: "There are no pickups scheduled for this week."
+      status:
+        confirmed: "Confirmed"
+        declined: "Declined"
+      status_html: Donation Status for <span class="next-pickup-date">%{date}</span>
   marketing:
     index:
       heading: "Get started with Fresh Food Connect"
@@ -70,6 +70,10 @@ en:
   profiles:
     show:
       edit: "Edit Profile"
+      location:
+        address: "Street Address for Pickup"
+        notes: "Pickup Notes (e.g. On the table on the front porch)"
+        zip: "Zip"
 
   scheduled_pickups:
     edit:
@@ -109,3 +113,21 @@ en:
 
   validations:
     unsupported: "We're sorry, our service is not available in %{zipcode} at this time."
+
+  zones:
+    defaults:
+      prompt:
+        "Pickups for %{zipcode} are usually scheduled for %{day} between %{start} and %{end}"
+    index:
+      active: "Active Zipcodes"
+      inactive: "Inactive Zipcodes"
+      new: "Add Zipcode"
+      suppliers:
+        one: "%{count} Supplier"
+        other: "%{count} Suppliers"
+    new:
+      header: "Activate a Zipcode"
+      prompt: "Be sure to include weekday and time range pickups will typically be scheduled for."
+
+    show:
+      no_pickup: "There are no pickups scheduled for this week."

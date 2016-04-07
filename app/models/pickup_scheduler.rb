@@ -5,7 +5,10 @@ class PickupScheduler
 
   def schedule!
     if current_scheduled_pickup.nil?
-      scheduled_pickup.save!
+      ActiveRecord::Base.transaction do
+        scheduled_pickup.save!
+        enroll_donors!
+      end
     end
   end
 
@@ -24,6 +27,12 @@ class PickupScheduler
     :weekday,
     to: :zone,
   )
+
+  def enroll_donors!
+    zone.locations.each do |location|
+      DonorEnrollment.new(location: location).save!
+    end
+  end
 
   def build_scheduled_pickup
     zone.scheduled_pickups.build(
