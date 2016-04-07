@@ -106,3 +106,6 @@ en:
 
   titles:
     application: Fresh Food Connect
+
+  validations:
+    unsupported: "We're sorry, our service is not available in %{zipcode} at this time."

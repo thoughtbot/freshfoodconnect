@@ -18,7 +18,8 @@ describe Registration do
           valid?: false,
           invalid?: true,
         )
-        expect(registration.errors[:zipcode]).not_to be_empty
+        expect(registration.errors[:zipcode]).
+          to eq([t("validations.unsupported", zipcode: registration.zipcode)])
       end
     end
 

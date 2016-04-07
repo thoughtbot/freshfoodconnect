@@ -6,21 +6,21 @@ if Rails.env.development? || Rails.env.test?
     task prime: "db:setup" do
       include FactoryGirl::Syntax::Methods
 
-      create(
-        :user,
-        :admin,
-        name: "Super User",
-        email: "user@example.com",
-        password: "password",
-      )
-
-      create(
+      delivery_zone = create(
         :delivery_zone,
         zipcode: "80205",
         start_hour: 13,
         end_hour: 15,
         weekday: Date::DAYNAMES.index("Thursday"),
       )
+      registration = create(
+        :registration,
+        name: "Super User",
+        email: "user@example.com",
+        password: "password",
+        zipcode: delivery_zone.zipcode,
+      )
+      registration.user.update!(admin: true)
     end
   end
 end
