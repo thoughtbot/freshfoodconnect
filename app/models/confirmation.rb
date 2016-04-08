@@ -18,7 +18,7 @@ class Confirmation
 
   def schedule_notification_email!
     DonationReminderJob.
-      set(wait_until: donation.remind_donor_at)
-      .perform_later(donation: donation)
+      set(wait_until: donation.remind_donor_at).
+      perform_later(donation: donation)
   end
 end
