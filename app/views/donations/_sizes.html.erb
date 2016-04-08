@@ -1,0 +1,11 @@
+<% Donation.sizes.keys.each do |size| %>
+  <%= button_to(
+    donation_confirmation_path(donation, confirmation: {
+      size: size,
+    }),
+    method: :patch,
+    disabled: donation.size == size,
+  ) do %>
+    <%= t(".#{size}") %>
+  <% end %>
+<% end %>

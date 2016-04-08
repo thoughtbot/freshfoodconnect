@@ -5,6 +5,8 @@ describe Donation do
   it { should belong_to(:location).touch }
   it { should have_one(:donor).through(:location) }
 
+  it { should define_enum_for(:size).with(%i[small medium large]) }
+
   it { should validate_presence_of(:scheduled_pickup) }
   it { should validate_presence_of(:location) }
 
