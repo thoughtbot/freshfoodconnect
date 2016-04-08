@@ -1,8 +1,8 @@
 class ConfirmationsController < ApplicationController
   def create
-    @donation = find_donation
+    @confirmation = build_confirmation
 
-    @donation.update!(confirmed: true)
+    @confirmation.confirm!
 
     flash[:success] = t(".success")
 
@@ -10,9 +10,9 @@ class ConfirmationsController < ApplicationController
   end
 
   def destroy
-    @donation = find_donation
+    @confirmation = build_confirmation
 
-    @donation.update!(declined: true)
+    @confirmation.decline!
 
     flash[:success] = t(".success")
 
@@ -20,6 +20,10 @@ class ConfirmationsController < ApplicationController
   end
 
   private
+
+  def build_confirmation
+    Confirmation.new(donation: find_donation)
+  end
 
   def find_donation
     current_user.donations.find(params[:donation_id])
