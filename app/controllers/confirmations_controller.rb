@@ -9,6 +9,16 @@ class ConfirmationsController < ApplicationController
     redirect_to :back
   end
 
+  def update
+    @donation = find_donation
+
+    @donation.update!(confirmation_params)
+
+    flash[:success] = t(".success")
+
+    redirect_to :back
+  end
+
   def destroy
     @confirmation = build_confirmation
 
@@ -27,5 +37,9 @@ class ConfirmationsController < ApplicationController
 
   def find_donation
     current_user.donations.find(params[:donation_id])
+  end
+
+  def confirmation_params
+    params.require(:confirmation).permit(:size)
   end
 end

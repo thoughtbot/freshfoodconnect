@@ -7,6 +7,8 @@ class Donation < ActiveRecord::Base
   belongs_to :location, touch: true
   has_one :donor, through: :location, source: :user
 
+  enum size: %i[small medium large]
+
   validates :location, presence: true
   validates :scheduled_pickup,
     presence: true,

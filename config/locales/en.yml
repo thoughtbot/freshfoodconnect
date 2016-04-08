@@ -43,6 +43,8 @@ en:
       success: "Your pickup has been confirmed."
     destroy:
       success: "You have opted out of donating this week."
+    update:
+      success: "Confirmation updated."
 
   donations:
     current:
@@ -52,10 +54,16 @@ en:
       confirm: "Yes, I will be making a donation this week."
       decline: "No, I will not be making a donation this week."
       none: "There are no pickups scheduled for this week."
+      size: "Donation Size"
       status:
         confirmed: "Confirmed"
         declined: "Declined"
       status_html: Donation Status for <span class="next-pickup-date">%{date}</span>
+    sizes:
+      small: "Small"
+      medium: "Medium"
+      large: "Large"
+
   marketing:
     index:
       heading: "Get started with Fresh Food Connect"

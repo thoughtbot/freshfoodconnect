@@ -27,6 +27,12 @@
           <% end %>
         </dd>
       </div>
+      <% if donation.confirmed? %>
+        <div class="dl-group">
+          <dt><%= t(".size") %></dt>
+          <dd><%= render("donations/sizes", donation: donation) %></dd>
+        </div>
+      <% end %>
       <div class="dl-group">
         <dt><%= t(".notes") %></dt>
         <dd><%= donation.notes %></dd>
