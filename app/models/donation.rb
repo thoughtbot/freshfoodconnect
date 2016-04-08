@@ -1,6 +1,7 @@
 class Donation < ActiveRecord::Base
   time_for_a_boolean :confirmed
   time_for_a_boolean :declined
+  time_for_a_boolean :reminded
 
   belongs_to :scheduled_pickup, touch: true
   belongs_to :location, touch: true
@@ -11,20 +12,22 @@ class Donation < ActiveRecord::Base
     presence: true,
     uniqueness: { scope: :location_id }
 
-  delegate(:notes, to: :location)
+  delegate(:address, :notes, to: :location)
 
   def self.current
     joins(:scheduled_pickup).merge(ScheduledPickup.current)
   end
 
   def declined?
-    declined_at.present? &&
-      time_or_epoch(declined_at) > time_or_epoch(confirmed_at)
+    declined_at.present? && declined_after_confirmed?
   end
 
   def confirmed?
-    confirmed_at.present? &&
-      time_or_epoch(confirmed_at) >= time_or_epoch(declined_at)
+    confirmed_at.present? && confirmed_after_declined?
+  end
+
+  def remind_donor_at
+    scheduled_pickup.start_at - 48.hours
   end
 
   def pickup_date
@@ -36,6 +39,14 @@ class Donation < ActiveRecord::Base
   end
 
   private
+
+  def declined_after_confirmed?
+    time_or_epoch(declined_at) > time_or_epoch(confirmed_at)
+  end
+
+  def confirmed_after_declined?
+    time_or_epoch(confirmed_at) >= time_or_epoch(declined_at)
+  end
 
   def time_or_epoch(timestamp)
     timestamp.presence || Time.at(0)

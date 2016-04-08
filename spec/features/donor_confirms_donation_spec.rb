@@ -1,11 +1,16 @@
 require "rails_helper"
 
 feature "Donor confirms donation" do
+  include ActiveJob::TestHelper
+
   scenario "after signing up" do
+    email = "user@example.com"
     zone = create(:zone, :with_scheduled_pickups)
 
-    sign_up_donor(zipcode: zone.zipcode, email: "user@example.com")
-    confirm_donation
+    perform_enqueued_jobs do
+      sign_up_donor(zipcode: zone.zipcode, email: email)
+      confirm_donation
+    end
     last_donation = Donation.last
 
     expect(last_donation).to have_attributes(
@@ -14,10 +19,17 @@ feature "Donor confirms donation" do
       pending?: false,
     )
     expect(last_donation.donor).to have_attributes(
-      email: "user@example.com",
+      email: email,
     )
     expect(page).to have_success_flash
     expect(page).to have_confirmed_status
+    expect(sent_emails.last).to have_attributes(
+      to: [email],
+    )
+  end
+
+  def sent_emails
+    ActionMailer::Base.deliveries
   end
 
   def have_success_flash

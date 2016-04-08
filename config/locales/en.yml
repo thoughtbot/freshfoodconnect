@@ -61,6 +61,12 @@ en:
       heading: "Get started with Fresh Food Connect"
       subheading: "It's so simple. If you are harvesting more from your garden than you can eat, let us pick up your extra veggies, and we'll share it with people in your area who can really use it! Enter your zipcode below to see if our service is available in your area."
 
+  donation_mailer:
+    remind:
+      scheduled_pickup: "Expect pickup %{range}"
+      subject: "Pickup scheduled for %{range}"
+      title: "Pickup scheduled for %{address}"
+
   pages:
     thanks:
       header: "Thanks for submitting your email!"
