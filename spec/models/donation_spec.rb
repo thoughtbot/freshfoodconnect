@@ -8,6 +8,7 @@ describe Donation do
   it { should validate_presence_of(:scheduled_pickup) }
   it { should validate_presence_of(:location) }
 
+  it { should delegate_method(:address).to(:location) }
   it { should delegate_method(:notes).to(:location) }
 
   context "uniqueness" do
@@ -126,6 +127,22 @@ describe Donation do
           expect(declined).to be true
         end
       end
+    end
+  end
+
+  describe "#remind_donor_at" do
+    it "is 48 hours before the earliest pickup time" do
+      pickup_time = Time.current
+      scheduled_pickup = create(:scheduled_pickup, start_at: pickup_time)
+      donation = create(:donation, scheduled_pickup: scheduled_pickup)
+
+      remind_donor_at = donation.remind_donor_at
+
+      expect(remind_donor_at).to eq(pickup_time - 48.hours)
+    end
+
+    around do |example|
+      Timecop.freeze { example.run }
     end
   end
 

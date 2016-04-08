@@ -18,6 +18,11 @@ feature "Donor declines donation" do
     )
     expect(page).to have_success_flash
     expect(page).to have_declined_status
+    expect(sent_emails).to be_empty
+  end
+
+  def sent_emails
+    ActionMailer::Base.deliveries
   end
 
   def have_success_flash

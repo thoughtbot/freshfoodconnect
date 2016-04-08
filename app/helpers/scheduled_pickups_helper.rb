@@ -6,7 +6,7 @@ module ScheduledPickupsHelper
 
     t(
       "scheduled_pickups.format",
-      weekday: Date::DAYNAMES[start_at.wday],
+      weekday: Weekday.find(start_at.wday).label,
       start_at: start_at.strftime(time_format),
       end_at: end_at.strftime(time_format),
     )
