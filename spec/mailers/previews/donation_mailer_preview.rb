@@ -1,5 +1,5 @@
 class DonationMailerPreview < ActionMailer::Preview
-  def notify
+  def remind
     DonationMailer.remind(donation: Donation.first)
   end
 end
