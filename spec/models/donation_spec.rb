@@ -29,6 +29,106 @@ describe Donation do
     end
   end
 
+  describe "#confirmed?" do
+    context "when confirmed_at is falsy" do
+      it "returns false" do
+        donation = Donation.new(confirmed_at: nil)
+
+        confirmed = donation.confirmed?
+
+        expect(confirmed).to be false
+      end
+    end
+
+    context "when the Donation has been confirmed" do
+      context "and not yet declined" do
+        it "returns true" do
+          donation = Donation.new(declined_at: nil, confirmed: true)
+
+          confirmed = donation.confirmed?
+
+          expect(confirmed).to be true
+        end
+      end
+
+      context "and then declined" do
+        it "returns false" do
+          donation = Donation.new(
+            confirmed_at: 1.minute.ago,
+            declined_at: Time.current,
+          )
+
+          confirmed = donation.confirmed?
+
+          expect(confirmed).to be false
+        end
+      end
+
+      context "after being previously declined" do
+        it "returns true" do
+          donation = Donation.new(
+            declined_at: 1.minute.ago,
+            confirmed_at: Time.current,
+          )
+
+          confirmed = donation.confirmed?
+
+          expect(confirmed).to be true
+        end
+      end
+    end
+  end
+
+  describe "#declined?" do
+    context "when declined_at is falsy" do
+      it "returns false" do
+        donation = Donation.new(declined_at: nil)
+
+        declined = donation.declined?
+
+        expect(declined).to be false
+      end
+    end
+
+    context "when the Donation has been declined" do
+      context "and not yet confirmed" do
+        it "returns true" do
+          donation = Donation.new(confirmed_at: nil, declined: true)
+
+          declined = donation.declined?
+
+          expect(declined).to be true
+        end
+      end
+
+      context "and then confirmed" do
+        it "returns false" do
+          donation = Donation.new(
+            declined_at: 1.minute.ago,
+            confirmed_at: Time.current,
+          )
+
+          declined = donation.declined?
+
+          expect(declined).to be false
+        end
+      end
+
+      context "after being previously confirmed" do
+        it "returns true" do
+          donation = Donation.new(
+            confirmed_at: 1.minute.ago,
+            declined_at: Time.current,
+          )
+
+          declined = donation.declined?
+
+          expect(declined).to be true
+        end
+      end
+    end
+  end
+
   describe "#pending?" do
     context "when the donation has been confirmed" do
       it "returns false" do
