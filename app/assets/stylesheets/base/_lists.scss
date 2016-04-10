@@ -6,7 +6,7 @@ ol {
 }
 
 dl {
-  margin-bottom: $small-spacing;
+  margin: 0 0 $small-spacing;
 
   dt {
     color: $label-font-color;
@@ -15,6 +15,10 @@ dl {
     letter-spacing: 0.1em;
     margin-top: $small-spacing;
     text-transform: uppercase;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 
   dd {
@@ -28,5 +32,9 @@ dl {
 
   &:last-child {
     padding-bottom: 0;
+  }
+
+  &:only-of-type {
+    padding-bottom: $small-spacing;
   }
 }

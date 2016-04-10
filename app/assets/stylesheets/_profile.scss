@@ -56,7 +56,27 @@
 }
 
 .donation-status.declined {
-  background: transparentize(red, 0.8);
-  border: 1px solid red;
+  background: transparentize($red, 0.8);
+  border: 1px solid $red;
 }
 
+// Styles for Alternative Profile Layout
+
+.supplier-info {
+  @include span-columns(2.5 of 8);
+  margin-top: $base-spacing;
+
+  &__metadata {
+    display: block;
+  }
+
+  .edit {
+    display: inline-block;
+    margin-top: $base-spacing;
+    text-decoration: underline;
+  }
+}
+
+.main-profile-content {
+  @include span-columns(5.5 of 8);
+}
