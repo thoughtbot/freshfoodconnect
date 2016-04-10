@@ -24,3 +24,28 @@ td,
 th {
   vertical-align: middle;
 }
+
+.table-actions {
+  text-align: right;
+
+  .table-delete {
+    color: $red;
+
+    &:hover {
+      color: darken($red, 15%);
+    }
+  }
+}
+
+.table-link {
+  margin: 0 $xsmall-spacing;
+  text-decoration: underline;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

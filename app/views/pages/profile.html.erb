@@ -1,0 +1,64 @@
+<div class="page-wrapper">
+  <div class="content-wrapper-large">
+    <aside class="supplier-info">
+      <h2 class="supplier-name">User Name</h2>
+      <span class="supplier-info__metadata email">
+        <%= inline_svg("email.svg", class: "svg-icon") %>
+        user@example.com
+      </span>
+      <span class="supplier-info__metadata address">
+        <%= inline_svg("location-pin.svg", class: "svg-icon") %>
+        1234 Blue St.
+      </span>
+      <span class="supplier-info__metadata zipcode">
+        <%= inline_svg("map.svg", class: "svg-icon") %>
+        80202
+      </span>
+      <a href="" class="edit">Edit Personal Info</a>
+    </aside>
+    <div class="main-profile-content">
+      <form action="" class="form-container no-footer">
+        <header class="form-container__header">
+          <h3>Pickup Info</h3>
+        </header>
+        <div class="form-container__body">
+          <div class="dl-group">
+            <dl>
+              <dt>Scheduled Pickup Time</dt>
+              <dd>This is the scheduled pickup time</dd>
+            </dl>
+          </div>
+          <label for="">Donation Status for 10/12/15</label>
+          <div class="select-wrapper">
+            <select name="" id="">
+              <option value="" selected>Pending...</option>
+              <option value="">Donating</option>
+              <option value="">Not Donating</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <form action="" class="form-container no-footer">
+        <header class="form-container__header">
+          <h3>Additional Info</h3>
+        </header>
+        <div class="form-container__body">
+          <label for="">Pickup Location Type</label>
+          <div class="select-wrapper">
+            <select name="" id="">
+              <option value="" selected>Residence</option>
+              <option value="">Other</option>
+            </select>
+          </div>
+          <label for="">Where are you growing the food you are donating?</label>
+          <div class="select-wrapper">
+            <select name="" id="">
+              <option value="" selected>At the pickup location</option>
+              <option value="">Other</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
