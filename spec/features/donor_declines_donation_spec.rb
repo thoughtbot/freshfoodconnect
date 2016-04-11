@@ -2,27 +2,34 @@ require "rails_helper"
 
 feature "Donor declines donation" do
   scenario "after signing up" do
+    email = "user@example.com"
     zone = create(:zone, :with_scheduled_pickups)
 
-    sign_up_donor(zipcode: zone.zipcode, email: "user@example.com")
+    sign_up_donor(zipcode: zone.zipcode, email: email)
     decline_donation
     last_donation = Donation.last
 
-    expect(last_donation).to have_attributes(
-      confirmed?: false,
-      declined?: true,
-      pending?: false,
-    )
-    expect(last_donation.donor).to have_attributes(
-      email: "user@example.com",
-    )
+    expect(sent_emails).to be_empty
+    expect(last_donation).to be_declined
+    expect(last_donation.donor).to belong_to(email)
     expect(page).to have_success_flash
     expect(page).to have_declined_status
-    expect(sent_emails).to be_empty
   end
 
   def sent_emails
     ActionMailer::Base.deliveries
+  end
+
+  def belong_to(email)
+    have_attributes(email: email)
+  end
+
+  def be_declined
+    have_attributes(
+      confirmed?: false,
+      declined?: true,
+      pending?: false,
+    )
   end
 
   def have_success_flash
@@ -30,11 +37,11 @@ feature "Donor declines donation" do
   end
 
   def have_declined_status
-    have_text t("donations.current.status.declined")
+    have_text t("donations.status.declined")
   end
 
   def decline_donation
-    click_on t("donations.current.decline")
+    click_on t("donations.status.decline")
   end
 
   def sign_up_donor(zipcode:, email:)

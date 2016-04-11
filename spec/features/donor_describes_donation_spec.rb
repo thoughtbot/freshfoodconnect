@@ -16,10 +16,11 @@ feature "Donor describes donation" do
   end
 
   def have_selected_size(size)
-    have_css("[disabled]", text: size_i18n(size))
+    have_text size_i18n(size)
   end
 
   def pick_donation_size(size)
+    click_on t("donations.current.edit")
     click_on size_i18n(size)
   end
 

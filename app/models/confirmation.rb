@@ -12,9 +12,9 @@ class Confirmation
     donation.update!(declined: true)
   end
 
-  private
-
   attr_reader :donation
+
+  private
 
   def schedule_notification_email!
     DonationReminderJob.

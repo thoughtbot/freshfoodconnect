@@ -13,26 +13,17 @@
           date: l(donation.pickup_date, format: :default),
         ) %></dt>
         <dd class="donation-status pending">
-          <% if donation.confirmed? %>
-            <%= t(".status.confirmed") %>
-          <% elsif donation.declined? %>
-            <%= t(".status.declined") %>
-          <% else %>
-            <%= button_to(donation_confirmation_path(donation), method: :post) do %>
-              <%= t(".confirm") %>
-            <% end %>
-            <%= button_to(donation_confirmation_path(donation), method: :delete) do %>
-              <%= t(".decline") %>
-            <% end %>
+          <%= render("donations/status", donation: donation) %>
+
+          <%= link_to edit_donation_url(donation) do %>
+            <%= t(".edit") %>
           <% end %>
         </dd>
       </div>
-      <% if donation.confirmed? %>
-        <div class="dl-group">
-          <dt><%= t(".size") %></dt>
-          <dd><%= render("donations/sizes", donation: donation) %></dd>
-        </div>
-      <% end %>
+      <div class="dl-group">
+        <dt><%= t(".size") %></dt>
+        <dd><%= t("donations.sizes.#{donation.size}") %></dd>
+      </div>
       <div class="dl-group">
         <dt><%= t(".notes") %></dt>
         <dd><%= donation.notes %></dd>

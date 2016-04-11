@@ -1,0 +1,13 @@
+<% if donation.confirmed? %>
+  <%= t(".confirmed") %>
+<% elsif donation.declined? %>
+  <%= t(".declined") %>
+<% else %>
+  <%= button_to(donation_confirmation_path(donation), method: :post) do %>
+    <%= t(".confirm") %>
+  <% end %>
+
+  <%= button_to(donation_confirmation_path(donation), method: :delete) do %>
+    <%= t(".decline") %>
+  <% end %>
+<% end %>

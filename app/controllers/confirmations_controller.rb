@@ -6,7 +6,7 @@ class ConfirmationsController < ApplicationController
 
     flash[:success] = t(".success")
 
-    redirect_to :back
+    redirect_to edit_donation_url(@confirmation.donation)
   end
 
   def update

@@ -48,21 +48,22 @@ en:
 
   donations:
     current:
+      edit: "Change my donation"
       header: "Pickup Info"
-      pickup_time: "Scheduled Pickup Time"
-      notes: "Pickup Notes (e.g. On the table on the front porch)"
-      confirm: "Yes, I will be making a donation this week."
-      decline: "No, I will not be making a donation this week."
       none: "There are no pickups scheduled for this week."
+      notes: "Pickup Notes (e.g. On the table on the front porch)"
+      pickup_time: "Scheduled Pickup Time"
       size: "Donation Size"
-      status:
-        confirmed: "Confirmed"
-        declined: "Declined"
       status_html: Donation Status for <span class="next-pickup-date">%{date}</span>
     sizes:
       small: "Small"
       medium: "Medium"
       large: "Large"
+    status:
+      confirm: "Yes, I will be making a donation this week."
+      confirmed: "Confirmed"
+      decline: "No, I will not be making a donation this week."
+      declined: "Declined"
 
   marketing:
     index:

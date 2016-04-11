@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resource :profile, only: [:show, :edit, :update]
 
-  resources :donations, only: [] do
+  resources :donations, only: [:edit] do
     resource :confirmation, only: [:create, :destroy, :update]
   end
   resources :pre_registrations, only: [:create]
