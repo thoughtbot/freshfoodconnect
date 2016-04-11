@@ -37,6 +37,15 @@ en:
       sign_in: "Sign In"
       sign_out: "Sign Out"
       zipcodes: "Zipcodes"
+    welcome_modal:
+      close: "Got It! Take me to my profile."
+      header: "Thanks for signing up to be a part of Fresh Food Connect! Here's what to expect next:"
+      steps:
+        - title: "1. Let us know when you want to donate."
+          content: "Each week, lookout for an email from us prompting you to let us know if you will be donating that week or not. You can also indicate this at any time through your profile."
+        - title: "2. Set your produce out for pickup"
+          content: "On pickup day, a Fresh Food Connect cyclist will come by to pick up your donation."
+        - title: "3. Feel good knowing that your extra produce is going to help someone in need!"
 
   confirmations:
     create:

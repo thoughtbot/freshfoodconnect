@@ -4,25 +4,20 @@
   <div class="modal-fade-screen">
     <div class="modal-inner content-container">
       <div class="modal-content">
-        <h3>
-          Thanks for signing up to be a part of the program! Here's what to expect next:
-        </h3>
+        <h3><%= t(".header") %></h3>
         <ol class="next-steps">
-          <li>
-            <h4>1. Let us know when you want to donate.</h4>
-            <p>Each week, lookout for an email from us prompting you to let us know if you will be donating that week or not. You can also indicate this at any time through your profile.</p>
-          </li>
-          <li>
-            <h4>2. Set your produce out for pickup</h4>
-            <p>On pickup day, a Fresh Food Connect cyclist will come by to pick up your donation.</p>
-          </li>
-          <li>
-            <h4>3. Feel good knowing that your extra produce is going to help someone in need!</h4>
-          </li>
+          <% t(".steps").each do |step| %>
+            <li>
+              <h4><%= step[:title] %></h4>
+              <% if step[:content].present? %>
+                <p><%= step[:content] %></p>
+              <% end %>
+            </li>
+          <% end %>
         </ol>
         <div class="modal-actions">
           <%= link_to "#", class: "btn modal-confirm" do %>
-            Got It! Take me to my profile.
+            <%= t(".close") %>
           <% end %>
         </div>
       </div>
