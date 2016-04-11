@@ -121,7 +121,9 @@ en:
   subscriptions:
     form:
       prompt: "But there's good news! If you'd like to provide us with your email, we will notify you once we begin service in your area:"
-      decline: "No thanks"
+      decline: "No thanks, take me back to the homepage."
+    new:
+      header: "We're sorry, our service is not available in your area at this time."
 
   time:
     formats:
