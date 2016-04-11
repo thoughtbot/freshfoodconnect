@@ -1,6 +1,7 @@
 class Donation < ActiveRecord::Base
   time_for_a_boolean :confirmed
   time_for_a_boolean :declined
+  time_for_a_boolean :requested
 
   belongs_to :scheduled_pickup, touch: true
   belongs_to :location, touch: true
@@ -18,6 +19,22 @@ class Donation < ActiveRecord::Base
 
   def self.current
     joins(:scheduled_pickup).merge(ScheduledPickup.current)
+  end
+
+  def self.pending
+    where(confirmed_at: nil, declined_at: nil)
+  end
+
+  def self.scheduled_for_pick_up_within(hours:)
+    joins(:scheduled_pickup).
+      where(
+        "scheduled_pickups.start_at BETWEEN NOW() AND :cutoff",
+        cutoff: hours.hours.from_now,
+      )
+  end
+
+  def unrequested?
+    !requested?
   end
 
   def declined?

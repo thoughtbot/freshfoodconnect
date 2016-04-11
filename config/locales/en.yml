@@ -81,6 +81,13 @@ en:
     update:
       success: "Donation updated."
 
+  donations_mailer:
+    request_confirmation:
+      edit: "Confirm my donation"
+      prompt: "Do you have fresh vegetables to donate this week?"
+      subject: "Please confirm your donation for %{range}"
+      time_range: "We'll be in your area %{range}."
+
   marketing:
     index:
       heading: "Get started with Fresh Food Connect"

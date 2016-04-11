@@ -4,7 +4,9 @@ FactoryGirl.define do
 
   factory :donation do
     location
+    pending
     scheduled_pickup
+    unrequested
 
     trait :confirmed do
       confirmed true
@@ -17,6 +19,14 @@ FactoryGirl.define do
     trait :pending do
       confirmed false
       declined false
+    end
+
+    trait :requested do
+      requested true
+    end
+
+    trait :unrequested do
+      requested false
     end
   end
 

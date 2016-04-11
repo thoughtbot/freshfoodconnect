@@ -53,8 +53,10 @@ group :development, :staging do
 end
 
 group :test do
+  gem "capybara-email"
   gem "capybara-webkit"
   gem "database_cleaner"
+  gem "email_spec"
   gem "formulaic"
   gem "launchy"
   gem "shoulda-matchers"

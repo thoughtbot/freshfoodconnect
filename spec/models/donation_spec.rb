@@ -16,7 +16,9 @@ describe Donation do
   context "uniqueness" do
     subject { create(:donation) }
 
-    it { should validate_uniqueness_of(:scheduled_pickup).scoped_to(:location_id) }
+    it do
+      should validate_uniqueness_of(:scheduled_pickup).scoped_to(:location_id)
+    end
   end
 
   describe ".current" do
@@ -29,6 +31,42 @@ describe Donation do
       current = Donation.current
 
       expect(current).to eq([current_donation])
+    end
+  end
+
+  describe ".pending" do
+    it "includes Donations that have not yet been confirmed or declined" do
+      pending = create(:donation, :pending)
+      create(:donation, :confirmed)
+      create(:donation, :declined)
+      create(:donation, :confirmed, :declined)
+
+      results = Donation.pending
+
+      expect(results).to eq([pending])
+    end
+  end
+
+  describe ".scheduled_for_pick_up_within" do
+    it "includes donations to be picked the number of hours in the future" do
+      past_pickup = schedule_pickup(starting: 1.hour.ago)
+      current_pickup = schedule_pickup(starting: 48.hours.from_now)
+      future_pickup = schedule_pickup(starting: 49.hours.from_now)
+      create(:donation, scheduled_pickup: past_pickup)
+      create(:donation, scheduled_pickup: future_pickup)
+      current_donation = create(:donation, scheduled_pickup: current_pickup)
+
+      results = Donation.scheduled_for_pick_up_within(hours: 48)
+
+      expect(results).to eq([current_donation])
+    end
+
+    def schedule_pickup(starting:)
+      create(:scheduled_pickup, start_at: starting, end_at: starting + 1.hour)
+    end
+
+    around do |example|
+      Timecop.freeze { example.run }
     end
   end
 
