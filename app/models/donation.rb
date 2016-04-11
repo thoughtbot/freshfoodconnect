@@ -1,7 +1,6 @@
 class Donation < ActiveRecord::Base
   time_for_a_boolean :confirmed
   time_for_a_boolean :declined
-  time_for_a_boolean :reminded
 
   belongs_to :scheduled_pickup, touch: true
   belongs_to :location, touch: true
@@ -26,10 +25,6 @@ class Donation < ActiveRecord::Base
 
   def confirmed?
     confirmed_at.present? && confirmed_after_declined?
-  end
-
-  def remind_donor_at
-    scheduled_pickup.start_at - 48.hours
   end
 
   def pickup_date

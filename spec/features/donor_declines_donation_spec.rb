@@ -9,15 +9,10 @@ feature "Donor declines donation" do
     decline_donation
     last_donation = Donation.last
 
-    expect(sent_emails).to be_empty
     expect(last_donation).to be_declined
     expect(last_donation.donor).to belong_to(email)
     expect(page).to have_success_flash
     expect(page).to have_declined_status
-  end
-
-  def sent_emails
-    ActionMailer::Base.deliveries
   end
 
   def belong_to(email)

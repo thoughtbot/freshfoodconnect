@@ -1,28 +1,19 @@
 require "rails_helper"
 
 feature "Donor confirms donation" do
-  include ActiveJob::TestHelper
-
   scenario "after signing up" do
     email = "user@example.com"
     zone = create(:zone, :with_scheduled_pickups)
 
-    perform_enqueued_jobs do
-      sign_up_donor(zipcode: zone.zipcode, email: email)
-      confirm_donation
-    end
+    sign_up_donor(zipcode: zone.zipcode, email: email)
+    confirm_donation
     last_donation = Donation.last
 
     expect(last_donation.donor).to belong_to(email)
-    expect(sent_emails.last).to be_sent_to(email)
     expect(last_donation).to be_confirmed
     expect(page).to have_confirmation_flash
     expect(page).to have_confirmed_status
     expect(page).to have_size_options
-  end
-
-  def sent_emails
-    ActionMailer::Base.deliveries
   end
 
   def have_size_options
