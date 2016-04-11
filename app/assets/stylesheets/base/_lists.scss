@@ -37,4 +37,8 @@ dl {
   &:only-of-type {
     padding-bottom: $small-spacing;
   }
+
+  dl {
+    margin: 0;
+  }
 }
