@@ -22,7 +22,7 @@ $header-height: 3.125em;
 // Colors
 $brand-teal: #1abc9c;
 $blue: #1565c0;
-$red: #f00000;
+$red: lighten(#f00000, 25%);
 $dark-gray: #333;
 $medium-gray: #e6e6e6;
 $light-gray: #f7f7f7;

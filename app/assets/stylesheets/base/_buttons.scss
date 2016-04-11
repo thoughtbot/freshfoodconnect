@@ -33,4 +33,13 @@
       background-color: $action-color;
     }
   }
+
+  &.decline {
+    background-color: $red;
+
+    &:hover,
+    &:focus {
+      background-color: shade($red, 20%);
+    }
+  }
 }

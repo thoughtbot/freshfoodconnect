@@ -28,14 +28,35 @@
               <dd>This is the scheduled pickup time</dd>
             </dl>
           </div>
-          <label for="">Donation Status for 10/12/15</label>
-          <div class="select-wrapper">
-            <select name="" id="">
-              <option value="" selected>Pending...</option>
-              <option value="">Donating</option>
-              <option value="">Not Donating</option>
-            </select>
+          <div class="dl-group">
+            <dl>
+              <dt>Donation Status for 10/12/15</dt>
+
+              <!-- If already confirmed/declined -->
+              <dd>Confirmed<a href="" class="edit-donation">Change my Donation</a></dd>
+
+              <!-- If not yet confirmed/declined -->
+              <dd class="btn-container">
+                <a href="" class="btn">Donating</a>
+                <a href="" class="btn decline">Not Donating</a>
+              </dd>
+            </dl>
           </div>
+
+          <!-- Exclude unless donation has been confirmed -->
+          <div class="dl-group">
+            <dl>
+              <dt>Donation Size</dt>
+              <dd>Large</dd>
+            </dl>
+          </div>
+          <div class="dl-group">
+            <dl>
+              <dt>Donation Details</dt>
+              <dd>Basket of tomatoes and carrots.</dd>
+            </dl>
+          </div>
+
         </div>
       </form>
       <form action="" class="form-container no-footer">

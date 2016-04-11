@@ -80,3 +80,8 @@
 .main-profile-content {
   @include span-columns(5.5 of 8);
 }
+
+.edit-donation {
+  margin-left: $small-spacing;
+  text-decoration: underline;
+}
