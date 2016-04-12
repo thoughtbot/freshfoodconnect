@@ -24,6 +24,12 @@ label {
   &:first-of-type {
     margin-top: 0;
   }
+
+  &.required::after {
+    color: $red;
+    content: "*";
+    padding-left: $xsmall-spacing;
+  }
 }
 
 input,
@@ -35,7 +41,7 @@ select {
 
 #{$all-text-inputs},
 select[multiple] {
-  background-color: lighten($light-gray, 2);
+  background-color: $light-gray;
   border: $base-border;
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
@@ -178,5 +184,33 @@ textarea {
     border-bottom: $base-border;
     border-bottom-left-radius: $base-border-radius;
     border-bottom-right-radius: $base-border-radius;
+  }
+}
+
+.error {
+  border: 1px solid $red;
+  border-radius: $base-border-radius;
+  color: $red;
+  display: inline-block;
+  margin-bottom: $small-spacing;
+  padding: 0 $xsmall-spacing;
+  position: relative;
+
+  &::before {
+    @include position(absolute, -6px null null 8px);
+    @include size(0);
+    border-color: transparent transparent $red;
+    border-style: solid;
+    border-width: 0 8px 6px;
+    content: "";
+  }
+
+  &::after {
+    @include position(absolute, -5px null null 9px);
+    @include size(0);
+    border-color: transparent transparent $white;
+    border-style: solid;
+    border-width: 0 7px 5px;
+    content: "";
   }
 }
