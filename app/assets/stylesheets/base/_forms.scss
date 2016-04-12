@@ -167,6 +167,15 @@ select {
     border-right: $base-border;
     padding-top: 0;
     text-align: center;
+
+    a {
+      margin: 0 0 0 $small-spacing;
+    }
+
+    .opt-out-link {
+      display: block;
+      margin: $small-spacing 0 0;
+    }
   }
 
   &.no-footer &__body {
