@@ -1,23 +1,30 @@
 <%= simple_form_for zone do |f| %>
-  <%= f.input :zipcode %>
-  <%= f.input(
-    :weekday,
-    collection: Weekday.all,
-    label_method: :label,
-    value_method: :value,
-  ) %>
-  <%= f.input(
-    :start_hour,
-    collection: Hour.all,
-    label_method: :label,
-    value_method: :value,
-  ) %>
-  <%= f.input(
-    :end_hour,
-    collection: Hour.all,
-    label_method: :label,
-    value_method: :value,
-  ) %>
-
-  <%= f.submit %>
+  <div class="form-container__body">
+    <p><%= t("zones.new.prompt") %></p>
+    <%= f.input :zipcode %>
+    <%= f.input(
+      :weekday,
+      collection: Weekday.all,
+      label_method: :label,
+      value_method: :value,
+      wrapper_html: { class: "label-input-group" },
+    ) %>
+    <%= f.input(
+      :start_hour,
+      collection: Hour.all,
+      label_method: :label,
+      value_method: :value,
+      wrapper_html: { class: "label-input-group" },
+    ) %>
+    <%= f.input(
+      :end_hour,
+      collection: Hour.all,
+      label_method: :label,
+      value_method: :value,
+      wrapper_html: { class: "label-input-group" },
+    ) %>
+  </div>
+  <footer class="form-container__footer">
+    <%= f.submit %>
+  </footer>
 <% end %>

@@ -92,54 +92,39 @@ textarea {
   width: 100%;
 }
 
-.select-wrapper {
+select {
   background-color: $white;
   border-radius: $base-border-radius;
   border: $base-border;
   box-shadow: 0 2px 4px 0 rgba($black, 0.08);
   display: block;
+  font-size: $base-font-size;
+  height: 35px;
   margin-bottom: $base-spacing;
+  padding: ($xsmall-spacing / 2) $xsmall-spacing;
   position: relative;
-  width: 250px;
-
-  &::after {
-    @include position(absolute, 3px $xsmall-spacing null null);
-    color: $label-font-color;
-    content: "\25B8";
-    transform: rotate(90deg);
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   &:hover {
     border-color: shade($base-border-color, 20%);
   }
 
-  select {
-    appearance: none;
-    background: transparent;
-    border-radius: 0;
-    border: 0;
-    font-size: $base-font-size;
-    padding: ($xsmall-spacing / 2) $xsmall-spacing;
-    width: 100%;
+  &:focus {
+    border-color: $action-color;
+    box-shadow: $form-box-shadow-focus;
+    outline: none;
+  }
 
-    &:focus {
-      border-color: $action-color;
-      box-shadow: $form-box-shadow-focus;
-      outline: none;
+  &:disabled {
+    background-color: shade($base-background-color, 5%);
+    cursor: not-allowed;
+
+    &:hover {
+      border: $base-border;
     }
+  }
 
-    &:disabled {
-      background-color: shade($base-background-color, 5%);
-      cursor: not-allowed;
-
-      &:hover {
-        border: $base-border;
-      }
-    }
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 

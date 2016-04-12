@@ -149,7 +149,7 @@ en:
         other: "%{count} Suppliers"
     new:
       header: "Activate a Zipcode"
-      prompt: "Be sure to include weekday and time range pickups will typically be scheduled for."
+      prompt: "Be sure to select a day and time range that pickups will typically be scheduled for."
 
     show:
       no_pickup: "There are no pickups scheduled for this week."
