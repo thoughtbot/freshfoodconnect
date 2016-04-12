@@ -51,11 +51,29 @@
 // Styles for Alternative Profile Layout
 
 .supplier-info {
-  @include span-columns(2.5 of 8);
-  margin-top: $base-spacing;
+  margin: $base-spacing 0 $base-spacing $base-spacing;
+  //text-align: center;
+  width: 100%;
+
+  @include media($large-screen-up) {
+    @include span-columns(2.5 of 8);
+    margin: $base-spacing 0 0;
+  }
+
+  &__name {
+    color: $action-color;
+    text-align: center;
+    margin-left: -$base-spacing;
+
+    @include media($large-screen-up) {
+      margin-left: 0;
+      text-align: left;
+    }
+  }
 
   &__metadata {
     display: block;
+
   }
 
   .edit {
@@ -66,7 +84,11 @@
 }
 
 .main-profile-content {
-  @include span-columns(5.5 of 8);
+  width: 100%;
+
+  @include media($large-screen-up) {
+    @include span-columns(5.5 of 8);
+  }
 }
 
 .edit-donation {

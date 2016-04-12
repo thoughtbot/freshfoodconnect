@@ -1,0 +1,83 @@
+<div class="page-wrapper">
+  <div class="content-wrapper-large">
+    <aside class="supplier-info">
+      <h2 class="supplier-name">User Name</h2>
+      <span class="supplier-info__metadata email">
+        <%= inline_svg("email.svg", class: "svg-icon") %>
+        user@example.com
+      </span>
+      <span class="supplier-info__metadata address">
+        <%= inline_svg("location-pin.svg", class: "svg-icon") %>
+        1234 Blue St.
+      </span>
+      <span class="supplier-info__metadata zipcode">
+        <%= inline_svg("map.svg", class: "svg-icon") %>
+        80202
+      </span>
+      <a href="" class="edit">Edit Personal Info</a>
+    </aside>
+    <div class="main-profile-content">
+      <form action="" class="form-container no-footer">
+        <header class="form-container__header">
+          <h3>Pickup Info</h3>
+        </header>
+        <div class="form-container__body">
+          <div class="dl-group">
+            <dl>
+              <dt>Scheduled Pickup Time</dt>
+              <dd>This is the scheduled pickup time</dd>
+            </dl>
+          </div>
+          <div class="dl-group">
+            <dl>
+              <dt>Donation Status for 10/12/15</dt>
+
+              <!-- If already confirmed/declined -->
+              <dd>Donating<a href="" class="edit-donation">Change my Donation</a></dd>
+
+              <!-- If not yet confirmed/declined -->
+              <dd class="btn-container">
+                <a href="" class="btn">Donating</a>
+                <a href="" class="btn decline">Not Donating</a>
+              </dd>
+            </dl>
+          </div>
+
+          <!-- Exclude unless donation has been confirmed -->
+          <div class="dl-group">
+            <dl>
+              <dt>Donation Size</dt>
+              <dd>Large</dd>
+            </dl>
+          </div>
+          <div class="dl-group">
+            <dl>
+              <dt>Donation Details</dt>
+              <dd>Basket of tomatoes and carrots.</dd>
+            </dl>
+          </div>
+
+        </div>
+      </form>
+      <form action="" class="form-container no-footer">
+        <header class="form-container__header">
+          <h3>Additional Info</h3>
+        </header>
+        <div class="form-container__body">
+          <div class="label-input-group">
+            <label for="pickup-location">Pickup Location Type</label>
+            <input type="radio" name="pickup-location" value="residence" checked> Residence<br>
+            <input type="radio" name="pickup-location" value="community-garden"> Community Garden<br>
+            <input type="radio" name="pickup-location" value="business"> Business<br>
+            <input type="radio" name="pickup-location" value="other"> Other<br>
+          </div>
+          <div class="label-input-group">
+            <label for="source">Where are you growing the food you are donating?</label>
+            <input type="radio" name="source" value="residence" checked> At the pickup location<br>
+            <input type="radio" name="source" value="other"> Somewhere other than the pickup location.<br>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

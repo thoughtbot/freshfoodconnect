@@ -134,7 +134,11 @@ select {
 
 .form-container {
   background: $white;
-  margin: $base-spacing 0;
+  margin: $xsmall-spacing 0;
+
+  @include media($medium-screen-up) {
+    margin: $base-spacing 0;
+  }
 
   &__header,
   &__footer,

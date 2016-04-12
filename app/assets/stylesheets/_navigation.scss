@@ -5,8 +5,12 @@
   position: relative;
 
   .logo {
-    @include size(75px);
+    @include size($header-height);
     display: inline-block;
+
+    @include media($medium-screen-up) {
+      @include size(75px);
+    }
   }
 
   h1 {

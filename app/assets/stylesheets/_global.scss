@@ -7,27 +7,45 @@ body {
   background: $white;
   border: $base-border;
   border-radius: $base-border-radius;
-  margin: $base-spacing 0;
+  margin: $xsmall-spacing 0;
   padding: $base-spacing;
+
+  @include media($medium-screen-up) {
+    margin: $base-spacing 0;
+  }
 }
 
 .nav-wrapper {
   @include outer-container;
   height: 100%;
+  padding: 0 $xsmall-spacing;
 }
 
 .page-wrapper {
   @include outer-container;
+  padding: 0 $xsmall-spacing;
+
+  @include media($medium-screen-up) {
+    padding: 0;
+  }
 }
 
 .content-wrapper-narrow {
-  @include span-columns(6);
-  @include shift(3);
+  width: 100%;
+
+  @include media($medium-screen-up) {
+    @include span-columns(7 of 12);
+    @include shift(2.5 of 12);
+  }
 }
 
 .content-wrapper-large {
-  @include span-columns(8);
-  @include shift(2);
+  width: 100%;
+
+  @include media($medium-screen-up) {
+    @include span-columns(8 of 12);
+    @include shift(2 of 12);
+  }
 }
 
 .next-steps {
