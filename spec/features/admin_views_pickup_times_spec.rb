@@ -13,7 +13,7 @@ feature "Admin views pickup time", :rake do
 
     view_zone(zone)
 
-    expect(page).to have_text("Wednesday from 1:00 pm to 3:00 pm")
+    expect(page).to have_text("Wednesday between 1:00 pm and 3:00 pm")
   end
 
   def wednesday

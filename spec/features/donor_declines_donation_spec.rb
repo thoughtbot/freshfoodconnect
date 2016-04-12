@@ -36,7 +36,7 @@ feature "Donor declines donation" do
   end
 
   def decline_donation
-    click_on t("donations.status.decline")
+    click_on t("donations.decline.text")
   end
 
   def sign_up_donor(zipcode:, email:)

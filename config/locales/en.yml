@@ -56,6 +56,8 @@ en:
       success: "Confirmation updated."
 
   donations:
+    confirm:
+      text: "Yes, I will be making a donation this week."
     current:
       edit: "Change my donation"
       header: "Pickup Info"
@@ -64,14 +66,14 @@ en:
       pickup_time: "Scheduled Pickup Time"
       size: "Donation Size"
       status_html: Donation Status for <span class="next-pickup-date">%{date}</span>
+    decline:
+      text: "No, I will not be making a donation this week."
     sizes:
       small: "Small"
       medium: "Medium"
       large: "Large"
     status:
-      confirm: "Yes, I will be making a donation this week."
       confirmed: "Confirmed"
-      decline: "No, I will not be making a donation this week."
       declined: "Declined"
 
   marketing:
@@ -97,7 +99,7 @@ en:
     edit:
       header: "Edit this scheduled pickup"
       prompt: "Be sure to include the earliest and latest pickup times."
-    format: "%{weekday} from %{start_at} to %{end_at}"
+    format: "%{weekday} between %{start_at} and %{end_at}"
     new:
       header: "Schedule the next pickup"
       prompt: "Be sure to include the earliest and latest pickup times."

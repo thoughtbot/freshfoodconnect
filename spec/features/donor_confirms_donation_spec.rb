@@ -45,7 +45,7 @@ feature "Donor confirms donation" do
   end
 
   def confirm_donation
-    click_on t("donations.status.confirm")
+    click_on t("donations.confirm.text")
   end
 
   def sign_up_donor(zipcode:, email:)
