@@ -2,6 +2,7 @@
   donation_confirmation_path(donation),
   method: :delete,
   class: "decline",
+  disabled: donation.declined?,
 ) do %>
   <%= t(".text") %>
 <% end %>

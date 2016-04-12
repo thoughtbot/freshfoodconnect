@@ -16,6 +16,19 @@ feature "Donor confirms donation" do
     expect(page).to have_size_options
   end
 
+  scenario "directly from the edit page" do
+    donation = create(:donation, :pending)
+
+    edit_donation(donation)
+    confirm_donation
+
+    expect(donation.reload).to be_confirmed
+  end
+
+  def edit_donation(donation)
+    visit edit_donation_path(donation, as: donation.donor)
+  end
+
   def have_size_options
     have_text t("donations.sizes.medium")
   end

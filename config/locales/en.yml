@@ -58,19 +58,27 @@ en:
   donations:
     confirm:
       text: "Donating"
-    donation:
-      edit: "Change my Donation"
     decline:
       text: "Not Donating"
+    donation:
+      edit: "Change my Donation"
+      notes: "Donation Details"
+      size: "Donation Size"
+    edit:
+      header: "Donation Info"
     sizes:
       small: "Small"
       medium: "Medium"
       large: "Large"
     status:
       html: Donation Status for <span class="next-pickup-date">%{date}</span>
+      text: "Would you like to change your donation status?"
     statuses:
-      confirmed: "Confirmed"
-      declined: "Declined"
+      confirmed: "Donating"
+      declined: "Not Donating"
+      pending: "Pending"
+    update:
+      success: "Donation updated."
 
   marketing:
     index:

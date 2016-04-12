@@ -1,6 +1,8 @@
 en:
   helpers:
     submit:
+      donation:
+        update: "Update"
       location:
         update: "Save Pickup Address"
       pre_registration:
@@ -32,6 +34,9 @@ en:
       confirmation:
         notes: "What's in your donation?"
         size: "Donation Size"
+      donation:
+        size: "How big is your donation?"
+        notes: "Provide a short description of your donation:"
       profile:
         address: "Street Address for Pickup"
         notes: "Pickup Notes"
@@ -42,6 +47,12 @@ en:
         end_hour: "Latest pickup"
         start_hour: "Earliest pickup"
         weekday: "Pickup day"
+    options:
+      donation:
+        size:
+          large: "Large"
+          medium: "Medium"
+          small: "Small"
 
     # Examples
     # labels:

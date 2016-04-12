@@ -8,7 +8,7 @@
   <% if donation.pending? %>
     <%= render("donations/actions", donation: donation) %>
   <% else %>
-    <dd class="donation-status--<%= status_for_donation(donation) %>">
+    <dd class="donation-status--<%= status_for_donation(donation) %>" data-role="donation-status">
       <%= label_for_donation(donation) %>
 
       <%= yield %>

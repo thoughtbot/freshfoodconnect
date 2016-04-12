@@ -13,7 +13,7 @@ class Donation < ActiveRecord::Base
     presence: true,
     uniqueness: { scope: :location_id }
 
-  delegate(:address, :notes, to: :location)
+  delegate(:address, to: :location)
 
   def self.current
     joins(:scheduled_pickup).merge(ScheduledPickup.current)

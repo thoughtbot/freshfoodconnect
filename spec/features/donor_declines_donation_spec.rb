@@ -20,6 +20,24 @@ feature "Donor declines donation" do
     have_text t("profiles.show.edit")
   end
 
+  scenario "directly from the edit page" do
+    donation = create(:donation, :pending)
+
+    edit_donation(donation)
+    decline_donation
+
+    expect(donation.reload).to be_declined
+    expect(page).to be_redirected_to_profile
+  end
+
+  def be_redirected_to_profile
+    have_text t("profiles.show.edit")
+  end
+
+  def edit_donation(donation)
+    visit edit_donation_path(donation, as: donation.donor)
+  end
+
   def belong_to(email)
     have_attributes(email: email)
   end

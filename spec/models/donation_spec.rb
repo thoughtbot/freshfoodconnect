@@ -11,7 +11,6 @@ describe Donation do
   it { should validate_presence_of(:location) }
 
   it { should delegate_method(:address).to(:location) }
-  it { should delegate_method(:notes).to(:location) }
 
   context "uniqueness" do
     subject { create(:donation) }

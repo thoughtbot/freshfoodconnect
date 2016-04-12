@@ -1,0 +1,13 @@
+<%= simple_form_for(donation) do |f| %>
+  <div class="label-input-group">
+    <%= f.input(:size, as: :radio_buttons, collection: Donation.sizes.keys.map(&:to_sym)) %>
+  </div>
+
+  <div class="label-input-group">
+    <%= f.input(:notes, input_html: { rows: 5 }) %>
+  </div>
+
+  <footer class="form-container__footer">
+    <%= f.submit %>
+  </footer>
+<% end %>

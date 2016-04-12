@@ -1,3 +1,23 @@
-<%= render("donations/status", donation: @donation) %>
+<div class="page-wrapper">
+  <div class="content-wrapper-narrow form-container">
+    <header class="form-container__header">
+      <h2><%= t(".header") %></h2>
+    </header>
 
-<%= render("donations/sizes", donation: @donation) %>
+    <div class="form-container__body">
+      <div class="dl-group">
+        <%= render(@donation.scheduled_pickup) %>
+      </div>
+
+      <div class="dl-group">
+        <%= render_donation_status(@donation) do %>
+          <%= render("donations/actions", donation: @donation) %>
+        <% end %>
+      </div>
+
+      <% if @donation.confirmed? %>
+        <%= render("donations/form", donation: @donation) %>
+      <% end %>
+    </div>
+  </div>
+</div>

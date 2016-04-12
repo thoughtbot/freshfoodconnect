@@ -11,16 +11,16 @@
 </div>
 
 <% if donation.confirmed? %>
-  <div class="dl-group">
+  <div class="dl-group" data-role="donation-size">
     <dl>
-      <dt>Donation Size</dt>
-      <dd>Large</dd>
+      <dt><%= t(".size") %></dt>
+      <dd><%= t("donations.sizes.#{donation.size}") %></dd>
     </dl>
   </div>
-  <div class="dl-group">
+  <div class="dl-group" data-role="donation-notes">
     <dl>
-      <dt>Donation Details</dt>
-      <dd>Basket of tomatoes and carrots.</dd>
+      <dt><%= t(".notes") %></dt>
+      <dd><%= donation.notes %></dd>
     </dl>
   </div>
 <% end %>

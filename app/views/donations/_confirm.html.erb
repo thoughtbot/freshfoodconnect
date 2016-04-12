@@ -1,3 +1,7 @@
-<%= button_to(donation_confirmation_path(donation), method: :post) do %>
+<%= button_to(
+  donation_confirmation_path(donation),
+  method: :post,
+  disabled: donation.confirmed?,
+) do %>
   <%= t(".text") %>
 <% end %>
