@@ -9,6 +9,12 @@
     <nav class="main-nav">
       <ul>
         <% if signed_in? %>
+          <li>
+            <%= link_to profile_path do %>
+              <%= t(".profile") %>
+            <% end %>
+          </li>
+
           <% if current_user.admin? %>
             <li>
               <%= link_to zones_path do %>
@@ -19,12 +25,6 @@
               <a href="#">
                 Users
               </a>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to profile_path do %>
-                <%= t(".profile") %>
-              <% end %>
             </li>
           <% end %>
           <li>
