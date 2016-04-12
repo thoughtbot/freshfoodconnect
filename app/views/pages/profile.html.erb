@@ -64,19 +64,17 @@
           <h3>Additional Info</h3>
         </header>
         <div class="form-container__body">
-          <label for="">Pickup Location Type</label>
-          <div class="select-wrapper">
-            <select name="" id="">
-              <option value="" selected>Residence</option>
-              <option value="">Other</option>
-            </select>
+          <div class="label-input-group">
+            <label for="pickup-location">Pickup Location Type</label>
+            <input type="radio" name="pickup-location" value="residence" checked> Residence<br>
+            <input type="radio" name="pickup-location" value="community-garden"> Community Garden<br>
+            <input type="radio" name="pickup-location" value="business"> Business<br>
+            <input type="radio" name="pickup-location" value="other"> Other<br>
           </div>
-          <label for="">Where are you growing the food you are donating?</label>
-          <div class="select-wrapper">
-            <select name="" id="">
-              <option value="" selected>At the pickup location</option>
-              <option value="">Other</option>
-            </select>
+          <div class="label-input-group">
+            <label for="source">Where are you growing the food you are donating?</label>
+            <input type="radio" name="source" value="residence" checked> At the pickup location<br>
+            <input type="radio" name="source" value="other"> Somewhere other than the pickup location.<br>
           </div>
         </div>
       </form>
