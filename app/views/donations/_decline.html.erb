@@ -1,3 +1,7 @@
-<%= button_to(donation_confirmation_url(donation), method: :delete) do %>
+<%= button_to(
+  donation_confirmation_path(donation),
+  method: :delete,
+  class: "decline",
+) do %>
   <%= t(".text") %>
 <% end %>

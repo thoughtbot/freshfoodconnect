@@ -9,7 +9,6 @@ class Profile
     :name,
     :name=,
     :location,
-    :current_donation,
     to: :user,
   )
 
@@ -23,6 +22,10 @@ class Profile
     :persisted?,
     to: :location,
   )
+
+  def current_donation
+    user.current_donation || UnscheduledDonation.new
+  end
 
   def update(attributes)
     attributes.each do |method, value|

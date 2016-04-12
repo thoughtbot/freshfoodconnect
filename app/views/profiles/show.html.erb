@@ -1,60 +1,44 @@
 <%= render "application/welcome_modal" %>
 
-<div class="content-wrapper-narrow content-container">
-  <header class="profile-header">
-    <h2 class="profile-header__heading"><%= @profile.name %></h2>
-    <%= link_to edit_profile_path, class: "profile-header__edit" do %>
-      <%= t(".edit") %>
-    <% end %>
-  </header>
+<div class="page-wrapper">
+  <div class="content-wrapper-large">
+    <aside class="supplier-info">
+      <%= render(@profile) %>
 
-  <%= render("donations/current", donation: @profile.current_donation) %>
+      <%= link_to edit_profile_path, class: "edit" do %>
+        <%= t(".edit") %>
+      <% end %>
+    </aside>
 
-  <section class="profile-section">
-    <h3 class="profile-section__heading">Contact</h3>
-    <dl>
-      <dt>Email</dt>
-      <dd><%= @profile.email %></dd>
-    </dl>
-  </section>
+    <div class="main-profile-content">
+      <div class="form-container no-footer">
+        <header class="form-container__header">
+          <h3><%= t(".pickup") %></h3>
+        </header>
+        <div class="form-container__body">
+          <%= render(@profile.current_donation) %>
+        </div>
+      </div>
 
-  <section class="profile-section">
-    <h3 class="profile-section__heading">Location</h3>
-    <dl>
-      <div class="dl-group">
-        <dt><%= t(".location.address") %></dt>
-        <dd><%= @profile.address %></dd>
-      </div>
-      <div class="dl-group">
-        <dt><%= t(".location.zip") %></dt>
-        <dd><%= @profile.zipcode %></dd>
-      </div>
-      <div class="dl-group">
-        <dt><%= t(".location.notes") %></dt>
-        <dd><%= @profile.notes %></dd>
-      </div>
-    </dl>
-  </section>
-
-  <section class="profile-section">
-    <h3 class="profile-section__heading">Preferences</h3>
-    <form action="">
-      <input type="checkbox">
-      <label for="" class="preferences-label">I would like to receive news and updates about Fresh Food Connect</label>
-    </form>
-  </section>
-
-  <section class="profile-section">
-    <h3 class="profile-section__heading">Additional Info</h3>
-    <dl>
-      <div class="dl-group">
-        <dt>Pickup Location Type</dt>
-        <dd>Residence</dd>
-      </div>
-      <div class="dl-group">
-        <dt>Where are you growing the food you are donating?</dt>
-        <dd>At the pickup address</dd>
-      </div>
-    </dl>
-  </section>
+      <form action="" class="form-container no-footer">
+        <header class="form-container__header">
+          <h3>Additional Info</h3>
+        </header>
+        <div class="form-container__body">
+          <div class="label-input-group">
+            <label for="pickup-location">Pickup Location Type</label>
+            <input type="radio" name="pickup-location" value="residence" checked> Residence<br>
+            <input type="radio" name="pickup-location" value="community-garden"> Community Garden<br>
+            <input type="radio" name="pickup-location" value="business"> Business<br>
+            <input type="radio" name="pickup-location" value="other"> Other<br>
+          </div>
+          <div class="label-input-group">
+            <label for="source">Where are you growing the food you are donating?</label>
+            <input type="radio" name="source" value="residence" checked> At the pickup location<br>
+            <input type="radio" name="source" value="other"> Somewhere other than the pickup location.<br>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

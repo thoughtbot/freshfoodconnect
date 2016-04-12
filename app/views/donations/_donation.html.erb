@@ -1,0 +1,50 @@
+<div class="dl-group">
+  <dl>
+    <dt>
+      <%= t(".pickup_time") %>
+    </dt>
+    <dd>
+      <%= format_pickup_time(donation.scheduled_pickup) %>
+    </dd>
+  </dl>
+</div>
+
+<div class="dl-group">
+  <dl>
+    <dt>
+      <%= t(
+        ".status_html",
+        date: l(donation.pickup_date, format: :default),
+      ) %>
+    </dt>
+
+    <% if donation.pending? %>
+      <dd class="btn-container">
+        <%= render("donations/confirm", donation: donation) %>
+        <%= render("donations/decline", donation: donation) %>
+      </dd>
+    <% else %>
+      <dd>
+        <%= label_for_donation(donation) %>
+        <%= link_to edit_donation_path(donation), class: "edit-donation" do %>
+          <%= t(".edit") %>
+        <% end %>
+      </dd>
+    <% end %>
+  </dl>
+</div>
+
+<% if donation.confirmed? %>
+  <div class="dl-group">
+    <dl>
+      <dt>Donation Size</dt>
+      <dd>Large</dd>
+    </dl>
+  </div>
+  <div class="dl-group">
+    <dl>
+      <dt>Donation Details</dt>
+      <dd>Basket of tomatoes and carrots.</dd>
+    </dl>
+  </div>
+<% end %>

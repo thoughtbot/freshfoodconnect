@@ -20,7 +20,7 @@ feature "Donor describes donation" do
   end
 
   def pick_donation_size(size)
-    click_on t("donations.current.edit")
+    click_on t("donations.donation.edit")
     click_on size_i18n(size)
   end
 

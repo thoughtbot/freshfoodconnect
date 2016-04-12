@@ -57,17 +57,13 @@ en:
 
   donations:
     confirm:
-      text: "Yes, I will be making a donation this week."
-    current:
-      edit: "Change my donation"
-      header: "Pickup Info"
-      none: "There are no pickups scheduled for this week."
-      notes: "Pickup Notes (e.g. On the table on the front porch)"
+      text: "Donating"
+    donation:
+      edit: "Change my Donation"
       pickup_time: "Scheduled Pickup Time"
-      size: "Donation Size"
       status_html: Donation Status for <span class="next-pickup-date">%{date}</span>
     decline:
-      text: "No, I will not be making a donation this week."
+      text: "Not Donating"
     sizes:
       small: "Small"
       medium: "Medium"
@@ -88,12 +84,15 @@ en:
       action: "Sounds Great!"
 
   profiles:
+    edit:
+      header: "Edit Profile"
+    form:
+      contact: "Contact"
+      location: "Location"
+      name: "Name"
     show:
-      edit: "Edit Profile"
-      location:
-        address: "Street Address for Pickup"
-        notes: "Pickup Notes (e.g. On the table on the front porch)"
-        zip: "Zip"
+      pickup: "Pickup Info"
+      edit: "Edit Personal Info"
 
   scheduled_pickups:
     edit:
@@ -132,6 +131,10 @@ en:
 
   titles:
     application: Fresh Food Connect
+
+  unscheduled_donations:
+    unscheduled_donation:
+      text: "There are no pickups scheduled for this week."
 
   validations:
     unsupported: "We're sorry, our service is not available in %{zipcode} at this time."

@@ -1,38 +1,19 @@
 <%= simple_form_for profile do |f| %>
   <div class="form-container__body">
-    <%= render("donations/current", donation: profile.current_donation) %>
-
     <fieldset class="profile-edit-section">
-      <h3 class="profile-edit-section__heading">Name</h3>
+      <h3 class="profile-edit-section__heading"><%= t(".name") %></h3>
       <%= f.input :name %>
     </fieldset>
 
     <fieldset class="profile-edit-section">
-      <h3 class="profile-edit-section__heading">Contact</h3>
+      <h3 class="profile-edit-section__heading"><%= t(".contact") %></h3>
       <%= f.input :email %>
     </fieldset>
 
     <fieldset class="profile-edit-section">
-      <h3 class="profile-edit-section__heading">Location</h3>
+      <h3 class="profile-edit-section__heading"><%= t(".location") %></h3>
       <%= f.input :address %>
       <%= f.input :zipcode %>
-      <%= f.input :notes, as: :text %>
-    </fieldset>
-
-    <fieldset class="profile-edit-section">
-      <h3 class="profile-edit-section__heading">Additional Info</h3>
-      <label for="">Pickup Location Type</label>
-      <select name="" id="">
-        <option value="">Residence</option>
-        <option value="">Business</option>
-        <option value="">Community Garden</option>
-        <option value="">Other</option>
-      </select>
-      <label for="">Where are you growing the food you are donating?</label>
-      <select name="" id="">
-        <option value="">Same as pickup address</option>
-        <option value="">Other</option>
-      </select>
     </fieldset>
   </div>
 
