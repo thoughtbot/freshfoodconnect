@@ -4,7 +4,7 @@ en:
       donation:
         update: "Update"
       location:
-        update: "Save Pickup Address"
+        update: "Save Pickup Information"
       pre_registration:
         create: "Donate"
       profile:
@@ -37,6 +37,11 @@ en:
       donation:
         size: "How big is your donation?"
         notes: "Provide a short description of your donation:"
+      location:
+        grown_on_site: "Where are you growing the food you are donating?"
+        location_type: "Pickup Location Type"
+        organic_growth_asserted: "The food I donate will be grown without the use of non-organic pesticides, herbicides and fertilizers."
+        terms_and_conditions_accepted: I agree to the Terms and Conditions
       profile:
         address: "Street Address for Pickup"
         notes: "Pickup Notes"
@@ -58,6 +63,16 @@ en:
           large: "Large"
           medium: "Medium"
           small: "Small"
+      location:
+        grown_on_site:
+          "false": "Somewhere other than the pickup location."
+          "true": "At the pickup location"
+        location_type:
+          business: "Business"
+          community_garden: "Community Garden"
+          other: "Other"
+          residence: "Residence"
+
       registration:
         grown_on_site:
           "false": "Somewhere other than the pickup location."

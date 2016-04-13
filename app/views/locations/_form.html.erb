@@ -1,0 +1,13 @@
+<header class="form-container__header">
+  <h3><%= t(".header") %></h3>
+</header>
+
+<%= simple_form_for(location) do |f| %>
+  <div class="form-container__body">
+    <%= render("locations/form_fields", f: f) %>
+  </div>
+
+  <div class="submit-wrapper">
+    <%= f.submit %>
+  </div>
+<% end %>

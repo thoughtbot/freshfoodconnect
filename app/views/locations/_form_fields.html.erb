@@ -1,0 +1,17 @@
+<div class="label-input-group">
+  <%= f.input(
+    :location_type,
+    as: :radio_buttons,
+    collection: Location.location_types.keys.map(&:to_sym),
+    required: false,
+  ) %>
+</div>
+
+<div class="label-input-group">
+  <%= f.input(
+    :grown_on_site,
+    as: :radio_buttons,
+    collection: [:true, :false],
+    required: false,
+  ) %>
+</div>

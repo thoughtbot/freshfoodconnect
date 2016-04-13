@@ -88,6 +88,12 @@ en:
       subject: "Please confirm your donation for %{range}"
       time_range: "We'll be in your area %{range}."
 
+  locations:
+    form:
+      header: "Additional Info"
+    update:
+      success: "Pickup information updated."
+
   marketing:
     index:
       heading: "Get started with Fresh Food Connect"

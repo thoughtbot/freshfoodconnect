@@ -33,9 +33,15 @@ FactoryGirl.define do
   factory :location do
     address "123 Fake Street"
 
+    residence
+    grown_on_site
     user
 
     supported
+
+    trait :grown_on_site do
+      grown_on_site true
+    end
 
     trait :residence do
       location_type :residence

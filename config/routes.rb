@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :donations, only: [:edit, :update] do
     resource :confirmation, only: [:create, :destroy, :update]
   end
+  resource :location, only: [:update]
   resources :pre_registrations, only: [:create]
   resources :registrations, only: [:create, :new]
   resources :subscriptions, only: [:create, :new]

@@ -7,21 +7,7 @@
     <%= f.input :email, required: "true" %>
     <%= f.input :password, required: "true" %>
 
-    <div class="label-input-group">
-      <%= f.input(
-        :location_type,
-        as: :radio_buttons,
-        collection: Location.location_types.keys.map(&:to_sym),
-      ) %>
-    </div>
-
-    <div class="label-input-group">
-      <%= f.input(
-        :grown_on_site,
-        as: :radio_buttons,
-        collection: [:true, :false],
-      ) %>
-    </div>
+    <%= render("locations/form_fields", f: f) %>
 
     <%= f.input :terms_and_conditions_accepted, as: :boolean %>
     <%= f.input :organic_growth_asserted, as: :boolean %>

@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20160413212858) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "size",                default: 0, null: false
-    t.datetime "requested_at"
     t.text     "notes"
+    t.datetime "requested_at"
   end
 
   add_index "donations", ["location_id", "scheduled_pickup_id"], name: "index_donations_on_location_id_and_scheduled_pickup_id", unique: true, using: :btree

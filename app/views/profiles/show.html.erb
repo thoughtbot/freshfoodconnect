@@ -19,24 +19,8 @@
       </div>
     </div>
 
-    <form action="" class="form-container no-footer">
-      <header class="form-container__header">
-        <h3>Additional Info</h3>
-      </header>
-      <div class="form-container__body">
-        <div class="label-input-group">
-          <label for="pickup-location">Pickup Location Type</label>
-          <input type="radio" name="pickup-location" value="residence" checked> Residence<br>
-          <input type="radio" name="pickup-location" value="community-garden"> Community Garden<br>
-          <input type="radio" name="pickup-location" value="business"> Business<br>
-          <input type="radio" name="pickup-location" value="other"> Other<br>
-        </div>
-        <div class="label-input-group">
-          <label for="source">Where are you growing the food you are donating?</label>
-          <input type="radio" name="source" value="residence" checked> At the pickup location<br>
-          <input type="radio" name="source" value="other"> Somewhere other than the pickup location.<br>
-        </div>
-      </div>
-    </form>
+    <div class="form-container no-footer">
+      <%= render("locations/form", location: @profile.location) %>
+    </div>
   </div>
 </div>

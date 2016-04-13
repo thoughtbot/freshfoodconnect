@@ -10,6 +10,8 @@ describe "profiles/show" do
     location = build_stubbed(
       :location,
       address: "123 Fake St.",
+      grown_on_site: false,
+      location_type: "business",
       notes: "on the porch",
       user: user,
       zipcode: "90210",
@@ -25,6 +27,8 @@ describe "profiles/show" do
     expect(rendered).to have_text(profile.name)
     expect(rendered).to have_text(profile.notes)
     expect(rendered).to have_text(profile.zipcode)
+    expect(rendered).to have_selected(location.location_type)
+    expect(rendered).to have_selected(location.grown_on_site)
   end
 
   context "when there isn't a current donation" do
@@ -37,6 +41,10 @@ describe "profiles/show" do
 
       expect(rendered).to have_unscheduled_donation_text
     end
+  end
+
+  def have_selected(value)
+    have_css %{[checked][value="#{value}"]}
   end
 
   def have_unscheduled_donation_text
