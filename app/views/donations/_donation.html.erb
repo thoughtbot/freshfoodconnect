@@ -1,12 +1,5 @@
 <div class="dl-group">
-  <dl>
-    <dt>
-      <%= t(".pickup_time") %>
-    </dt>
-    <dd>
-      <%= format_pickup_time(donation.scheduled_pickup) %>
-    </dd>
-  </dl>
+  <%= render(donation.scheduled_pickup) %>
 </div>
 
 <div class="dl-group">

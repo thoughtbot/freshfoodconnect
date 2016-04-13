@@ -60,7 +60,6 @@ en:
       text: "Donating"
     donation:
       edit: "Change my Donation"
-      pickup_time: "Scheduled Pickup Time"
       status_html: Donation Status for <span class="next-pickup-date">%{date}</span>
     decline:
       text: "Not Donating"
@@ -102,6 +101,8 @@ en:
     new:
       header: "Schedule the next pickup"
       prompt: "Be sure to include the earliest and latest pickup times."
+    scheduled_pickup:
+      header: "Scheduled Pickup Time"
     show:
       edit: "Edit"
     update:
