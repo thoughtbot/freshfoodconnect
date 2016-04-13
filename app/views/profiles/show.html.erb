@@ -1,44 +1,42 @@
 <%= render "application/welcome_modal" %>
 
-<div class="page-wrapper">
-  <div class="content-wrapper-large">
-    <aside class="supplier-info">
-      <%= render(@profile) %>
+<div class="content-wrapper-large">
+  <aside class="supplier-info">
+    <%= render(@profile) %>
 
-      <%= link_to edit_profile_path, class: "edit" do %>
-        <%= t(".edit") %>
-      <% end %>
-    </aside>
+    <%= link_to edit_profile_path, class: "edit" do %>
+      <%= t(".edit") %>
+    <% end %>
+  </aside>
 
-    <div class="main-profile-content">
-      <div class="form-container no-footer">
-        <header class="form-container__header">
-          <h3><%= t(".pickup") %></h3>
-        </header>
-        <div class="form-container__body">
-          <%= render(@profile.current_donation) %>
+  <div class="main-profile-content">
+    <div class="form-container no-footer">
+      <header class="form-container__header">
+        <h3><%= t(".pickup") %></h3>
+      </header>
+      <div class="form-container__body">
+        <%= render(@profile.current_donation) %>
+      </div>
+    </div>
+
+    <form action="" class="form-container no-footer">
+      <header class="form-container__header">
+        <h3>Additional Info</h3>
+      </header>
+      <div class="form-container__body">
+        <div class="label-input-group">
+          <label for="pickup-location">Pickup Location Type</label>
+          <input type="radio" name="pickup-location" value="residence" checked> Residence<br>
+          <input type="radio" name="pickup-location" value="community-garden"> Community Garden<br>
+          <input type="radio" name="pickup-location" value="business"> Business<br>
+          <input type="radio" name="pickup-location" value="other"> Other<br>
+        </div>
+        <div class="label-input-group">
+          <label for="source">Where are you growing the food you are donating?</label>
+          <input type="radio" name="source" value="residence" checked> At the pickup location<br>
+          <input type="radio" name="source" value="other"> Somewhere other than the pickup location.<br>
         </div>
       </div>
-
-      <form action="" class="form-container no-footer">
-        <header class="form-container__header">
-          <h3>Additional Info</h3>
-        </header>
-        <div class="form-container__body">
-          <div class="label-input-group">
-            <label for="pickup-location">Pickup Location Type</label>
-            <input type="radio" name="pickup-location" value="residence" checked> Residence<br>
-            <input type="radio" name="pickup-location" value="community-garden"> Community Garden<br>
-            <input type="radio" name="pickup-location" value="business"> Business<br>
-            <input type="radio" name="pickup-location" value="other"> Other<br>
-          </div>
-          <div class="label-input-group">
-            <label for="source">Where are you growing the food you are donating?</label>
-            <input type="radio" name="source" value="residence" checked> At the pickup location<br>
-            <input type="radio" name="source" value="other"> Somewhere other than the pickup location.<br>
-          </div>
-        </div>
-      </form>
-    </div>
+    </form>
   </div>
 </div>
