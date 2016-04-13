@@ -8,6 +8,7 @@ feature "Donor edits location" do
     new_pickup_location = {
       address: "123 Fake Street Denver CO",
       zipcode: zone.zipcode,
+      notes: "on my porch",
     }
 
     visit root_path(as: donor)
@@ -15,6 +16,7 @@ feature "Donor edits location" do
     edit_pickup_location(new_pickup_location)
 
     expect(page).to have_text(new_pickup_location[:address])
+    expect(page).to have_text(new_pickup_location[:notes])
     expect(page).to have_text(new_pickup_location[:zipcode])
   end
 
@@ -33,15 +35,10 @@ feature "Donor edits location" do
     click_on t("application.header.profile")
   end
 
-  def edit_pickup_location(address:, zipcode:)
+  def edit_pickup_location(**attributes)
     click_on t("profiles.show.edit")
 
-    fill_form_and_submit(
-      :profile,
-      :edit,
-      address: address,
-      zipcode: zipcode,
-    )
+    fill_form_and_submit(:profile, :edit, attributes)
   end
 
   def have_address_errors

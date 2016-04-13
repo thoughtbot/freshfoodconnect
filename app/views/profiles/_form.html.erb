@@ -14,6 +14,7 @@
       <h3 class="profile-edit-section__heading"><%= t(".location") %></h3>
       <%= f.input :address %>
       <%= f.input :zipcode %>
+      <%= f.input :notes, as: :text, input_html: { rows: 5 } %>
     </fieldset>
   </div>
 

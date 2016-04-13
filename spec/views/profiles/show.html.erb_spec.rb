@@ -9,8 +9,9 @@ describe "profiles/show" do
     )
     location = build_stubbed(
       :location,
-      user: user,
       address: "123 Fake St.",
+      notes: "on the porch",
+      user: user,
       zipcode: "90210",
     )
     build_stubbed(:donation, location: location)
@@ -22,6 +23,7 @@ describe "profiles/show" do
     expect(rendered).to have_text(profile.address)
     expect(rendered).to have_text(profile.email)
     expect(rendered).to have_text(profile.name)
+    expect(rendered).to have_text(profile.notes)
     expect(rendered).to have_text(profile.zipcode)
   end
 
