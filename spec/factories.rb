@@ -37,6 +37,10 @@ FactoryGirl.define do
 
     supported
 
+    trait :residence do
+      location_type :residence
+    end
+
     trait :supported do
       zone
     end
@@ -49,6 +53,8 @@ FactoryGirl.define do
     address "123 Fake Street"
     name "New User"
     password "password"
+    organic_growth_asserted true
+    terms_and_conditions_accepted true
 
     email
   end
@@ -72,6 +78,8 @@ FactoryGirl.define do
   factory :user do
     email
     password "password"
+    organic_growth_asserted true
+    terms_and_conditions_accepted true
 
     factory :donor do
       with_location

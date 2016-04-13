@@ -129,7 +129,6 @@ en:
       prompt: "In order to participate in our program, you'll need to create an account so we know where to come make the pickup and to let us know each week if you have veggies available to donate. Please provide us with some information below:"
     new:
       header: "Our service is available in your area!"
-
   subscriptions:
     form:
       prompt: "But there's good news! If you'd like to provide us with your email, we will notify you once we begin service in your area:"
@@ -157,6 +156,7 @@ en:
       text: "There are no pickups scheduled for this week."
 
   validations:
+    accepted: "must be checked"
     unsupported: "We're sorry, our service is not available in %{zipcode} at this time."
 
   zones:

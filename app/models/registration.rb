@@ -2,6 +2,10 @@ class Registration
   include ActiveModel::Model
 
   validates :name, presence: true
+  validates :organic_growth_asserted,
+    presence: { message: I18n.t("validations.accepted") }
+  validates :terms_and_conditions_accepted,
+    presence: { message: I18n.t("validations.accepted") }
   validate :zipcode_is_supported
 
   attr_accessor(
@@ -17,14 +21,22 @@ class Registration
     :email=,
     :name,
     :name=,
+    :organic_growth_asserted,
+    :organic_growth_asserted=,
     :password,
     :password=,
+    :terms_and_conditions_accepted,
+    :terms_and_conditions_accepted=,
     to: :user,
   )
 
   delegate(
     :address,
     :address=,
+    :grown_on_site,
+    :grown_on_site=,
+    :location_type,
+    :location_type=,
     :zipcode,
     :zipcode=,
     to: :location,

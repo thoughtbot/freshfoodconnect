@@ -40,6 +40,11 @@ en:
       profile:
         address: "Street Address for Pickup"
         notes: "Pickup Notes"
+      registration:
+        terms_and_conditions_accepted: I agree to the Terms and Conditions
+        organic_growth_asserted: "The food I donate will be grown without the use of non-organic pesticides, herbicides and fertilizers."
+        location_type: "Pickup Location Type"
+        grown_on_site: "Where are you growing the food you are donating?"
       scheduled_pickup:
         end_at: "Latest pickup"
         start_at: "Earliest pickup"
@@ -53,6 +58,15 @@ en:
           large: "Large"
           medium: "Medium"
           small: "Small"
+      registration:
+        grown_on_site:
+          "false": "Somewhere other than the pickup location."
+          "true": "At the pickup location"
+        location_type:
+          business: "Business"
+          community_garden: "Community Garden"
+          other: "Other"
+          residence: "Residence"
 
     # Examples
     # labels:

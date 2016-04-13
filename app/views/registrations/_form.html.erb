@@ -6,21 +6,27 @@
     <%= f.input :zipcode, required: "true" %>
     <%= f.input :email, required: "true" %>
     <%= f.input :password, required: "true" %>
+
     <div class="label-input-group">
-      <label for="pickup-location">Pickup Location Type</label>
-      <input type="radio" name="pickup-location" value="residence" checked> Residence<br>
-      <input type="radio" name="pickup-location" value="community-garden"> Community Garden<br>
-      <input type="radio" name="pickup-location" value="business"> Business<br>
-      <input type="radio" name="pickup-location" value="other"> Other<br>
+      <%= f.input(
+        :location_type,
+        as: :radio_buttons,
+        collection: Location.location_types.keys.map(&:to_sym),
+      ) %>
     </div>
+
     <div class="label-input-group">
-      <label for="source">Where are you growing the food you are donating?</label>
-      <input type="radio" name="source" value="residence" checked> At the pickup location<br>
-      <input type="radio" name="source" value="other"> Somewhere other than the pickup location.<br>
+      <%= f.input(
+        :grown_on_site,
+        as: :radio_buttons,
+        collection: [:true, :false],
+      ) %>
     </div>
-    <input type="checkbox" required> I agree to the <a href="">Terms and Conditions</a><br>
-    <input type="checkbox" required> The food I donate will be grown without the use of non-organic pesticides, herbicides and fertilizers.<br>
+
+    <%= f.input :terms_and_conditions_accepted, as: :boolean %>
+    <%= f.input :organic_growth_asserted, as: :boolean %>
   </div>
+
   <footer class="form-container__footer">
     <%= f.submit %>
   </footer>

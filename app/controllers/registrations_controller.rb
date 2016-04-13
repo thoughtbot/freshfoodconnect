@@ -36,8 +36,12 @@ class RegistrationsController < ApplicationController
       permit(
         :address,
         :email,
+        :grown_on_site,
+        :location_type,
         :name,
+        :organic_growth_asserted,
         :password,
+        :terms_and_conditions_accepted,
         :zipcode,
       )
   end

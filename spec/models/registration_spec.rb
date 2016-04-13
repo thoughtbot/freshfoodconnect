@@ -6,6 +6,15 @@ describe Registration do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:zipcode) }
 
+  it do
+    should validate_presence_of(:organic_growth_asserted).
+      with_message(t("validations.accepted"))
+  end
+  it do
+    should validate_presence_of(:terms_and_conditions_accepted).
+      with_message(t("validations.accepted"))
+  end
+
   describe "validations" do
     context "when a Location has an unsupported zipcode" do
       it "exposes errors for :zipcode" do
@@ -37,7 +46,7 @@ describe Registration do
     describe "#save" do
       context "when valid" do
         it "creates a User with a Location" do
-          location = build(:location, :supported)
+          location = build(:location, :supported, :residence)
           registration = build(:registration, zipcode: location.zipcode)
 
           saved = registration.save
@@ -46,22 +55,25 @@ describe Registration do
 
           expect(saved).to be true
           expect(registration).to have_attributes(
-            valid?: true,
             invalid?: false,
+            valid?: true,
           )
           expect(user).to have_attributes(
-            name: registration.name,
             email: registration.email,
             location: location,
+            name: registration.name,
             persisted?: true,
+            terms_and_conditions_accepted: true,
             valid?: true,
           )
           expect(location).to have_attributes(
             address: registration.address,
-            user: user,
-            zipcode: registration.zipcode,
+            grown_on_site?: true,
+            location_type: "residence",
             persisted?: true,
+            user: user,
             valid?: true,
+            zipcode: registration.zipcode,
           )
         end
 
