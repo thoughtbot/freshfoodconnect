@@ -182,6 +182,10 @@ select {
     }
   }
 
+  .submit-wrapper {
+    text-align: center;
+  }
+
   &.no-footer &__body {
     border-bottom: $base-border;
     border-bottom-left-radius: $base-border-radius;

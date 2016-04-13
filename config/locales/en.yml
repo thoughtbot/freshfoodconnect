@@ -66,6 +66,7 @@ en:
       size: "Donation Size"
     edit:
       header: "Donation Info"
+      prompt: "Would you like to change your donation status?"
     sizes:
       small: "Small"
       medium: "Medium"

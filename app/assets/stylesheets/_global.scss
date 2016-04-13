@@ -86,4 +86,8 @@ body {
 
 .btn-container {
   margin-top: $xsmall-spacing;
+
+  form {
+    display: inline-block;
+  }
 }

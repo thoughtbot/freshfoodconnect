@@ -25,21 +25,21 @@
     color: #fff;
   }
 
-  &:disabled {
-    background-color: $medium-gray;
-    cursor: not-allowed;
-
-    &:hover {
-      background-color: $medium-gray;
-    }
-  }
-
   &.decline {
     background-color: $red;
 
     &:hover,
     &:focus {
       background-color: shade($red, 20%);
+    }
+  }
+
+  &:disabled {
+    background-color: $medium-gray;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $medium-gray;
     }
   }
 }

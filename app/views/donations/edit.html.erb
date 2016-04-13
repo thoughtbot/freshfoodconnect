@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-  <div class="content-wrapper-narrow form-container">
+  <div class="content-wrapper-narrow form-container no-footer">
     <header class="form-container__header">
       <h2><%= t(".header") %></h2>
     </header>
@@ -11,7 +11,13 @@
 
       <div class="dl-group">
         <%= render_donation_status(@donation) do %>
-          <%= render("donations/actions", donation: @donation) %>
+          <div class="donation-actions">
+            <% unless @donation.pending? %>
+              <h3 class="section-label"><%= t("donations.edit.prompt") %></h3>
+            <% end %>
+
+            <%= render("donations/actions", donation: @donation) %>
+          </div>
         <% end %>
       </div>
 
