@@ -37,7 +37,7 @@ feature "Donor declines donation" do
   end
 
   def have_declined_status
-    have_text t("donations.status.declined")
+    have_text t("donations.statuses.declined")
   end
 
   def decline_donation

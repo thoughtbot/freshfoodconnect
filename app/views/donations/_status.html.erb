@@ -1,7 +1,5 @@
-<% if donation.confirmed? %>
-  <%= t(".confirmed") %>
-<% elsif donation.declined? %>
-  <%= t(".declined") %>
+<% if donation.confirmed? || donation.declined? %>
+  <%= label_for_donation(donation) %>
 <% else %>
   <%= render("donations/confirm", donation: donation) %>
 

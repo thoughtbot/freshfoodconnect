@@ -25,7 +25,7 @@ feature "Donor confirms donation" do
   end
 
   def have_confirmed_status
-    have_text t("donations.status.confirmed")
+    have_text t("donations.statuses.confirmed")
   end
 
   def be_sent_to(email)

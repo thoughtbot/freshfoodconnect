@@ -68,7 +68,7 @@ en:
       small: "Small"
       medium: "Medium"
       large: "Large"
-    status:
+    statuses:
       confirmed: "Confirmed"
       declined: "Declined"
 

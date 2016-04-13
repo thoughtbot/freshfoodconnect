@@ -10,6 +10,6 @@ module DonationsHelper
   end
 
   def label_for_donation(donation)
-    t("donations.status.#{status_for_donation(donation)}")
+    t("donations.statuses.#{status_for_donation(donation)}")
   end
 end
