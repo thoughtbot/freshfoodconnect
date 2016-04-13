@@ -3,28 +3,11 @@
 </div>
 
 <div class="dl-group">
-  <dl>
-    <dt>
-      <%= t(
-        ".status_html",
-        date: l(donation.pickup_date, format: :default),
-      ) %>
-    </dt>
-
-    <% if donation.pending? %>
-      <dd class="btn-container">
-        <%= render("donations/confirm", donation: donation) %>
-        <%= render("donations/decline", donation: donation) %>
-      </dd>
-    <% else %>
-      <dd>
-        <%= label_for_donation(donation) %>
-        <%= link_to edit_donation_path(donation), class: "edit-donation" do %>
-          <%= t(".edit") %>
-        <% end %>
-      </dd>
+  <%= render_donation_status(donation) do %>
+    <%= link_to edit_donation_path(donation), class: "edit-donation" do %>
+      <%= t("donations.donation.edit") %>
     <% end %>
-  </dl>
+  <% end %>
 </div>
 
 <% if donation.confirmed? %>

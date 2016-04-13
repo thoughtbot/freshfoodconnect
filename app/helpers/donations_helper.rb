@@ -12,4 +12,8 @@ module DonationsHelper
   def label_for_donation(donation)
     t("donations.statuses.#{status_for_donation(donation)}")
   end
+
+  def render_donation_status(donation, &block)
+    render(layout: "donations/status", locals: { donation: donation }, &block)
+  end
 end

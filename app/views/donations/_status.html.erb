@@ -1,7 +1,17 @@
-<% if donation.confirmed? || donation.declined? %>
-  <%= label_for_donation(donation) %>
-<% else %>
-  <%= render("donations/confirm", donation: donation) %>
+<dl>
+  <dt>
+    <%= t(
+      ".html",
+      date: l(donation.pickup_date, format: :default),
+    ) %>
+  </dt>
+  <% if donation.pending? %>
+    <%= render("donations/actions", donation: donation) %>
+  <% else %>
+    <dd class="donation-status--<%= status_for_donation(donation) %>">
+      <%= label_for_donation(donation) %>
 
-  <%= render("donations/decline", donation: donation) %>
-<% end %>
+      <%= yield %>
+    </dd>
+  <% end %>
+</dl>

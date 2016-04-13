@@ -60,13 +60,14 @@ en:
       text: "Donating"
     donation:
       edit: "Change my Donation"
-      status_html: Donation Status for <span class="next-pickup-date">%{date}</span>
     decline:
       text: "Not Donating"
     sizes:
       small: "Small"
       medium: "Medium"
       large: "Large"
+    status:
+      html: Donation Status for <span class="next-pickup-date">%{date}</span>
     statuses:
       confirmed: "Confirmed"
       declined: "Declined"
