@@ -106,7 +106,6 @@ en:
     edit:
       header: "Edit this scheduled pickup"
       prompt: "Be sure to include the earliest and latest pickup times."
-    format: "%{weekday} between %{start_at} and %{end_at}"
     new:
       header: "Schedule the next pickup"
       prompt: "Be sure to include the earliest and latest pickup times."
@@ -138,6 +137,9 @@ en:
         "%b %-d, %Y"
       short:
         "%B %d"
+
+  time_ranges:
+    format: "%{weekday} between %{start_at} and %{end_at}"
 
   titles:
     application: Fresh Food Connect
