@@ -11,6 +11,7 @@ describe Donation do
   it { should validate_presence_of(:location) }
 
   it { should delegate_method(:address).to(:location) }
+  it { should delegate_method(:time_range).to(:scheduled_pickup) }
 
   context "uniqueness" do
     subject { create(:donation) }

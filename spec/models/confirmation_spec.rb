@@ -4,7 +4,7 @@ describe Confirmation do
   describe "#confirm!" do
     it "confirms the donation" do
       donation = build(:donation, confirmed: nil)
-      confirmation = Confirmation.new(donation: donation)
+      confirmation = Confirmation.new(donation)
 
       confirmation.confirm!
 
@@ -15,7 +15,7 @@ describe Confirmation do
   describe "#decline!" do
     it "declines the donation" do
       donation = build(:donation, declined: false)
-      confirmation = Confirmation.new(donation: donation)
+      confirmation = Confirmation.new(donation)
 
       confirmation.decline!
 

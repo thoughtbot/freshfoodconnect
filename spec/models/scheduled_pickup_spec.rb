@@ -36,4 +36,26 @@ describe ScheduledPickup do
       today - 1.day
     end
   end
+
+  describe "#time_range" do
+    it "constructs a TimeRange from the start and end times" do
+      scheduled_pickup = build_stubbed(:scheduled_pickup)
+      stubbed_time_range = stub_time_range_for(scheduled_pickup)
+
+      time_range = scheduled_pickup.time_range
+
+      expect(time_range).to be stubbed_time_range
+    end
+
+    def stub_time_range_for(pickup)
+      time_range = double
+
+      allow(TimeRange).
+        to receive(:new).
+        with(start_at: pickup.start_at, end_at: pickup.end_at).
+        and_return(time_range)
+
+      time_range
+    end
+  end
 end

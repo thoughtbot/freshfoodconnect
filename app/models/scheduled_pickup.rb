@@ -11,6 +11,10 @@ class ScheduledPickup < ActiveRecord::Base
     where("start_at >= ?", Time.current.beginning_of_day)
   end
 
+  def time_range
+    TimeRange.new(start_at: start_at, end_at: end_at)
+  end
+
   def users
     []
   end

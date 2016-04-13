@@ -32,7 +32,7 @@ class ConfirmationsController < ApplicationController
   private
 
   def build_confirmation
-    Confirmation.new(donation: find_donation)
+    Confirmation.new(find_donation)
   end
 
   def find_donation

@@ -1,15 +1,17 @@
-class Confirmation
-  def initialize(donation:)
-    @donation = donation
-  end
-
+class Confirmation < SimpleDelegator
   def confirm!
-    donation.update!(confirmed: true)
+    update!(confirmed: true)
   end
 
   def decline!
-    donation.update!(declined: true)
+    update!(declined: true)
   end
 
-  attr_reader :donation
+  def request!
+    if pending? && unrequested?
+      ConfirmationRequestJob.perform_now(donation: donation)
+    end
+  end
+
+  alias donation __getobj__
 end

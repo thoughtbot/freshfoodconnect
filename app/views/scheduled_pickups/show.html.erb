@@ -5,7 +5,7 @@
   </header>
   <section class="zipcode-content-section">
     <h2 class="section-label">Scheduled Pickup Time</h2>
-    <span><%= format_pickup_time(@scheduled_pickup) %></span>
+    <span><%= @scheduled_pickup.time_range %></span>
 
     <%= link_to(
       [:edit, @scheduled_pickup.zone, @scheduled_pickup],
