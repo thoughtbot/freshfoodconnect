@@ -13,6 +13,11 @@ feature "Donor declines donation" do
     expect(last_donation.donor).to belong_to(email)
     expect(page).to have_success_flash
     expect(page).to have_declined_status
+    expect(page).to be_redirected_to_profile
+  end
+
+  def be_redirected_to_profile
+    have_text t("profiles.show.edit")
   end
 
   def belong_to(email)

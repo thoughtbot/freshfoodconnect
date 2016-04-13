@@ -26,7 +26,7 @@ class ConfirmationsController < ApplicationController
 
     flash[:success] = t(".success")
 
-    redirect_to :back
+    redirect_to profile_url
   end
 
   private
