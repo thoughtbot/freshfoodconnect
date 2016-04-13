@@ -56,7 +56,7 @@
   width: 100%;
 
   @include media($large-screen-up) {
-    @include span-columns(2.5 of 8);
+    @include span-columns(3 of 9);
     margin: $base-spacing 0 0;
   }
 
@@ -73,7 +73,7 @@
 
   &__metadata {
     display: block;
-
+    padding-right: $small-spacing;
   }
 
   .edit {
@@ -87,7 +87,7 @@
   width: 100%;
 
   @include media($large-screen-up) {
-    @include span-columns(5.5 of 8);
+    @include span-columns(6 of 9);
   }
 }
 
