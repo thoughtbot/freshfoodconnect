@@ -47,7 +47,7 @@ feature "Admin views scheduled pickup" do
   end
 
   def view_zone(zone)
-    visit root_path(as: create(:user, :admin))
+    visit root_path(as: create(:admin))
     click_on zone.zipcode
   end
 

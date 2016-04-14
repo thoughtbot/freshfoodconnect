@@ -5,6 +5,8 @@ class ScheduledPickup < ActiveRecord::Base
 
   has_many :donations, dependent: :destroy
 
+  has_many :donations, dependent: :destroy
+
   validates :zone, presence: true
   validates :end_at, presence: true
   validates :start_at, presence: true

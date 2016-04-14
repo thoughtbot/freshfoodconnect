@@ -6,6 +6,7 @@ class Donation < ActiveRecord::Base
   belongs_to :scheduled_pickup, touch: true
   belongs_to :location, touch: true
   has_one :donor, through: :location, source: :user
+  has_one :zone, through: :scheduled_pickup
 
   enum size: %i[small medium large]
 
@@ -16,6 +17,15 @@ class Donation < ActiveRecord::Base
 
   delegate(:address, to: :location)
   delegate(:time_range, to: :scheduled_pickup)
+
+  def self.confirmed
+    where(<<-SQL)
+      confirmed_at IS NOT NULL AND (
+        declined_at IS NULL OR
+        confirmed_at > declined_at
+      )
+    SQL
+  end
 
   def self.current
     joins(:scheduled_pickup).merge(ScheduledPickup.current)

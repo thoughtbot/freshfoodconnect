@@ -107,6 +107,13 @@ en:
       text: "We'll be in touch with you once we begin servicing your area. We look forward to your contributions to Fresh Food Connect!"
       action: "Sounds Great!"
 
+  pickup_checklists:
+    show:
+      header: "Pickup Checklist for"
+      columns:
+        donor: "Supplier"
+        address: "Address"
+
   profiles:
     edit:
       header: "Edit Profile"
@@ -134,10 +141,11 @@ en:
       edit: "Edit"
       time: "Scheduled Pickup Time"
     donations:
-      header: "Donations"
+      checklist: "Cyclist Checklist"
       columns:
         name: "Supplier"
         status: "Donation Status for %{date}"
+      header: "Donations"
     update:
       success: "The pickup has been rescheduled."
 

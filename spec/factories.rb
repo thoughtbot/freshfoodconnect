@@ -12,8 +12,18 @@ FactoryGirl.define do
       confirmed true
     end
 
+    trait :confirmed_then_declined do
+      confirmed_at 1.week.ago
+      declined_at 1.day.ago
+    end
+
     trait :declined do
       declined true
+    end
+
+    trait :declined_then_confirmed do
+      declined_at 1.week.ago
+      confirmed_at 1.day.ago
     end
 
     trait :pending do
@@ -82,6 +92,7 @@ FactoryGirl.define do
   end
 
   factory :user do
+    sequence(:name) { |i| "Jane the #{[i, i.ordinal].join}" }
     email
     password "password"
     organic_growth_asserted true
@@ -91,7 +102,7 @@ FactoryGirl.define do
       with_location
     end
 
-    trait :admin do
+    factory :admin, aliases: [:cyclist] do
       admin true
     end
 

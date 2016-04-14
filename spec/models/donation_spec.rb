@@ -4,6 +4,7 @@ describe Donation do
   it { should belong_to(:scheduled_pickup).touch }
   it { should belong_to(:location).touch }
   it { should have_one(:donor).through(:location) }
+  it { should have_one(:zone).through(:scheduled_pickup) }
 
   it { should define_enum_for(:size).with(%i[small medium large]) }
 
@@ -18,6 +19,24 @@ describe Donation do
 
     it do
       should validate_uniqueness_of(:scheduled_pickup).scoped_to(:location_id)
+    end
+  end
+
+  describe ".confirmed" do
+    it "includes confirmed donations" do
+      confirmed_donation = create(:donation, :confirmed)
+      reconfirmed_donation = create(:donation, :declined_then_confirmed)
+      create(:donation, :confirmed_then_declined)
+      create(:donation, :declined)
+      create(:donation, :pending)
+
+      confirmed = Donation.confirmed
+      donors = confirmed.map(&:donor)
+
+      expect(donors.map(&:name)).to eq([
+        confirmed_donation.donor.name,
+        reconfirmed_donation.donor.name,
+      ])
     end
   end
 

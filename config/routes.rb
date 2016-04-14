@@ -24,7 +24,13 @@ Rails.application.routes.draw do
 
   constraints Clearance::Constraints::SignedIn.new(&:admin?) do
     resources :zones, only: [:create, :index, :new, :show] do
-      resources :scheduled_pickups, only: [:edit, :show, :new, :create, :update]
+      resources(
+        :scheduled_pickups,
+        path: :donations,
+        only: [:edit, :show, :new, :create, :update],
+      ) do
+        resource :pickup_checklist, only: [:show], path: :checklist
+      end
     end
 
     get "/" => redirect("/zones")

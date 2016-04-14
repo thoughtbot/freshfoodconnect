@@ -1,0 +1,30 @@
+<div class="content-wrapper-large content-container">
+  <h3>
+    <%= t(".header") %>
+    <%= link_to(
+      zone_scheduled_pickup_path(@pickup_checklist.zone, @pickup_checklist),
+      class: "pickup-checklist-date",
+    ) do %>
+      <%= l(@pickup_checklist.date) %>
+    <% end %>
+  </h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th><%= t(".columns.donor") %></th>
+        <th><%= t(".columns.address") %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pickup_checklist.donations.each do |donation| %>
+        <tr>
+          <td><%= donation.donor.name %></td>
+          <td><%= donation.address %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

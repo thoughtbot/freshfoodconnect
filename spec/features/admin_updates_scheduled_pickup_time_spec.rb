@@ -22,7 +22,7 @@ feature "Admin updates schedule pickup time" do
   end
 
   def visit_as_admin(zone)
-    visit zone_path(zone, as: create(:user, :admin))
+    visit zone_path(zone, as: create(:admin))
   end
 
   def dayname_for(datetime)

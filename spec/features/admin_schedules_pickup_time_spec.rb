@@ -14,7 +14,7 @@ feature "Admin schedules pickup time" do
       zipcode: "90210",
     )
 
-    visit zone_path(zone, as: create(:user, :admin))
+    visit zone_path(zone, as: create(:admin))
     schedule_pickup_with_defaults
 
     expect(page).to have_text(zone.zipcode)

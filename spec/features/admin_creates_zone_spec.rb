@@ -30,7 +30,7 @@ feature "Admin creates zone" do
   end
 
   def visit_homepage_as_admin
-    visit root_path(as: create(:user, :admin))
+    visit root_path(as: create(:admin))
   end
 
   def create_zone(**options)
