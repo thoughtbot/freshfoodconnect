@@ -22,7 +22,17 @@
         <tr>
           <td><%= donation.donor.name %></td>
           <td><%= donation.address %></td>
-          <td></td>
+          <td>
+            <% if donation.picked_up? %>
+              <%= button_to donation_pickup_path(donation), method: :delete do %>
+                <%= t(".undo") %>
+              <% end %>
+            <% else %>
+              <%= button_to donation_pickup_path(donation), method: :patch do %>
+                <%= t(".confirm") %>
+              <% end %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

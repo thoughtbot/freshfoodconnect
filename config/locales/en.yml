@@ -110,9 +110,17 @@ en:
   pickup_checklists:
     show:
       header: "Pickup Checklist for"
+      confirm: "Confirm"
+      undo: "Undo"
       columns:
         donor: "Supplier"
         address: "Address"
+
+  pickups:
+    destroy:
+      success: "Donation pickup undone."
+    update:
+      success: "Donation pickup confirmed."
 
   profiles:
     edit:

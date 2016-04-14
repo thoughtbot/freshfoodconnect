@@ -26,6 +26,12 @@ FactoryGirl.define do
       confirmed_at 1.day.ago
     end
 
+    trait :picked_up do
+      confirmed
+
+      picked_up true
+    end
+
     trait :pending do
       confirmed false
       declined false

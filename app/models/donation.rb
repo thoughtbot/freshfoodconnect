@@ -1,6 +1,7 @@
 class Donation < ActiveRecord::Base
   time_for_a_boolean :confirmed
   time_for_a_boolean :declined
+  time_for_a_boolean :picked_up
   time_for_a_boolean :requested
 
   belongs_to :scheduled_pickup, touch: true
