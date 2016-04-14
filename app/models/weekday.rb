@@ -18,4 +18,8 @@ class Weekday
     @label = label
     @value = value
   end
+
+  def to_s
+    label
+  end
 end

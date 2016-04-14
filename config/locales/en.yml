@@ -5,6 +5,8 @@ en:
         "%m/%d/%Y"
       with_weekday:
         "%a %m/%d/%y"
+      long_with_weekday:
+        "%A %B %-d, %Y"
     hours:
       - "12:00 am"
       - "1:00 am"
@@ -150,7 +152,7 @@ en:
   time:
     formats:
       at:
-        "%A at %l:%M %P"
+        "%A %B %-d, %Y at %l:%M %P"
       default:
         "%a, %b %-d, %Y at %r"
       date:
@@ -159,7 +161,7 @@ en:
         "%B %d"
 
   time_ranges:
-    format: "%{weekday} between %{start_at} and %{end_at}"
+    format: "%{date} between %{start_at} and %{end_at}"
 
   titles:
     application: Fresh Food Connect

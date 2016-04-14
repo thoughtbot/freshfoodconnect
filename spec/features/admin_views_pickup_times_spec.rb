@@ -1,28 +1,34 @@
 require "rails_helper"
 require "rake"
 
-feature "Admin views pickup time", :rake do
+feature "Admin views pickup time" do
   scenario "generated weekly" do
-    zone = create(
-      :zone,
-      start_hour: 13,
-      end_hour: 15,
-      weekday: wednesday,
-    )
-    schedule_pickups!
+    friday = thursday + 1.day
 
-    view_zone(zone)
+    Timecop.freeze(thursday) do
+      zone = create(
+        :zone,
+        start_hour: 13,
+        end_hour: 15,
+        weekday: friday.wday,
+      )
+      schedule_pickups!
 
-    expect(page).to have_text("Wednesday between 1:00 pm and 3:00 pm")
-    expect(page).to have_confirmation_time("Monday at 1:00 pm")
+      view_zone(zone)
+
+      expect(page).
+        to have_text("Friday April 15, 2016 between 1:00 pm and 3:00 pm")
+      expect(page).
+        to have_confirmation_time("Wednesday April 13, 2016 at 1:00 pm")
+    end
   end
 
   def have_confirmation_time(time)
     have_text t("scheduled_pickups.show.confirmation.time", time: time)
   end
 
-  def wednesday
-    Weekday.find(3).value
+  def thursday
+    Date.new(2016, 4, 14).beginning_of_day
   end
 
   def view_zone(zone)

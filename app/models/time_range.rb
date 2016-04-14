@@ -7,7 +7,7 @@ class TimeRange
   def to_s
     I18n.t(
       "time_ranges.format",
-      weekday: weekday.label,
+      date: I18n.l(date, format: :long_with_weekday),
       start_at: format(start_at),
       end_at: format(end_at),
     )
@@ -25,7 +25,7 @@ class TimeRange
     datetime.strftime(FORMAT).strip
   end
 
-  def weekday
-    Weekday.find(start_at.wday)
+  def date
+    start_at.to_date
   end
 end

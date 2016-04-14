@@ -11,7 +11,7 @@ if Rails.env.development? || Rails.env.test?
         zipcode: "80205",
         start_hour: 13,
         end_hour: 15,
-        weekday: Date::DAYNAMES.index("Thursday"),
+        weekday: Date::DAYNAMES.index("Friday"),
       )
       registration = create(
         :registration,

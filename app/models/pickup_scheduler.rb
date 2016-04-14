@@ -42,22 +42,22 @@ class PickupScheduler
   end
 
   def end_time
-    scheduled_date + end_hour.hours
+    pickup_day + end_hour.hours
   end
 
   def start_time
-    scheduled_date + start_hour.hours
+    pickup_day + start_hour.hours
   end
 
-  def scheduled_date
-    start_of_week + offset_into_week
+  def pickup_day
+    Chronic.parse(
+      day_of_week,
+      conext: :next,
+      now: Time.current,
+    ).beginning_of_day
   end
 
-  def offset_into_week
-    weekday.days
-  end
-
-  def start_of_week
-    Time.current.sunday.beginning_of_day
+  def day_of_week
+    Weekday.find(weekday)
   end
 end

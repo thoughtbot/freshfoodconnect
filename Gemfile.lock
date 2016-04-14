@@ -70,6 +70,7 @@ GEM
     capybara-webkit (1.8.0)
       capybara (>= 2.3.0, < 2.7.0)
       json
+    chronic (0.10.2)
     clearance (1.13.0)
       bcrypt
       email_validator (~> 1.4)
@@ -282,6 +283,7 @@ DEPENDENCIES
   bundler-audit (>= 0.5.0)
   capybara-email
   capybara-webkit
+  chronic
   clearance (~> 1.13.0)
   database_cleaner
   delayed_job_active_record

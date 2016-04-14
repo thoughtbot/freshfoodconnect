@@ -3,48 +3,46 @@ require "rails_helper"
 describe PickupScheduler do
   context "when there are no pickups scheduled for the current week" do
     it "creates a ScheduledPickup" do
-      beginning_of_week = Time.current.sunday.beginning_of_day
+      friday = thursday + 1.day
+      last_friday = friday - 1.week
 
-      Timecop.freeze(beginning_of_week) do
+      Timecop.freeze(thursday) do
         zone = create(
           :zone,
           start_hour: 0,
           end_hour: 1,
-          weekday: beginning_of_week.wday,
+          weekday: friday.wday,
         )
         create(
           :scheduled_pickup,
           zone: zone,
-          start_at: beginning_of_week - 1.day,
-          end_at: beginning_of_week - 1.day,
+          start_at: last_friday,
+          end_at: last_friday,
         )
         scheduler = PickupScheduler.new(zone)
 
         scheduler.schedule!
-        scheduled_pickup = ScheduledPickup.last
+        pickup = ScheduledPickup.last
 
         expect(ScheduledPickup.count).to eq(2)
-        expect(scheduled_pickup.start_at.hour).to eq(0)
-        expect(scheduled_pickup.end_at.hour).to eq(1)
-        expect(scheduled_pickup.start_at.wday).to eq(0)
+        expect(pickup.start_at).to be_scheduled_for(friday, at: zone.start_hour)
+        expect(pickup.end_at.hour).to eq(zone.end_hour)
       end
     end
   end
 
   context "when there is already a Pickup scheduled for the week" do
     it "doesn't create a ScheduledPickup" do
-      beginning_of_week = Time.current.sunday.beginning_of_day
+      friday = thursday + 1.day
+      saturday = thursday + 2.days
 
-      Timecop.freeze(beginning_of_week) do
-        zone = create(
-          :zone,
-          weekday: beginning_of_week.wday,
-        )
+      Timecop.freeze(thursday) do
+        zone = create(:zone, weekday: friday.wday)
         create(
           :scheduled_pickup,
           zone: zone,
-          start_at: beginning_of_week + 1.hour,
-          end_at: beginning_of_week + 2.hours,
+          start_at: saturday,
+          end_at: saturday,
         )
         scheduler = PickupScheduler.new(zone)
 
@@ -64,5 +62,19 @@ describe PickupScheduler do
 
     expect(Donation.count).to eq(1)
     expect(Donation.all.map(&:donor)).to eq([location.user])
+  end
+
+  def be_scheduled_for(date, at:)
+    have_attributes(
+      day: date.day,
+      hour: at,
+      month: date.month,
+      wday: date.wday,
+      year: date.year,
+    )
+  end
+
+  def thursday
+    Date.new(2016, 4, 14).beginning_of_day
   end
 end

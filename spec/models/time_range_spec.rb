@@ -9,7 +9,8 @@ describe TimeRange do
       time_range = TimeRange.new(start_at: start_at, end_at: end_at)
       formatted = time_range.to_s
 
-      expect(formatted).to eq("Wednesday between 12:00 am and 1:00 am")
+      expect(formatted).
+        to eq("Wednesday April 13, 2016 between 12:00 am and 1:00 am")
     end
   end
 end
