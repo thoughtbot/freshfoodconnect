@@ -1,0 +1,21 @@
+<h2 class="section-label"><%= t(".header") %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        <%= t(".columns.name") %>
+      </th>
+      <th>
+        <%= t(".columns.status", date: l(scheduled_pickup.start_at.to_date)) %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render(
+      partial: "scheduled_pickups/donation",
+      collection: scheduled_pickup.donations.includes(:donor),
+      as: :donation,
+    ) %>
+  </tbody>
+</table>

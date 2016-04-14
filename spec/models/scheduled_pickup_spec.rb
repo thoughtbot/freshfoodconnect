@@ -1,7 +1,9 @@
 require "rails_helper"
 
 describe ScheduledPickup do
-  it { should belong_to(:zone) }
+  it { should belong_to(:zone).touch }
+
+  it { should have_many(:donations).dependent(:destroy) }
 
   it { should validate_presence_of(:zone) }
   it { should validate_presence_of(:end_at) }

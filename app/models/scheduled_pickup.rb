@@ -1,7 +1,9 @@
 class ScheduledPickup < ActiveRecord::Base
   HOURS_IN_ADVANCE_FOR_CONFIRMATION = 48
 
-  belongs_to :zone
+  belongs_to :zone, touch: true
+
+  has_many :donations, dependent: :destroy
 
   validates :zone, presence: true
   validates :end_at, presence: true

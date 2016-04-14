@@ -1,8 +1,8 @@
 require "rails_helper"
 require "rake"
 
-feature "Admin views pickup time" do
-  scenario "generated weekly" do
+feature "Admin views scheduled pickup" do
+  scenario "scheduled by the system" do
     friday = thursday + 1.day
 
     Timecop.freeze(thursday) do
@@ -12,6 +12,8 @@ feature "Admin views pickup time" do
         end_hour: 15,
         weekday: friday.wday,
       )
+      location = create(:location, zone: zone)
+      donor = location.user
       schedule_pickups!
 
       view_zone(zone)
@@ -20,7 +22,20 @@ feature "Admin views pickup time" do
         to have_text("Friday April 15, 2016 between 1:00 pm and 3:00 pm")
       expect(page).
         to have_confirmation_time("Wednesday April 13, 2016 at 1:00 pm")
+      expect(page).to have_donation_row_for(donor)
+      expect(page).to have_status_column_for(friday)
     end
+  end
+
+  def have_donation_row_for(donor)
+    have_text donor.name
+  end
+
+  def have_status_column_for(day)
+    have_text t(
+      "scheduled_pickups.donations.columns.status",
+      date: l(day.to_date),
+    )
   end
 
   def have_confirmation_time(time)

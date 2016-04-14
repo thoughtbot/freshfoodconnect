@@ -27,23 +27,7 @@
   </section>
 
   <section class="zipcode-content-section">
-    <h2 class="section-label"><%= t(".suppliers") %></h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Donation Status for 10/20/15</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @scheduled_pickup.users.each do |user| %>
-          <tr>
-            <td><%= user.name %></td>
-            <td>Donating</td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render("scheduled_pickups/donations", scheduled_pickup: @scheduled_pickup) %>
 
     <div class="supplier-map">
       <h2 class="section-label">Map</h2>

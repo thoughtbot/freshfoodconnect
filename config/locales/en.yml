@@ -79,7 +79,7 @@ en:
     statuses:
       confirmed: "Donating"
       declined: "Not Donating"
-      pending: "Pending"
+      pending: "Unknown"
     update:
       success: "Donation updated."
 
@@ -132,8 +132,12 @@ en:
         header: "Scheduled Confirmation Time"
         time: "Confirmations will be requested before %{time}"
       edit: "Edit"
-      suppliers: "Suppliers"
       time: "Scheduled Pickup Time"
+    donations:
+      header: "Donations"
+      columns:
+        name: "Supplier"
+        status: "Donation Status for %{date}"
     update:
       success: "The pickup has been rescheduled."
 
