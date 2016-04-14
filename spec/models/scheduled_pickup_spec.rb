@@ -37,6 +37,20 @@ describe ScheduledPickup do
     end
   end
 
+  describe "#confirmation_requested_at" do
+    around do |example|
+      Timecop.freeze { example.run }
+    end
+
+    it "returns a time 48 in advance of the earliest pickup time" do
+      scheduled_pickup = create(:scheduled_pickup, start_at: 48.hours.from_now)
+
+      confirmation_requested_at = scheduled_pickup.confirmation_requested_at
+
+      expect(confirmation_requested_at).to eq(Time.current)
+    end
+  end
+
   describe "#time_range" do
     it "constructs a TimeRange from the start and end times" do
       scheduled_pickup = build_stubbed(:scheduled_pickup)

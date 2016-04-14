@@ -34,3 +34,22 @@ you can deploy to staging and production with:
 
     $ ./bin/deploy staging
     $ ./bin/deploy production
+
+## Scheduling Pickups
+
+Our [staging][] and [production][] applications are deployed to Heroku.
+
+We use the [Heroku Scheduler][scheduler] addon to run our scheduling-focussed
+Rake tasks on a nightly basis.
+
+Each night, the scheduler will run the following tasks:
+
+* `pickups:schedule` - creates `ScheduledPickup` rows for any active
+  zipcodes without pickups scheduled for the week. This task is idempotent.
+* `confirmations:request` - sends Confirmation Request emails to donors
+  associated with `ScheduledPickup`s scheduled to occur within the next `48`
+  hours.
+
+[staging]: https://dashboard.heroku.com/apps/freshfoodconnect-staging
+[production]: https://dashboard.heroku.com/apps/freshfoodconnect-production
+[scheduler]: https://elements.heroku.com/addons/scheduler

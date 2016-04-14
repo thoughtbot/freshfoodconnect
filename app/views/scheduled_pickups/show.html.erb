@@ -3,8 +3,9 @@
     <h2><%= @scheduled_pickup.zipcode %></h2>
     <span class="zipcode-activation-status">Active</span>
   </header>
+
   <section class="zipcode-content-section">
-    <h2 class="section-label">Scheduled Pickup Time</h2>
+    <h2 class="section-label"><%= t(".time") %></h2>
     <span><%= @scheduled_pickup.time_range %></span>
 
     <%= link_to(
@@ -14,8 +15,19 @@
       <%= t(".edit") %>
     <% end %>
   </section>
+
   <section class="zipcode-content-section">
-    <h2 class="section-label">Suppliers</h2>
+    <h2 class="section-label"><%= t(".confirmation.header") %></h2>
+    <span>
+      <%= t(
+        ".confirmation.time",
+        time: l(@scheduled_pickup.confirmation_requested_at, format: :at),
+      ) %>
+    </span>
+  </section>
+
+  <section class="zipcode-content-section">
+    <h2 class="section-label"><%= t(".suppliers") %></h2>
     <table>
       <thead>
         <tr>

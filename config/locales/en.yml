@@ -126,7 +126,12 @@ en:
     scheduled_pickup:
       header: "Scheduled Pickup Time"
     show:
+      confirmation:
+        header: "Scheduled Confirmation Time"
+        time: "Confirmations will be requested before %{time}"
       edit: "Edit"
+      suppliers: "Suppliers"
+      time: "Scheduled Pickup Time"
     update:
       success: "The pickup has been rescheduled."
 
@@ -144,6 +149,8 @@ en:
 
   time:
     formats:
+      at:
+        "%A at %l:%M %P"
       default:
         "%a, %b %-d, %Y at %r"
       date:

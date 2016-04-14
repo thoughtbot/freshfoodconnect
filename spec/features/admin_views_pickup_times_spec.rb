@@ -14,6 +14,11 @@ feature "Admin views pickup time", :rake do
     view_zone(zone)
 
     expect(page).to have_text("Wednesday between 1:00 pm and 3:00 pm")
+    expect(page).to have_confirmation_time("Monday at 1:00 pm")
+  end
+
+  def have_confirmation_time(time)
+    have_text t("scheduled_pickups.show.confirmation.time", time: time)
   end
 
   def wednesday

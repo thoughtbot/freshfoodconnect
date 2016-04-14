@@ -1,4 +1,6 @@
 class ScheduledPickup < ActiveRecord::Base
+  HOURS_IN_ADVANCE_FOR_CONFIRMATION = 48
+
   belongs_to :zone
 
   validates :zone, presence: true
@@ -13,6 +15,10 @@ class ScheduledPickup < ActiveRecord::Base
 
   def time_range
     TimeRange.new(start_at: start_at, end_at: end_at)
+  end
+
+  def confirmation_requested_at
+    start_at - HOURS_IN_ADVANCE_FOR_CONFIRMATION.hours
   end
 
   def users
