@@ -145,7 +145,7 @@ en:
     show:
       confirmation:
         header: "Scheduled Confirmation Time"
-        time: "Confirmations will be requested before %{time}"
+        time: "Confirmation emails will be sent on %{time}"
       edit: "Edit"
       time: "Scheduled Pickup Time"
     donations:
