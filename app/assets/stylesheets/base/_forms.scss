@@ -220,3 +220,13 @@ select {
     content: "";
   }
 }
+
+span.radio label {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  margin: 0;
+}
