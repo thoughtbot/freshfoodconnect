@@ -1,6 +1,6 @@
 <div class="content-wrapper-large content-container">
   <h3>
-    <%= t(".header") %>
+    <%= t(".header", zipcode: @pickup_checklist.zipcode) %>
     <%= link_to(
       zone_scheduled_pickup_path(@pickup_checklist.zone, @pickup_checklist),
       class: "pickup-checklist-date",

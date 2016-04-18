@@ -3,6 +3,7 @@ require "rails_helper"
 describe User do
   it { should have_one(:location).dependent(:destroy) }
   it { should have_many(:donations).through(:location) }
+  it { should belong_to(:assigned_zone) }
 
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password).on(:create) }
@@ -14,6 +15,29 @@ describe User do
   it do
     should validate_presence_of(:terms_and_conditions_accepted_at).
       with_message(t("validations.accepted"))
+  end
+
+  describe "#cyclist?" do
+    context "when the User is assigned a zone" do
+      it "returns true" do
+        zone = build_stubbed(:zone)
+        user = User.new(assigned_zone: zone)
+
+        cyclist = user.cyclist?
+
+        expect(cyclist).to be true
+      end
+    end
+
+    context "when the User is not assigned a zone" do
+      it "returns false" do
+        user = User.new(assigned_zone: nil)
+
+        cyclist = user.cyclist?
+
+        expect(cyclist).to be false
+      end
+    end
   end
 
   describe "#current_donation" do

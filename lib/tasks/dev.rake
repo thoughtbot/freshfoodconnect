@@ -15,12 +15,24 @@ if Rails.env.development? || Rails.env.test?
       )
       registration = create(
         :registration,
-        name: "Super User",
-        email: "user@example.com",
+        name: "Admin User",
+        email: "admin@example.com",
         password: "password",
         zipcode: zone.zipcode,
       )
       registration.user.update!(admin: true)
+      create(
+        :registration,
+        name: "Jane Q. Donor",
+        email: "donor@example.com",
+        password: "password",
+        zipcode: zone.zipcode,
+      )
+      create(
+        :cyclist,
+        email: "cyclist@example.com",
+        password: "password",
+      )
     end
   end
 end

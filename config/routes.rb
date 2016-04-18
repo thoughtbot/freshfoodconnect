@@ -23,20 +23,35 @@ Rails.application.routes.draw do
   get "/pages/*id" => 'pages#show', as: :page, format: false
 
   constraints Clearance::Constraints::SignedIn.new(&:admin?) do
-    resources :donations, only: [:show] do
-      resource :pickup, only: [:update, :destroy]
-    end
     resources :zones, only: [:create, :index, :new, :show] do
       resources(
         :scheduled_pickups,
         path: :donations,
         only: [:edit, :show, :new, :create, :update],
+      )
+    end
+
+    get "/" => redirect("/zones")
+  end
+
+  constraints Clearance::Constraints::SignedIn.new(&:staff?) do
+    resources :donations, only: [:show] do
+      resource :pickup, only: [:update, :destroy]
+    end
+
+    resources :zones, only: [] do
+      resources(
+        :scheduled_pickups,
+        path: :donations,
+        only: [],
       ) do
         resource :checklist, only: [:show], controller: :pickup_checklists
       end
     end
+  end
 
-    get "/" => redirect("/zones")
+  constraints Clearance::Constraints::SignedIn.new(&:cyclist?) do
+    get "/" => "latest_pickup_checklists#show"
   end
 
   constraints Clearance::Constraints::SignedIn.new do

@@ -109,7 +109,7 @@ en:
 
   pickup_checklists:
     show:
-      header: "Pickup Checklist for"
+      header: "Pickup Checklist for %{zipcode} on"
       confirm: "Confirm"
       undo: "Undo"
       columns:

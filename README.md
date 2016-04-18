@@ -18,6 +18,19 @@ After setting up, you can run the application using [Heroku Local]:
 
 [Heroku Local]: https://devcenter.heroku.com/articles/heroku-local
 
+Local development has access to the following user roles:
+
+<dl>
+  <dt>An administrator</dt>
+  <dd>admin@example.com</dt>
+
+  <dt>A donor</dt>
+  <dd>donor@example.com</dt>
+
+  <dt>A cyclist</dt>
+  <dd>cyclist@example.com</dt>
+</dl>
+
 ## Guidelines
 
 Use the following guides for getting things done, programming well, and

@@ -5,7 +5,7 @@ feature "Cyclist picks up donation" do
     scenario "marking it as picked up" do
       donation = create_donation(:confirmed)
 
-      visit_pickup_checklist_for(donation)
+      sign_in_as_cyclist
       confirm_pickup
 
       expect(page).to have_confirmed_flash
@@ -18,7 +18,7 @@ feature "Cyclist picks up donation" do
     scenario "marking it as not picked up" do
       donation = create_donation(:picked_up)
 
-      visit_pickup_checklist_for(donation)
+      sign_in_as_cyclist
       undo_pickup
 
       expect(page).to have_undone_flash
@@ -65,11 +65,7 @@ feature "Cyclist picks up donation" do
     click_on t("pickup_checklists.show.undo")
   end
 
-  def visit_pickup_checklist_for(donation)
-    visit zone_scheduled_pickup_checklist_path(
-      donation.zone,
-      donation.scheduled_pickup,
-      as: create(:cyclist),
-    )
+  def sign_in_as_cyclist
+    sign_in_as(create(:cyclist))
   end
 end

@@ -104,12 +104,16 @@ FactoryGirl.define do
     organic_growth_asserted true
     terms_and_conditions_accepted true
 
-    factory :donor do
-      with_location
+    factory :admin do
+      admin true
     end
 
-    factory :admin, aliases: [:cyclist] do
-      admin true
+    factory :cyclist do
+      cyclist true
+    end
+
+    factory :donor do
+      with_location
     end
 
     trait :with_location do

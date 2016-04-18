@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414211851) do
+ActiveRecord::Schema.define(version: 20160418182837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(version: 20160414211851) do
   add_index "donations", ["size"], name: "index_donations_on_size", using: :btree
 
   create_table "locations", force: :cascade do |t|
-    t.string  "address",                      null: false
-    t.string  "zipcode",                      null: false
-    t.text    "notes",         default: "",   null: false
-    t.integer "user_id",                      null: false
-    t.integer "location_type", default: 0,    null: false
-    t.boolean "grown_on_site", default: true, null: false
-    t.decimal "latitude",  precision: 15, scale: 10
-    t.decimal "longitude", precision: 15, scale: 10
+    t.string  "address",                                                null: false
+    t.string  "zipcode",                                                null: false
+    t.text    "notes",                                   default: "",   null: false
+    t.integer "user_id",                                                null: false
+    t.integer "location_type",                           default: 0,    null: false
+    t.boolean "grown_on_site",                           default: true, null: false
+    t.decimal "latitude",      precision: 15, scale: 10
+    t.decimal "longitude",     precision: 15, scale: 10
   end
 
   create_table "scheduled_pickups", force: :cascade do |t|
@@ -88,8 +88,10 @@ ActiveRecord::Schema.define(version: 20160414211851) do
     t.boolean  "admin",                                        default: false, null: false
     t.datetime "terms_and_conditions_accepted_at"
     t.datetime "organic_growth_asserted_at"
+    t.integer  "assigned_zone_id"
   end
 
+  add_index "users", ["assigned_zone_id"], name: "index_users_on_assigned_zone_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
