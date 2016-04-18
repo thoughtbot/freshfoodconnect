@@ -12,25 +12,19 @@
   <div class="section-wrapper">
     <h2 class="section-heading">About Us</h2>
     <div class="about__tile">
-      <div class="tile-image-container">
-        <%= image_tag("cyclist.jpg") %>
-      </div>
+      <%= image_tag("cyclist.jpg") %>
       <h3>How does it work?</h3>
       <p>Use the field above to check if we service your zipcode. Once you give us some information about you and your donation, simply leave out your extra produce each week and we'll come by to collect it!</p>
     </div>
     <div class="about__tile">
-      <div class="tile-image-container">
-        <a href="https://www.youtube.com/watch?v=T2XTSZGAv5s" target="_blank" class="video-thumbnail">
-          <%= image_tag("video-thumbnail.jpg") %>
-        </a>
+      <div class="video-wrapper">
+        <a href="https://www.youtube.com/watch?v=T2XTSZGAv5s" target="_blank" class="video-thumbnail"></a>
       </div>
       <h3>Watch our short intro video</h3>
       <p>Learn more about the process and the people behind Fresh Food Connect.</p>
     </div>
     <div class="about__tile">
-      <div class="tile-image-container">
-        <%= image_tag("waste.jpg") %>
-      </div>
+      <%= image_tag("waste.jpg") %>
       <h3>Don't Waste!</h3>
       <p>In the USA, 30-40% of the food supply is wasted, equaling more than 20 pounds of food per person per month. Don't be a part of this statistic!</p>
     </div>
@@ -38,4 +32,6 @@
 </section>
 
 <footer class="homepage-footer">
+  <p>Made possible by <a href="http://thoughtbot.com">thoughtbot Inc.</a> with love, in Denver, CO.</p>
+  <p>Copyright © 2016 <a href="http://groundworkcolorado.org/">Ground Work Denver</a></p>
 </footer>
