@@ -39,12 +39,21 @@
 }
 
 .donation-status {
-  &--confirmed {
-    color: $action-color;
+  &--confirmed::before,
+  &--declined::before {
+    @include size(10px);
+    border-radius: 50%;
+    content: "";
+    display: inline-block;
+    margin-right: $xsmall-spacing / 2;
   }
 
-  &--declined {
-    color: $red;
+  &--confirmed::before {
+    background-color: $action-color;
+  }
+
+  &--declined::before {
+    background-color: $red;
   }
 }
 
