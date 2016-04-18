@@ -1,0 +1,7 @@
+<header class="zipcode-header" data-role="zone">
+  <h2><%= zone.zipcode %></h2>
+
+  <%= link_to edit_zone_path(zone), class: "zipcode-activation-status" do %>
+    <%= t(".edit") %>
+  <% end %>
+</header>

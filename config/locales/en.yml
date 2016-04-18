@@ -156,6 +156,8 @@ en:
       header: "Donations"
     update:
       success: "The pickup has been rescheduled."
+    zone:
+      edit: "Edit"
 
   registrations:
     form:
@@ -198,6 +200,8 @@ en:
     defaults:
       prompt:
         "Pickups for %{zipcode} are usually scheduled for %{day} between %{start} and %{end}"
+    edit:
+      header: "Edit %{zipcode}'s Pickup Schedule"
     index:
       active: "Active Zipcodes"
       inactive: "Inactive Zipcodes"
@@ -211,3 +215,5 @@ en:
 
     show:
       no_pickup: "There are no pickups scheduled for this week."
+    update:
+      success: "Future pickups for this zipcode have been rescheduled."

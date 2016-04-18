@@ -3,8 +3,12 @@ class ZonesController < ApplicationController
     @zones = Zone.all
   end
 
+  def edit
+    @zone = find_zone
+  end
+
   def show
-    @zone = Zone.find_by!(zipcode: params[:id])
+    @zone = find_zone
 
     if current_scheduled_pickup.present?
       redirect_to zone_scheduled_pickup_url(
@@ -26,11 +30,23 @@ class ZonesController < ApplicationController
     end
   end
 
+  def update
+    @zone = find_zone
+
+    @zone.update!(zone_params)
+
+    redirect_to @zone, flash: { success: t(".success") }
+  end
+
   def new
     @zone = Zone.new
   end
 
   private
+
+  def find_zone
+    Zone.find_by!(zipcode: params[:id])
+  end
 
   def current_scheduled_pickup
     @zone.current_scheduled_pickup

@@ -1,0 +1,17 @@
+<section>
+  <div class="content-wrapper-narrow form-container">
+    <header class="form-container__header">
+      <h3><%= t(".header", zipcode: @zone.zipcode) %></h3>
+    </header>
+
+    <%= simple_form_for(@zone) do |f| %>
+      <div class="form-container__body">
+        <%= render("zones/time_fields", f: f) %>
+      </div>
+
+      <footer class="form-container__footer">
+        <%= f.submit %>
+      </footer>
+    <% end %>
+  </div>
+</section>

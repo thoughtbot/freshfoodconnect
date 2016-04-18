@@ -1,0 +1,21 @@
+<%= f.input(
+  :weekday,
+  collection: Weekday.all,
+  label_method: :label,
+  value_method: :value,
+  wrapper_html: { class: "label-input-group" },
+) %>
+<%= f.input(
+  :start_hour,
+  collection: Hour.all,
+  label_method: :label,
+  value_method: :value,
+  wrapper_html: { class: "label-input-group" },
+) %>
+<%= f.input(
+  :end_hour,
+  collection: Hour.all,
+  label_method: :label,
+  value_method: :value,
+  wrapper_html: { class: "label-input-group" },
+) %>

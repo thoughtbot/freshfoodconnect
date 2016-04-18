@@ -20,6 +20,7 @@ en:
         create: "Tell me when you launch!"
       zone:
         create: "Create Zipcode"
+        update: "Save"
 
   simple_form:
     "yes": 'Yes'

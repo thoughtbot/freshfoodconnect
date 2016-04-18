@@ -1,10 +1,7 @@
 <div class="content-wrapper-narrow content-container">
-  <header class="zipcode-header">
-    <h2><%= @scheduled_pickup.zipcode %></h2>
-    <span class="zipcode-activation-status">Active</span>
-  </header>
+  <%= render("scheduled_pickups/zone", zone: @scheduled_pickup.zone) %>
 
-  <section class="zipcode-content-section">
+  <section class="zipcode-content-section" data-role="pickup-time">
     <h2 class="section-label"><%= t(".time") %></h2>
     <span><%= @scheduled_pickup.time_range %></span>
 
