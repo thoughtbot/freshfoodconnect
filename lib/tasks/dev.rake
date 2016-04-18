@@ -23,6 +23,7 @@ if Rails.env.development? || Rails.env.test?
       registration.user.update!(admin: true)
       create(
         :registration,
+        address: "2300 Steele St, Denver, CO",
         name: "Jane Q. Donor",
         email: "donor@example.com",
         password: "password",

@@ -16,7 +16,7 @@ class Donation < ActiveRecord::Base
     presence: true,
     uniqueness: { scope: :location_id }
 
-  delegate(:address, to: :location)
+  delegate(:address, :geocoded?, :latitude, :longitude, to: :location)
   delegate(:date, :time_range, to: :scheduled_pickup)
 
   def self.confirmed

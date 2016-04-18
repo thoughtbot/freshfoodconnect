@@ -26,9 +26,6 @@
   <section class="zipcode-content-section">
     <%= render("scheduled_pickups/donations", scheduled_pickup: @scheduled_pickup) %>
 
-    <div class="supplier-map">
-      <h2 class="section-label">Map</h2>
-      <div class="map-placeholder"></div>
-    </div>
+    <%= render(@scheduled_pickup.build_google_map(callback: "initMap", id: "map")) %>
   </section>
 </div>

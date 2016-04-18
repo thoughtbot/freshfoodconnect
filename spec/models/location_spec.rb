@@ -51,6 +51,38 @@ describe Location do
     end
   end
 
+  describe "#geocoded?" do
+    context "when the latitude and longitude are present" do
+      it "returns true" do
+        location = Location.new(latitude: 5, longitude: 5)
+
+        geocoded = location.geocoded?
+
+        expect(geocoded).to be true
+      end
+    end
+
+    context "when the latitude is missing" do
+      it "returns false" do
+        location = Location.new(latitude: nil, longitude: 5)
+
+        geocoded = location.geocoded?
+
+        expect(geocoded).to be false
+      end
+    end
+
+    context "when the longitude is missing" do
+      it "returns false" do
+        location = Location.new(latitude: 5, longitude: nil)
+
+        geocoded = location.geocoded?
+
+        expect(geocoded).to be false
+      end
+    end
+  end
+
   describe "#zipcode=" do
     it "trims whitespace" do
       location = Location.new(zipcode: "    90210 ")

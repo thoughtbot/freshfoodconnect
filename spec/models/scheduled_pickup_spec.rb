@@ -39,6 +39,21 @@ describe ScheduledPickup do
     end
   end
 
+  describe "#build_google_map" do
+    it "constructs a GoogleMap instance from the donations" do
+      id = "map"
+      callback = "callback"
+      scheduled_pickup = create(:scheduled_pickup)
+      create(:donation, :confirmed, scheduled_pickup: scheduled_pickup)
+      create(:donation, :declined, scheduled_pickup: scheduled_pickup)
+
+      google_map = scheduled_pickup.build_google_map(id: id, callback: callback)
+
+      expect(google_map.id).to eq(id)
+      expect(google_map.donations.all?(&:confirmed?)).to be true
+    end
+  end
+
   describe "#confirmation_requested_at" do
     around do |example|
       Timecop.freeze { example.run }

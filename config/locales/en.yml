@@ -110,6 +110,10 @@ en:
     show:
       header: "Donation History for"
 
+  google_maps:
+    google_map:
+      empty: "There are no confirmed donations."
+
   locations:
     form:
       header: "Additional Info"

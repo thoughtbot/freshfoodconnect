@@ -5,14 +5,20 @@ class ScheduledPickup < ActiveRecord::Base
 
   has_many :donations, dependent: :destroy
 
-  has_many :donations, dependent: :destroy
-
   validates :zone, presence: true
   validates :end_at, presence: true
   validates :start_at, presence: true
 
   def self.current
     where("start_at >= ?", Time.current.beginning_of_day)
+  end
+
+  def build_google_map(callback:, id:)
+    GoogleMap.new(
+      callback: callback,
+      donations: donations.confirmed,
+      id: id,
+    )
   end
 
   def date

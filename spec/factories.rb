@@ -57,8 +57,8 @@ FactoryGirl.define do
     supported
 
     trait :geocoded do
-      latitude 40
-      longitude 60
+      latitude 40.0
+      longitude 60.0
     end
 
     trait :grown_on_site do

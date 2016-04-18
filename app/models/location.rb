@@ -31,6 +31,10 @@ class Location < ActiveRecord::Base
     where("latitude IS NULL OR longitude IS NULL")
   end
 
+  def geocoded?
+    latitude.present? && longitude.present?
+  end
+
   def zipcode=(zipcode)
     super(zipcode.to_s.strip)
   end

@@ -1,0 +1,18 @@
+<div class="supplier-map">
+  <h2 class="section-label">Map</h2>
+
+  <% if google_map.empty? %>
+    <p><%= t(".empty") %>
+  <% else %>
+    <%= tag(:div, id: google_map.id, class: "map-placeholder") %>
+
+    <% content_for :google_map do %>
+      <%= tag(:meta, name: "google-map-center", content: h(google_map.center.to_json)) %>
+      <%= tag(:meta, name: "google-map-markers", content: h(google_map.markers.to_json)) %>
+    <% end %>
+
+    <% content_for :javascript do %>
+      <script src="<%= google_map.src_url %>" async defer></script>
+    <% end %>
+  <% end %>
+</div>
