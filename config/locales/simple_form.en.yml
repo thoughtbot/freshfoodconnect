@@ -1,6 +1,8 @@
 en:
   helpers:
     submit:
+      cyclist_invitation:
+        create: "Invite"
       donation:
         update: "Update"
       location:
@@ -37,6 +39,9 @@ en:
       confirmation:
         notes: "What's in your donation?"
         size: "Donation Size"
+      cyclist_invitation:
+        email: "Email"
+        name: "Name"
       donation:
         size: "How big is your donation?"
         notes: "Provide a short description of your donation:"

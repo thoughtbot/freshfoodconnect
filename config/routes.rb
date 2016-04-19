@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "/pages/*id" => 'pages#show', as: :page, format: false
 
   constraints Clearance::Constraints::SignedIn.new(&:admin?) do
+    resources :cyclist_invitations, only: [:new, :create, :show]
     resources :users, only: [:index, :destroy]
     resources :zones, only: [:create, :index, :new, :show, :edit, :update] do
       resources(

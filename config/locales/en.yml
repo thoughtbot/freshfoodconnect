@@ -58,6 +58,20 @@ en:
     update:
       success: "Confirmation updated."
 
+  cyclist_invitations:
+    create:
+      success: "Cyclist account created."
+    new:
+      header: "Invite a Cyclist"
+    show:
+      header: "Cyclist: %{name}"
+      instructions:
+        >
+        A cyclist account has been created for %{email}.
+
+        Please instruct the cyclist to visit the following link to reset their
+        password and gain access to the latest pickup checklist.
+
   donations:
     confirm:
       text: "Donating"
@@ -202,6 +216,7 @@ en:
       columns:
         name: "Name"
       header: "Cyclists"
+      new: "+ Add Cyclist"
     delete:
       confirm: "Are you sure you want to delete %{name}?"
       text: "Delete"

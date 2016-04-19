@@ -17,8 +17,11 @@
   </tbody>
   <tfoot>
     <tr>
-      <td><a href="" class="table-link">+ Add Cyclist</a></td>
-      <td></td>
+      <td>
+        <%= link_to new_cyclist_invitation_path, class: "table-link" do %>
+          <%= t(".new") %>
+        <% end %>
+      </td>
     </tr>
   </tfoot>
 </table>

@@ -1,0 +1,11 @@
+<div class="content-wrapper-narrow content-container">
+  <header>
+    <h2><%= t(".header", name: @cyclist_invitation.name) %></h2>
+  </header>
+
+  <p><%= t(".instructions", email: @cyclist_invitation.email) %></p>
+
+  <%= link_to new_password_url do %>
+    <%= new_password_url %>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<%= simple_form_for(cyclist_invitation) do |f| %>
+  <div class="form-container__body">
+    <%= f.input(:name) %>
+    <%= f.input(:email) %>
+  </div>
+
+  <footer class="form-container__footer">
+    <%= f.submit %>
+  </footer>
+<% end %>
