@@ -9,10 +9,12 @@
   </thead>
   <tbody>
     <% admins.each do |admin| %>
-      <tr>
+      <%= content_tag_for(:tr, admin) do %>
         <td><%= admin.name %></td>
-        <td class="table-actions"><a href="" class="table-link table-delete">Delete</a></td>
-      </tr>
+        <td class="table-actions">
+          <%= render("users/delete", user: admin) %>
+        </td>
+      <% end %>
     <% end %>
   </tbody>
   <tfoot>

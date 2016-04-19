@@ -195,17 +195,22 @@ en:
 
   users:
     admins:
+      columns:
+        name: "Name"
       header: "Admins"
-      columns:
-        name: "Name"
     cyclists:
+      columns:
+        name: "Name"
       header: "Cyclists"
-      columns:
-        name: "Name"
+    delete:
+      confirm: "Are you sure you want to delete %{name}?"
+      text: "Delete"
+    destroy:
+      success: "Successfully deleted %{name}."
     donors:
-      header: "Suppliers"
       columns:
         name: "Name"
+      header: "Suppliers"
 
   validations:
     accepted: "must be checked"
