@@ -38,8 +38,16 @@ th {
 }
 
 .table-link {
+  background: none;
+  font-weight: 400;
   margin: 0 $xsmall-spacing;
+  padding: 0;
   text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    background: none;
+  }
 
   &:first-child {
     margin-left: 0;
