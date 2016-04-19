@@ -4,11 +4,9 @@ class PickupScheduler
   end
 
   def schedule!
-    if current_scheduled_pickup.nil?
-      ActiveRecord::Base.transaction do
-        scheduled_pickup.save!
-        enroll_donors!
-      end
+    ActiveRecord::Base.transaction do
+      scheduled_pickup.save!
+      enroll_donors!
     end
   end
 

@@ -51,6 +51,21 @@ describe PickupScheduler do
         expect(ScheduledPickup.count).to eq(1)
       end
     end
+
+    it "creates Donations for the week" do
+      Timecop.freeze(thursday) do
+        scheduled_pickup = create(:scheduled_pickup)
+        zone = scheduled_pickup.zone
+        location = create(:location, zipcode: zone.zipcode)
+        scheduler = PickupScheduler.new(zone)
+
+        scheduler.schedule!
+
+        expect(location.donations.last).to have_attributes(
+          scheduled_pickup: scheduled_pickup,
+        )
+      end
+    end
   end
 
   it "enrolls Donors in the Zone" do
