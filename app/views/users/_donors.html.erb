@@ -1,0 +1,19 @@
+<h2 class="section-label"><%= t(".header") %></h2>
+<table>
+  <thead>
+    <tr>
+      <th><%= t(".columns.name") %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% donors.each do |donor| %>
+      <td><%= donor.name %></td>
+      <td class="table-actions">
+        <a href="" class="table-link">Profile</a>
+        <a href="" class="table-link">Pickup History</a>
+        <a href="" class="table-link table-delete">Delete</a>
+      </td>
+    <% end %>
+  </tbody>
+</table>

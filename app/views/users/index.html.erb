@@ -1,0 +1,13 @@
+<div class="content-wrapper-narrow content-container">
+  <section class="user-type-section" data-role="admins">
+    <%= render("users/admins", admins: @users.admins) %>
+  </section>
+
+  <section class="user-type-section" data-role="cyclists">
+    <%= render("users/cyclists", cyclists: @users.cyclists) %>
+  </section>
+
+  <section class="user-type-section" data-role="donors">
+    <%= render("users/donors", donors: @users.donors) %>
+  </section>
+</div>

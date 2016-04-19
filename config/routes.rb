@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "/pages/*id" => 'pages#show', as: :page, format: false
 
   constraints Clearance::Constraints::SignedIn.new(&:admin?) do
+    resources :users, only: [:index]
     resources :zones, only: [:create, :index, :new, :show, :edit, :update] do
       resources(
         :scheduled_pickups,

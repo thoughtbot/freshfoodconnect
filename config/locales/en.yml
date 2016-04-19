@@ -38,6 +38,7 @@ en:
       profile: "Profile"
       sign_in: "Sign In"
       sign_out: "Sign Out"
+      users: "Users"
       zipcodes: "Zipcodes"
     welcome_modal:
       close: "Got It! Take me to my profile."
@@ -191,6 +192,20 @@ en:
   unscheduled_donations:
     unscheduled_donation:
       text: "There are no pickups scheduled for this week."
+
+  users:
+    admins:
+      header: "Admins"
+      columns:
+        name: "Name"
+    cyclists:
+      header: "Cyclists"
+      columns:
+        name: "Name"
+    donors:
+      header: "Suppliers"
+      columns:
+        name: "Name"
 
   validations:
     accepted: "must be checked"

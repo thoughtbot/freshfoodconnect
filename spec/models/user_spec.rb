@@ -17,6 +17,44 @@ describe User do
       with_message(t("validations.accepted"))
   end
 
+  describe ".admins" do
+    it "includes administrators" do
+      admin = create(:admin, name: "Admin")
+      create(:donor, name: "Donor")
+      create(:cyclist, name: "Cyclist")
+
+      names = User.admins.pluck(:name)
+
+      expect(names).to eq([admin.name])
+    end
+  end
+
+  describe ".cyclists" do
+    it "includes cyclists" do
+      create(:zone)
+      cyclist = create(:cyclist, name: "Cyclist")
+      create(:admin, name: "Admin")
+      create(:donor, name: "Donor")
+
+      names = User.cyclists.pluck(:name)
+
+      expect(names).to eq([cyclist.name])
+    end
+  end
+
+  describe ".donors" do
+    it "includes donors that are not administrators" do
+      donor = create(:donor, admin: false, name: "Donor")
+      create(:donor, admin: true, name: "Admin/Donor")
+      create(:admin, name: "Admin")
+      create(:cyclist, name: "Cyclist")
+
+      names = User.donors.pluck(:name)
+
+      expect(names).to eq([donor.name])
+    end
+  end
+
   describe "#cyclist?" do
     context "when the User is assigned a zone" do
       it "returns true" do

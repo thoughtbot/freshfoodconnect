@@ -17,6 +17,18 @@ class User < ActiveRecord::Base
     message: I18n.t("validations.accepted"),
   }
 
+  def self.admins
+    where(admin: true)
+  end
+
+  def self.cyclists
+    where.not(assigned_zone_id: nil)
+  end
+
+  def self.donors
+    joins(:location).where(admin: false)
+  end
+
   def cyclist=(is_cyclist)
     if is_cyclist
       self.assigned_zone = Zone.first
