@@ -37,7 +37,7 @@ feature "Admin updates zone pickup time range" do
   end
 
   def update_zone(attributes)
-    within "[data-role=zone]" do
+    within_role :zone do
       click_on t("scheduled_pickups.zone.edit")
     end
 

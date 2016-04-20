@@ -30,7 +30,7 @@ feature "Admin updates schedule pickup time" do
   end
 
   def update_current_scheduled_pickup(start_at:)
-    within "[data-role=pickup-time]" do
+    within_role "pickup-time" do
       click_on t("scheduled_pickups.show.edit")
     end
 

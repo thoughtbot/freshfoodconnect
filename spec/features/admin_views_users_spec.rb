@@ -8,19 +8,15 @@ feature "Admin views users" do
 
     visit_users_page(as: admin)
 
-    within_user_group :admins do
+    within_role :admins do
       expect(page).to have_user(admin)
     end
-    within_user_group :donors do
+    within_role :donors do
       expect(page).to have_user(donor)
     end
-    within_user_group :cyclists do
+    within_role :cyclists do
       expect(page).to have_user(cyclist)
     end
-  end
-
-  def within_user_group(group, &block)
-    within("[data-role=#{group}]", &block)
   end
 
   def have_user(user)
