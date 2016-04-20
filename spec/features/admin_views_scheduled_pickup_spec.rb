@@ -28,7 +28,7 @@ feature "Admin views scheduled pickup" do
   end
 
   def have_donation_row_for(donor)
-    have_text donor.name
+    have_name(donor)
   end
 
   def have_status_column_for(day)

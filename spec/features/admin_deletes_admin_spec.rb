@@ -11,16 +11,12 @@ feature "Admin deletes admin" do
 
     expect(page).to have_success_flash(to_be_deleted)
     within_role :admins do
-      expect(page).not_to have_user(to_be_deleted)
+      expect(page).not_to have_name(to_be_deleted)
     end
   end
 
   def have_success_flash(admin)
     have_text t("users.destroy.success", name: admin.name)
-  end
-
-  def have_user(user)
-    have_text(user.name)
   end
 
   def visit_users_page_as_admin

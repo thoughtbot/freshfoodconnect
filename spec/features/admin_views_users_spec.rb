@@ -9,18 +9,14 @@ feature "Admin views users" do
     visit_users_page(as: admin)
 
     within_role :admins do
-      expect(page).to have_user(admin)
+      expect(page).to have_name(admin)
     end
     within_role :donors do
-      expect(page).to have_user(donor)
+      expect(page).to have_name(donor)
     end
     within_role :cyclists do
-      expect(page).to have_user(cyclist)
+      expect(page).to have_name(cyclist)
     end
-  end
-
-  def have_user(user)
-    have_text user.name
   end
 
   def visit_users_page(as:)

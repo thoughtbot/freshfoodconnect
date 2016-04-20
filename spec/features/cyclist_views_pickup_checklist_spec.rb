@@ -18,6 +18,6 @@ feature "Cyclist views pickup checklist" do
   end
 
   def have_donor_for(donation)
-    have_text(donation.donor.name)
+    have_name(donation.donor)
   end
 end
