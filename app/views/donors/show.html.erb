@@ -1,0 +1,7 @@
+<div class="content-wrapper-narrow content-container">
+  <h3>
+    <%= t(".header") %>
+    <span class="supplier-name"><%= @donor.name %></span>:
+  </h3>
+  <%= render("donations/history", donations: @donor.donations) %>
+</div>

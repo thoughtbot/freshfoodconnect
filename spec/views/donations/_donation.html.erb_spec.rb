@@ -20,7 +20,7 @@ describe "donations/donation" do
       render("donations/donation", donation: donation)
 
       expect(rendered).to have_edit_link_for(donation)
-      expect(rendered).to have_status(:confirmed)
+      expect(rendered).to have_donation_status(:confirmed)
       expect(rendered).to have_role("donation-size")
       expect(rendered).to have_role("donation-notes")
     end
@@ -33,7 +33,7 @@ describe "donations/donation" do
       render("donations/donation", donation: donation)
 
       expect(rendered).to have_edit_link_for(donation)
-      expect(rendered).to have_status(:declined)
+      expect(rendered).to have_donation_status(:declined)
       expect_rendered_not_to_have_information
     end
   end
@@ -49,10 +49,6 @@ describe "donations/donation" do
 
   def have_enabled_button(type)
     have_css("button:not([disabled])", text: t("donations.#{type}.text"))
-  end
-
-  def have_status(status)
-    have_css(".donation-status--#{status}")
   end
 
   def have_role(role)

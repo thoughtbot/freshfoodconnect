@@ -4,8 +4,10 @@
 
 <div class="dl-group">
   <%= render_donation_status(donation) do %>
-    <%= link_to edit_donation_path(donation), class: "edit-donation" do %>
-      <%= t("donations.donation.edit") %>
+    <% unless donation.picked_up? %>
+      <%= link_to edit_donation_path(donation), class: "edit-donation" do %>
+        <%= t("donations.donation.edit") %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

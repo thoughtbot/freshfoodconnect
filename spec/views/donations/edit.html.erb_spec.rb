@@ -25,7 +25,7 @@ describe "donations/edit" do
 
       expect(rendered).to have_disabled_button(:confirm)
       expect(rendered).to have_enabled_button(:decline)
-      expect(rendered).to have_status(:confirmed)
+      expect(rendered).to have_donation_status(:confirmed)
       expect(rendered).to have_name("size")
       expect(rendered).to have_name("notes")
       expect(rendered).to have_update_button
@@ -42,7 +42,7 @@ describe "donations/edit" do
 
       expect(rendered).to have_enabled_button(:confirm)
       expect(rendered).to have_disabled_button(:decline)
-      expect(rendered).to have_status(:declined)
+      expect(rendered).to have_donation_status(:declined)
       expect(rendered).to have_edit_prompt
       expect_rendered_not_to_have_form
     end
@@ -60,10 +60,6 @@ describe "donations/edit" do
 
   def have_update_button
     have_css(%{[type="submit"][value="#{t('helpers.submit.donation.update')}"]})
-  end
-
-  def have_status(status)
-    have_css(".donation-status--#{status}")
   end
 
   def have_role(role)

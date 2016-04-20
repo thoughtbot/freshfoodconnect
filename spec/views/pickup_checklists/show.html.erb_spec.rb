@@ -2,11 +2,11 @@ require "rails_helper"
 
 describe "pickup_checklists/show" do
   it "lists all donations" do
-    date = Date.new(2016, 4, 14).to_time
+    date = Date.new(2016, 4, 14)
     donation = create(:donation)
     pickup_checklist = build_pickup_checklist(
       confirmed_donations: [donation],
-      start_at: date,
+      date: date,
     )
     assign(:pickup_checklist, pickup_checklist)
 

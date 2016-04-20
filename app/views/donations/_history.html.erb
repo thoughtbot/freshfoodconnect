@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Pickup Confirmation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% donations.each do |donation| %>
+      <%= content_tag(:tr, donation) do %>
+        <td>
+          <%= l(donation.date) %>
+        </td>
+        <td class="pickup-confirmation <%= status_for_pickup(donation) %>">
+          <%= label_for_pickup(donation) %>
+        </td>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

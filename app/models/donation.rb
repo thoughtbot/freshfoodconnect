@@ -17,7 +17,7 @@ class Donation < ActiveRecord::Base
     uniqueness: { scope: :location_id }
 
   delegate(:address, to: :location)
-  delegate(:time_range, to: :scheduled_pickup)
+  delegate(:date, :time_range, to: :scheduled_pickup)
 
   def self.confirmed
     where(<<-SQL)

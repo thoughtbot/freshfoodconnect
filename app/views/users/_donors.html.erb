@@ -11,7 +11,9 @@
       <%= render("users/promote", user: donor) %>
 
       <a href="" class="table-link">Profile</a>
-      <a href="" class="table-link">Pickup History</a>
+      <%= link_to(donor_path(donor), class: "table-link")do %>
+        <%= t("users.donors.history") %>
+      <% end %>
       <a href="" class="table-link table-delete">Delete</a>
     <% end %>
   </tbody>

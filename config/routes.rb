@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   constraints Clearance::Constraints::SignedIn.new(&:admin?) do
     resources :cyclist_invitations, only: [:new, :create, :show]
+    resources :donors, only: [:show]
     resources :users, only: [:index, :destroy] do
       resource :promotion, only: [:create, :destroy]
     end
