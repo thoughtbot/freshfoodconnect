@@ -241,6 +241,7 @@ en:
 
   validations:
     accepted: "must be checked"
+    deactivated: "This account has been deactivated."
     unsupported: "We're sorry, our service is not available in %{zipcode} at this time."
 
   zones:

@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <%= render_user_rows(cyclists) do |cyclist| %>
-      <a href="" class="table-link table-delete">Delete</a>
+      <%= render("users/delete", user: cyclist) %>
     <% end %>
   </tbody>
   <tfoot>
