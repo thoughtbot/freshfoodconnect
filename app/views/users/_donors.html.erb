@@ -8,6 +8,8 @@
   </thead>
   <tbody>
     <%= render_user_rows(donors) do |donor| %>
+      <%= render("users/promote", user: donor) %>
+
       <a href="" class="table-link">Profile</a>
       <a href="" class="table-link">Pickup History</a>
       <a href="" class="table-link table-delete">Delete</a>

@@ -1,0 +1,10 @@
+<%= button_to(
+  user_promotion_path(user),
+  class: "table-link",
+  method: :post,
+  data: {
+    confirm: t(".confirm"),
+  }
+) do %>
+  <%= t(".text") %>
+<% end %>

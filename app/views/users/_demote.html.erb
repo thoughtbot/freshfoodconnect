@@ -1,0 +1,10 @@
+<%= button_to(
+  user_promotion_path(user),
+  class: "table-link table-delete",
+  method: :delete,
+  data: {
+    confirm: t(".confirm"),
+  }
+) do %>
+  <%= t(".text") %>
+<% end %>

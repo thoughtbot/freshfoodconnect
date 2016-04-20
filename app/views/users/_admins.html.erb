@@ -9,6 +9,7 @@
   </thead>
   <tbody>
     <%= render_user_rows(admins) do |admin| %>
+      <%= render("users/demote", user: admin) %>
       <%= render("users/delete", user: admin) %>
     <% end %>
   </tbody>

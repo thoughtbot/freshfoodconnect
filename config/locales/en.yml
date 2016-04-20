@@ -148,6 +148,12 @@ en:
       pickup: "Pickup Info"
       edit: "Edit Personal Info"
 
+  promotions:
+    create:
+      success: "%{name} has been promoted to an administrator."
+    destroy:
+      success: "%{name} is no longer an administrator."
+
   scheduled_pickups:
     edit:
       header: "Reschedule this week's pickup"
@@ -220,12 +226,18 @@ en:
     delete:
       confirm: "Are you sure you want to delete %{name}?"
       text: "Delete"
+    demote:
+      confirm: "Are you sure you want to revoke this administrator?"
+      text: "Revoke"
     destroy:
       success: "Successfully deleted %{name}."
     donors:
       columns:
         name: "Name"
       header: "Suppliers"
+    promote:
+      confirm: "Are you sure you want to promote this user?"
+      text: "Make admin"
 
   validations:
     accepted: "must be checked"
