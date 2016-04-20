@@ -150,7 +150,7 @@ en:
 
   scheduled_pickups:
     edit:
-      header: "Edit this scheduled pickup"
+      header: "Reschedule this week's pickup"
       prompt: "Be sure to include the earliest and latest pickup times."
     new:
       header: "Schedule the next pickup"
@@ -161,7 +161,7 @@ en:
       confirmation:
         header: "Scheduled Confirmation Time"
         time: "Confirmation emails will be sent on %{time}"
-      edit: "Edit"
+      edit: "Reschedule"
       time: "Scheduled Pickup Time"
     donations:
       checklist: "Cyclist Checklist"
@@ -172,7 +172,7 @@ en:
     update:
       success: "The pickup has been rescheduled."
     zone:
-      edit: "Edit"
+      edit: "Schedule"
 
   registrations:
     form:
@@ -236,7 +236,7 @@ en:
       prompt:
         "Pickups for %{zipcode} are usually scheduled for %{day} between %{start} and %{end}"
     edit:
-      header: "Edit %{zipcode}'s Pickup Schedule"
+      header: "Schedule future pickups for %{zipcode}"
     index:
       active: "Active Zipcodes"
       inactive: "Inactive Zipcodes"
