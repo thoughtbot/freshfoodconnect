@@ -8,11 +8,8 @@
     </tr>
   </thead>
   <tbody>
-    <% cyclists.each do |cyclist| %>
-      <tr>
-        <td><%= cyclist.name %></td>
-        <td class="table-actions"><a href="" class="table-link table-delete">Delete</a></td>
-      </tr>
+    <%= render_user_rows(cyclists) do |cyclist| %>
+      <a href="" class="table-link table-delete">Delete</a>
     <% end %>
   </tbody>
   <tfoot>
@@ -22,6 +19,7 @@
           <%= t(".new") %>
         <% end %>
       </td>
+      <td></td>
     </tr>
   </tfoot>
 </table>

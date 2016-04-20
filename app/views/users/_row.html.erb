@@ -1,0 +1,8 @@
+<% users.each do |user| %>
+  <%= content_tag_for(:tr, user) do %>
+    <td><%= user.name %></td>
+    <td class="table-actions">
+      <%= yield(user) %>
+    </td>
+  <% end %>
+<% end %>

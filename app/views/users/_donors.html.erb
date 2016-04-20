@@ -7,13 +7,10 @@
     </tr>
   </thead>
   <tbody>
-    <% donors.each do |donor| %>
-      <td><%= donor.name %></td>
-      <td class="table-actions">
-        <a href="" class="table-link">Profile</a>
-        <a href="" class="table-link">Pickup History</a>
-        <a href="" class="table-link table-delete">Delete</a>
-      </td>
+    <%= render_user_rows(donors) do |donor| %>
+      <a href="" class="table-link">Profile</a>
+      <a href="" class="table-link">Pickup History</a>
+      <a href="" class="table-link table-delete">Delete</a>
     <% end %>
   </tbody>
 </table>
