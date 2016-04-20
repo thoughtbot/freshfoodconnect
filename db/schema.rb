@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418182837) do
+ActiveRecord::Schema.define(version: 20160420171312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160418182837) do
     t.datetime "terms_and_conditions_accepted_at"
     t.datetime "organic_growth_asserted_at"
     t.integer  "assigned_zone_id"
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["assigned_zone_id"], name: "index_users_on_assigned_zone_id", using: :btree

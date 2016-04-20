@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.active
   end
 
   def destroy
-    user.destroy!
+    user.update!(deleted: true)
 
     redirect_to users_url, flash: { success: t(".success", name: user.name) }
   end

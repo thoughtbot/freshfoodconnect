@@ -5,9 +5,11 @@ feature "Admin views users" do
     admin = create(:admin)
     donor = create(:donor)
     cyclist = create(:cyclist)
+    deleted = create(:cyclist, :deleted)
 
     visit_users_page(as: admin)
 
+    expect(page).not_to have_name(deleted)
     within_role :admins do
       expect(page).to have_name(admin)
     end

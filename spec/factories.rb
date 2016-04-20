@@ -99,6 +99,8 @@ FactoryGirl.define do
 
   factory :user do
     sequence(:name) { |i| "Jane the #{[i, i.ordinal].join}" }
+
+    active
     email
     password "password"
     organic_growth_asserted true
@@ -118,6 +120,14 @@ FactoryGirl.define do
 
     trait :with_location do
       location
+    end
+
+    trait :active do
+      deleted false
+    end
+
+    trait :deleted do
+      deleted true
     end
   end
 

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
+  time_for_a_boolean :deleted
   time_for_a_boolean :organic_growth_asserted
   time_for_a_boolean :terms_and_conditions_accepted
 
@@ -16,6 +17,10 @@ class User < ActiveRecord::Base
   validates :terms_and_conditions_accepted_at, presence: {
     message: I18n.t("validations.accepted"),
   }
+
+  def self.active
+    where(deleted_at: nil)
+  end
 
   def self.admins
     where(admin: true)

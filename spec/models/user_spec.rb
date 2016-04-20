@@ -17,6 +17,17 @@ describe User do
       with_message(t("validations.accepted"))
   end
 
+  describe ".active" do
+    it "excludes deleted Users" do
+      active = create(:user, :active, name: "Active")
+      create(:user, :deleted, name: "Deleted")
+
+      names = User.active.pluck(:name)
+
+      expect(names).to eq([active.name])
+    end
+  end
+
   describe ".admins" do
     it "includes administrators" do
       admin = create(:admin, name: "Admin")
