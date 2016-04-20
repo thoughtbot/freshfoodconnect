@@ -59,6 +59,7 @@ describe User do
       create(:donor, admin: true, name: "Admin/Donor")
       create(:admin, name: "Admin")
       create(:cyclist, name: "Cyclist")
+      create(:donation, donor: donor)
 
       names = User.donors.pluck(:name)
 
