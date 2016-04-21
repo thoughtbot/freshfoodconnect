@@ -3,9 +3,19 @@
     <h2><%= t(".header", name: @cyclist_invitation.name) %></h2>
   </header>
 
-  <p><%= t(".instructions", email: @cyclist_invitation.email) %></p>
+  <p>
+    <%= t(
+      ".instructions",
+      email: @cyclist_invitation.email,
+      name: @cyclist_invitation.name,
+    ) %>
+  </p>
 
-  <%= link_to new_password_url do %>
-    <%= new_password_url %>
-  <% end %>
+  <p>
+    <%= t(".fallback") %>
+
+    <%= link_to new_password_url do %>
+      <%= new_password_url %>
+    <% end %>
+  <p>
 </div>

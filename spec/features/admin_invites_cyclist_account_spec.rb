@@ -23,6 +23,7 @@ feature "Admin creates cyclist account" do
   end
 
   def invite_cyclist(attributes)
+    create(:zone)
     visit users_path(as: create(:admin))
 
     click_on t("users.cyclists.new")

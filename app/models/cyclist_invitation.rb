@@ -13,7 +13,22 @@ class CyclistInvitation < SimpleDelegator
     super(user)
   end
 
+  def save
+    super.tap do |saved|
+      if saved
+        user.forgot_password!
+        ClearanceMailer.change_password(user).deliver_later
+      end
+    end
+  end
+
   def to_model
     self
+  end
+
+  private
+
+  def user
+    __getobj__
   end
 end

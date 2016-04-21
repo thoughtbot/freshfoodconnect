@@ -64,13 +64,14 @@ en:
     new:
       header: "Invite a Cyclist"
     show:
-      header: "Cyclist: %{name}"
+      header: "New Cyclist profile created!"
       instructions:
         >
-        A cyclist account has been created for %{email}.
+          An email has been sent to %{name} at %{email} with instructions on how to set their password and finish creating their cyclist profile.
 
-        Please instruct the cyclist to visit the following link to reset their
-        password and gain access to the latest pickup checklist.
+      fallback:
+        >
+          If the new Cyclist does not receive the email, send them this link to reset the password manually:
 
   donations:
     confirm:

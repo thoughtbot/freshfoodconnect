@@ -24,7 +24,7 @@ class CyclistInvitationsController < ApplicationController
   end
 
   def find_user
-    User.find(params[:id])
+    User.cyclists.find(params[:id])
   end
 
   def build_user
