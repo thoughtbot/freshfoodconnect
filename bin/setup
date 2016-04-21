@@ -17,8 +17,9 @@ bin/rake dev:prime pickups:schedule
 mkdir -p .git/safe
 
 # Only if this isn't CI
-# if [ -z "$CI" ]; then
-# fi
+if [ -z "$CI" ]; then
+ bin/rake locations:geocode
+fi
 
 if heroku join --app freshfoodconnect-staging &> /dev/null; then
   git remote add staging git@heroku.com:freshfoodconnect-staging.git || true

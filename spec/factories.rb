@@ -51,12 +51,23 @@ FactoryGirl.define do
 
     residence
     grown_on_site
+    not_geocoded
     user
 
     supported
 
+    trait :geocoded do
+      latitude 40
+      longitude 60
+    end
+
     trait :grown_on_site do
       grown_on_site true
+    end
+
+    trait :not_geocoded do
+      latitude nil
+      longitude nil
     end
 
     trait :residence do

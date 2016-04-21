@@ -37,15 +37,6 @@ feature "Donor edits location" do
     end
   end
 
-  def stub_geocoding_for(address, latitude:, longitude:)
-    Geocoder::Lookup::Test.add_stub(
-      address, [{
-        "latitude" => latitude,
-        "longitude" => longitude,
-      }],
-    )
-  end
-
   def have_supported_zipcode_text(zipcode)
     have_text t("profiles.show.supported", zipcode: zipcode)
   end

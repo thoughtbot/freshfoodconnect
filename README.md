@@ -63,6 +63,14 @@ Each night, the scheduler will run the following tasks:
   associated with `ScheduledPickup`s scheduled to occur within the next `48`
   hours.
 
+## Geocoding Locations
+
+To geocode all locations that are missing `latitude` or `longitude` values:
+
+```bash
+$ rake locations:geocode
+```
+
 [staging]: https://dashboard.heroku.com/apps/freshfoodconnect-staging
 [production]: https://dashboard.heroku.com/apps/freshfoodconnect-production
 [scheduler]: https://elements.heroku.com/addons/scheduler

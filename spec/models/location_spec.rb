@@ -28,6 +28,29 @@ describe Location do
   it { should validate_numericality_of(:longitude).is_less_than_or_equal_to(180) }
   it { should validate_numericality_of(:longitude).allow_nil }
 
+  describe ".not_geocoded" do
+    it "includes Location records without latitude or longitude values" do
+      create(:location, latitude: 1, longitude: 1)
+      create(:location, latitude: nil, longitude: 1)
+      create(:location, latitude: 1, longitude: nil)
+      create(:location, latitude: nil, longitude: nil)
+
+      not_geocoded = Location.not_geocoded
+      locations = not_geocoded.map do |location|
+        {
+          latitude: location.latitude,
+          longitude: location.longitude,
+        }
+      end
+
+      expect(locations).to match_array([
+        { latitude: nil, longitude: 1 },
+        { latitude: 1, longitude: nil },
+        { latitude: nil, longitude: nil },
+      ])
+    end
+  end
+
   describe "#zipcode=" do
     it "trims whitespace" do
       location = Location.new(zipcode: "    90210 ")

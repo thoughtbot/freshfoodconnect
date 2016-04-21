@@ -27,6 +27,10 @@ class Location < ActiveRecord::Base
   validates :zipcode, presence: true, zipcode: { country_code: :us }
   validates :zone, presence: true
 
+  def self.not_geocoded
+    where("latitude IS NULL OR longitude IS NULL")
+  end
+
   def zipcode=(zipcode)
     super(zipcode.to_s.strip)
   end
