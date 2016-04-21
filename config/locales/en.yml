@@ -246,7 +246,9 @@ en:
       success: "Successfully deleted %{name}."
     donors:
       columns:
+        address: "Address"
         name: "Name"
+        zone: "Zipcode"
       header: "Suppliers"
       history: "Donation History"
     promote:

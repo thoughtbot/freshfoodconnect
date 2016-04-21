@@ -17,6 +17,9 @@ describe User do
       with_message(t("validations.accepted"))
   end
 
+  it { should delegate_method(:address).to(:location) }
+  it { should delegate_method(:zipcode).to(:location) }
+
   describe ".active" do
     it "excludes deleted Users" do
       active = create(:user, :active, name: "Active")

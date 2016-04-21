@@ -9,8 +9,11 @@
   </thead>
   <tbody>
     <%= render_user_rows(admins) do |admin| %>
-      <%= render("users/demote", user: admin) %>
-      <%= render("users/delete", user: admin) %>
+      <td><%= admin.name %></td>
+      <td class="table-actions">
+        <%= render("users/demote", user: admin) %>
+        <%= render("users/delete", user: admin) %>
+      </td>
     <% end %>
   </tbody>
 </table>

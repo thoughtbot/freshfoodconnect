@@ -3,18 +3,23 @@
   <thead>
     <tr>
       <th><%= t(".columns.name") %></th>
+      <th><%= t(".columns.address") %></th>
+      <th><%= t(".columns.zone") %></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <%= render_user_rows(donors) do |donor| %>
-      <%= render("users/promote", user: donor) %>
+      <td><%= donor.name %></td>
+      <td><%= donor.address %></td>
+      <td><%= donor.zipcode %></td>
+      <td class="table-actions">
+        <%= render("users/promote", user: donor) %>
 
-      <a href="" class="table-link">Profile</a>
-      <%= link_to(donor_path(donor), class: "table-link")do %>
-        <%= t("users.donors.history") %>
-      <% end %>
-      <a href="" class="table-link table-delete">Delete</a>
+        <%= link_to(donor_path(donor), class: "table-link")do %>
+          <%= t("users.donors.history") %>
+        <% end %>
+      </td>
     <% end %>
   </tbody>
 </table>
