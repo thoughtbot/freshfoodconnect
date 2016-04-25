@@ -248,7 +248,6 @@ en:
       columns:
         address: "Address"
         name: "Name"
-        zone: "Zipcode"
       header: "Suppliers"
       history: "Donation History"
     promote:

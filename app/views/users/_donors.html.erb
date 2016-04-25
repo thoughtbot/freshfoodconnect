@@ -4,15 +4,13 @@
     <tr>
       <th><%= t(".columns.name") %></th>
       <th><%= t(".columns.address") %></th>
-      <th><%= t(".columns.zone") %></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <%= render_user_rows(donors) do |donor| %>
       <td><%= donor.name %></td>
-      <td><%= donor.address %></td>
-      <td><%= donor.zipcode %></td>
+      <td><%= donor.address %> <%= donor.zipcode %></td>
       <td class="table-actions">
         <%= render("users/promote", user: donor) %>
 
