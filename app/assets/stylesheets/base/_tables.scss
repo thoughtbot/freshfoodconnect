@@ -28,6 +28,16 @@ th {
 .table-actions {
   text-align: right;
 
+  button {
+    color: $action-color;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: shade($action-color, 25%);
+    }
+  }
+
   .table-delete {
     color: $red;
 

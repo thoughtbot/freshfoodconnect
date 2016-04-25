@@ -1,10 +1,14 @@
 <section>
-  <div class="content-wrapper-narrow content-container">
-    <h3><%= t(".header") %></h3>
+  <div class="content-wrapper-narrow form-container">
+    <header class="form-container__header">
+      <h3><%= t(".header") %></h3>
+    </header>
 
-    <%= render("zones/defaults", zone: @scheduled_pickup.zone) %>
+    <div class="form-container__body">
+      <%= render("zones/defaults", zone: @scheduled_pickup.zone) %>
 
-    <p><%= t(".prompt") %></p>
+      <p><%= t(".prompt") %></p>
+    </div>
 
     <%= render("scheduled_pickups/form", scheduled_pickup: @scheduled_pickup) %>
   </div>
