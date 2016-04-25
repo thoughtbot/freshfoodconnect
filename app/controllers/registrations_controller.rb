@@ -2,11 +2,7 @@ class RegistrationsController < ApplicationController
   skip_before_action :require_login
 
   def new
-    if zipcode.present?
-      @registration = Registration.new(zipcode: zipcode)
-    else
-      redirect_to root_url
-    end
+    @registration = Registration.new(zipcode: zone.zipcode)
   end
 
   def create
@@ -23,8 +19,8 @@ class RegistrationsController < ApplicationController
 
   private
 
-  def zipcode
-    params[:zipcode]
+  def zone
+    Zone.find_by!(zipcode: params[:zone_id])
   end
 
   def build_registration
@@ -42,7 +38,7 @@ class RegistrationsController < ApplicationController
         :organic_growth_asserted,
         :password,
         :terms_and_conditions_accepted,
-        :zipcode,
-      )
+      ).
+      merge(zipcode: zone.zipcode)
   end
 end

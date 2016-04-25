@@ -1,9 +1,12 @@
-<%= simple_form_for subscription do |f| %>
+<%= simple_form_for(
+  subscription,
+  url: zone_subscriptions_path(subscription.zipcode),
+) do |f| %>
   <div class="form-container__body">
     <p><%= t(".prompt") %></p>
     <%= f.input :email %>
-    <%= f.input :zipcode %>
   </div>
+
   <footer class="form-container__footer">
     <%= f.submit %>
 

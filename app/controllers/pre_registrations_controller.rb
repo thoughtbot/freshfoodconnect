@@ -4,9 +4,9 @@ class PreRegistrationsController < ApplicationController
 
   def create
     if pre_registration.supported?
-      redirect_to new_registration_url(zipcode: pre_registration.zipcode)
+      redirect_to new_zone_registration_url(pre_registration.zipcode)
     else
-      redirect_to new_subscription_url(zipcode: pre_registration.zipcode)
+      redirect_to new_zone_subscription_url(pre_registration.zipcode)
     end
   end
 

@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   end
   resource :location, only: [:update]
   resources :pre_registrations, only: [:create]
-  resources :registrations, only: [:create, :new]
-  resources :subscriptions, only: [:create, :new]
+
+  resources :zones, only: [] do
+    resources :registrations, only: [:create, :new]
+    resources :subscriptions, only: [:create, :new]
+  end
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]

@@ -1,9 +1,10 @@
-<%= simple_form_for registration do |f| %>
+<%= simple_form_for(
+  registration, url: zone_registrations_path(registration.zipcode),
+) do |f| %>
   <div class="form-container__body">
     <p><%= t(".prompt") %></p>
     <%= f.input :name, required: "true" %>
     <%= f.input :address, label: "Address for pickup", required: "true" %>
-    <%= f.input :zipcode, required: "true" %>
     <%= f.input :email, required: "true" %>
     <%= f.input :password, required: "true" %>
 

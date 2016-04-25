@@ -2,10 +2,6 @@ class SubscriptionsController < ApplicationController
   skip_before_action :require_login
 
   def new
-    if zipcode.blank?
-      redirect_to root_url
-    end
-
     @subscription = Subscription.new(zipcode: zipcode)
   end
 
@@ -26,10 +22,13 @@ class SubscriptionsController < ApplicationController
   end
 
   def subscription_params
-    params.require(:subscription).permit(:email, :zipcode)
+    params.
+      require(:subscription).
+      permit(:email, :zipcode).
+      merge(zipcode: zipcode)
   end
 
   def zipcode
-    params[:zipcode]
+    params[:zone_id]
   end
 end
