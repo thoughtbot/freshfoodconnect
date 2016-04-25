@@ -143,7 +143,11 @@ select {
   &__header,
   &__footer,
   &__body {
-    padding: $base-spacing;
+    padding: $small-spacing;
+
+    @include media($medium-screen-up) {
+      padding: $base-spacing;
+    }
   }
 
   &__header {
