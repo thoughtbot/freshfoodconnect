@@ -8,6 +8,7 @@ class Profile
     :email=,
     :name,
     :name=,
+    :phone_number=,
     :location,
     to: :user,
   )
@@ -25,6 +26,10 @@ class Profile
 
   def current_donation
     user.current_donation || UnscheduledDonation.new
+  end
+
+  def phone_number
+    user.phone_number.to_s.phony_formatted(normalize: :US, spaces: "-")
   end
 
   def update(attributes)

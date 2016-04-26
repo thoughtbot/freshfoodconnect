@@ -53,6 +53,7 @@ en:
       profile:
         address: "Street Address for Pickup"
         notes: "Pickup Notes"
+        phone_number: "Phone number to contact about donations"
       registration:
         terms_and_conditions_accepted: I agree to the Terms and Conditions
         organic_growth_asserted: "The food I donate will be grown without the use of non-organic pesticides, herbicides and fertilizers."

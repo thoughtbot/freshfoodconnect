@@ -8,6 +8,13 @@ describe User do
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password).on(:create) }
 
+  it { should allow_value("(555) 555-5555").for(:phone_number) }
+  it { should allow_value("555-555-5555").for(:phone_number) }
+  it { should allow_value(nil).for(:phone_number) }
+  it { should allow_value("").for(:phone_number) }
+  it { should_not allow_value("123 45").for(:phone_number) }
+  it { should_not allow_value("not a number").for(:phone_number) }
+
   it do
     should validate_presence_of(:organic_growth_asserted_at).
       with_message(t("validations.accepted"))

@@ -8,6 +8,28 @@ describe Profile do
   it { should delegate_method(:notes).to(:location) }
   it { should delegate_method(:zipcode).to(:location) }
 
+  describe "#phone_number" do
+    it "formats the phone number" do
+      user = build_stubbed(:user, phone_number: "+15555555555")
+      profile = Profile.new(user: user)
+
+      phone_number = profile.phone_number
+
+      expect(phone_number).to eq("(555)-555-5555")
+    end
+
+    context "when the User's phone number is blank" do
+      it "is blank" do
+        user = build_stubbed(:user, phone_number: nil)
+        profile = Profile.new(user: user)
+
+        phone_number = profile.phone_number
+
+        expect(phone_number).to be_blank
+      end
+    end
+  end
+
   describe "#update" do
     context "when valid" do
       it "updates the Location" do
