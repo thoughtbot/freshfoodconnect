@@ -6,7 +6,7 @@ en:
       donation:
         update: "Update"
       location:
-        update: "Save Pickup Information"
+        update: "Update Pickup Information"
       pre_registration:
         create: "Donate"
       profile:
