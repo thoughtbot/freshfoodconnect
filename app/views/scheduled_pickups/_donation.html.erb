@@ -1,4 +1,8 @@
 <tr>
-  <td><%= donation.donor.name %></td>
+  <td>
+    <%= link_to donor_path(donation.donor), class: "table-link" do %>
+      <%= donation.donor.name %>
+    <% end %>
+  </td>
   <td><%= label_for_donation(donation) %></td>
 </tr>

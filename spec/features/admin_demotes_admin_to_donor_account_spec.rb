@@ -27,8 +27,10 @@ feature "Admin demotes admin to donor account" do
   end
 
   def demote_user(user)
-    within_record(user) do
-      click_on t("users.demote.text")
+    within_role :admins do
+      within_record(user) do
+        click_on t("users.demote.text")
+      end
     end
   end
 end

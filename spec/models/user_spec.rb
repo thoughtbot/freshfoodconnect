@@ -57,15 +57,15 @@ describe User do
   end
 
   describe ".donors" do
-    it "includes donors that are not administrators" do
+    it "includes donors" do
       donor = create(:donor, admin: false, name: "Donor")
-      create(:donor, admin: true, name: "Admin/Donor")
+      admin_donor = create(:donor, admin: true, name: "Admin/Donor")
       create(:admin, name: "Admin")
       create(:cyclist, name: "Cyclist")
 
       names = User.donors.pluck(:name)
 
-      expect(names).to eq([donor.name])
+      expect(names).to match_array([admin_donor, donor].map(&:name))
     end
   end
 

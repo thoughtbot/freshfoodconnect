@@ -12,7 +12,9 @@
       <td><%= donor.name %></td>
       <td><%= donor.address %> <%= donor.zipcode %></td>
       <td class="table-actions">
-        <%= render("users/promote", user: donor) %>
+        <% unless donor.admin? %>
+          <%= render("users/promote", user: donor) %>
+        <% end %>
 
         <%= link_to(donor_path(donor), class: "table-link")do %>
           <%= t("users.donors.history") %>

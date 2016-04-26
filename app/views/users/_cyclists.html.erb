@@ -9,12 +9,11 @@
   </thead>
   <tbody>
     <%= render_user_rows(cyclists) do |cyclist| %>
-      <td>
-        <%= link_to cyclist_invitation_path(cyclist) do %>
-          <%= cyclist.name %>
-        <% end %>
-      </td>
+      <td><%= cyclist.name %></td>
       <td class="table-actions">
+        <%= link_to cyclist_invitation_path(cyclist), class: "table-link" do %>
+          <%= t("users.cyclists.register") %>
+        <% end %>
         <%= render("users/delete", user: cyclist) %>
       </td>
     <% end %>

@@ -145,9 +145,9 @@ en:
     destroy:
       success: "Donation pickup undone."
     statuses:
-      no_donation: "No Donation"
-      pending: "Pending"
-      success: "Picked Up"
+      no_donation: "Not donating"
+      pending: "Donating - Not yet picked up"
+      success: "Picked up"
     update:
       success: "Donation pickup confirmed."
 
@@ -236,7 +236,8 @@ en:
       columns:
         name: "Name"
       header: "Cyclists"
-      new: "+ Add Cyclist"
+      new: "+ Invite Cyclist"
+      register: "Register"
     delete:
       confirm: "Are you sure you want to delete %{name}?"
       text: "Delete"
@@ -253,7 +254,7 @@ en:
       history: "Donation History"
     promote:
       confirm: "Are you sure you want to promote this user?"
-      text: "Make admin"
+      text: "Make Admin"
 
   validations:
     accepted: "must be checked"

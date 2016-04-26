@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   end
 
   def self.donors
-    joins(:location).where(admin: false)
+    joins(:location)
   end
 
   def cyclist=(is_cyclist)
