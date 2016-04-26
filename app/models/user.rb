@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   time_for_a_boolean :organic_growth_asserted
   time_for_a_boolean :terms_and_conditions_accepted
 
+  phony_normalize :phone_number,
+    default_country_code: "US",
+    as: :normalized_phone_number
+
   belongs_to :assigned_zone, class_name: Zone
   has_many :donations, through: :location
   has_one :location, dependent: :destroy
@@ -14,6 +18,7 @@ class User < ActiveRecord::Base
     message: I18n.t("validations.accepted"),
   }
   validates :password, presence: true, on: :create
+  validates :phone_number, phony_plausible: { normalized_country_code: "US" }
   validates :terms_and_conditions_accepted_at, presence: {
     message: I18n.t("validations.accepted"),
   }

@@ -3,10 +3,19 @@
   <%= inline_svg("email.svg", class: "svg-icon") %>
   <%= profile.email %>
 </span>
+
+<% if profile.phone_number.present? %>
+  <span class="supplier-info__metadata phone-number">
+    <%= inline_svg("phone.svg", class: "svg-icon") %>
+    <%= profile.phone_number %>
+  </span>
+<% end %>
+
 <span class="supplier-info__metadata address">
   <%= inline_svg("location-pin.svg", class: "svg-icon") %>
   <%= profile.address %>
 </span>
+
 <span class="supplier-info__metadata zipcode">
   <%= inline_svg("map.svg", class: "svg-icon") %>
   <%= profile.zipcode %>

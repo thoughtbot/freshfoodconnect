@@ -145,6 +145,10 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     normalize-rails (3.0.3)
     pg (0.18.4)
+    phony (2.15.21)
+    phony_rails (0.14.0)
+      activesupport (>= 3.0)
+      phony (~> 2.12)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -304,6 +308,7 @@ DEPENDENCIES
   newrelic_rpm (>= 3.9.8)
   normalize-rails (~> 3.0.0)
   pg
+  phony_rails
   pry-byebug
   pry-rails
   puma
