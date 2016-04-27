@@ -267,7 +267,7 @@ en:
     accepted: "must be checked"
     deactivated: "This account has been deactivated."
     locations:
-      unsupported: "%{zipcode} is not supported. Please contact info@freshfoodconnect.org if you have moved or need to change your ZIP code."
+      unsupported: "Fresh Food Connect is currently not available in %{zipcode}. Please contact info@freshfoodconnect.org if you have moved or need to change your ZIP code."
 
   zones:
     defaults:
