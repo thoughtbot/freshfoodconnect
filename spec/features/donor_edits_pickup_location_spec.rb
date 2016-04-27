@@ -25,8 +25,9 @@ feature "Donor edits pickup location" do
     have_css(%{[checked][value="#{value}"]})
   end
 
-  def edit_location(location_type:, grown_on_site:, **attributes)
+  def edit_location(location_type: nil, grown_on_site: nil, **attributes)
     choose option_for(:location_type, location_type)
+
     choose option_for(:grown_on_site, grown_on_site)
 
     fill_form_and_submit(:location, :edit, attributes)

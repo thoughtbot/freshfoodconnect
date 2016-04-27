@@ -18,7 +18,6 @@ describe Location do
   it { should validate_presence_of(:location_type) }
   it { should validate_presence_of(:user) }
   it { should validate_presence_of(:zipcode) }
-  it { should validate_presence_of(:zone) }
 
   it { should validate_numericality_of(:latitude).is_greater_than_or_equal_to(-90) }
   it { should validate_numericality_of(:latitude).is_less_than_or_equal_to(90) }
@@ -27,6 +26,23 @@ describe Location do
   it { should validate_numericality_of(:longitude).is_greater_than_or_equal_to(-180) }
   it { should validate_numericality_of(:longitude).is_less_than_or_equal_to(180) }
   it { should validate_numericality_of(:longitude).allow_nil }
+
+  describe "validations" do
+    it "validates the Zone is supported" do
+      create(:zone, zipcode: "80205")
+      location = build(:location, zipcode: "80204")
+
+      valid = location.valid?
+
+      expect(valid).to be false
+      expect(location.errors[:zipcode]).
+        to eq([unsupported_zipcode_error("80204")])
+    end
+
+    def unsupported_zipcode_error(zipcode)
+      t("validations.locations.unsupported", zipcode: zipcode)
+    end
+  end
 
   describe ".not_geocoded" do
     it "includes Location records without latitude or longitude values" do

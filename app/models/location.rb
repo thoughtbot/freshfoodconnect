@@ -25,7 +25,7 @@ class Location < ActiveRecord::Base
   validates :location_type, presence: true
   validates :user, presence: true
   validates :zipcode, presence: true, zipcode: { country_code: :us }
-  validates :zone, presence: true
+  validate :zipcode_is_supported
 
   def self.not_geocoded
     where("latitude IS NULL OR longitude IS NULL")
@@ -37,5 +37,16 @@ class Location < ActiveRecord::Base
 
   def zipcode=(zipcode)
     super(zipcode.to_s.strip)
+  end
+
+  private
+
+  def zipcode_is_supported
+    unless Zone.supported?(zipcode)
+      errors[:zipcode] = I18n.t(
+        "validations.locations.unsupported",
+        zipcode: zipcode,
+      )
+    end
   end
 end

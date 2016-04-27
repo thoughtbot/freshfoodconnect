@@ -161,6 +161,9 @@ en:
     show:
       pickup: "Pickup Info"
       edit: "Edit Personal Info"
+    update:
+      error: "There was an issue updating your personal information."
+      success: "Your personal information has been updated."
 
   promotions:
     create:
@@ -259,7 +262,8 @@ en:
   validations:
     accepted: "must be checked"
     deactivated: "This account has been deactivated."
-    unsupported: "We're sorry, our service is not available in %{zipcode} at this time."
+    locations:
+      unsupported: "%{zipcode} is not supported. Please contact info@freshfoodconnect.org if you have moved or need to change your ZIP code."
 
   zones:
     defaults:

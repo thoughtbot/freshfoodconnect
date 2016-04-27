@@ -6,7 +6,6 @@ class Registration
     presence: { message: I18n.t("validations.accepted") }
   validates :terms_and_conditions_accepted,
     presence: { message: I18n.t("validations.accepted") }
-  validate :zipcode_is_supported
 
   attr_accessor(
     :address,
@@ -87,12 +86,6 @@ class Registration
 
   def donor_enrollment
     @donor_enrollment ||= DonorEnrollment.new(location: location)
-  end
-
-  def zipcode_is_supported
-    unless zipcode.blank? || Zone.supported?(zipcode)
-      errors[:zipcode] = I18n.t("validations.unsupported", zipcode: zipcode)
-    end
   end
 
   def expose_errors
