@@ -21,7 +21,7 @@
       <% @pickup_checklist.donations.each do |donation| %>
         <tr>
           <td data-role="donor"><%= donation.donor.name %></td>
-          <td><%= donation.address %></td>
+          <td><address><%= donation.address %></address></td>
           <td class="btn-cell">
             <% if donation.picked_up? %>
               <%= button_to donation_pickup_path(donation), method: :delete do %>

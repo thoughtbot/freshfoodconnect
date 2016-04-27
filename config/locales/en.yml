@@ -193,6 +193,7 @@ en:
     donations:
       checklist: "Cyclist Checklist"
       columns:
+        address: "Address"
         name: "Supplier"
         status: "Donation Status for %{date}"
       header: "Donations"

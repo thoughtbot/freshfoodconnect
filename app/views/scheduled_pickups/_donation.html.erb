@@ -5,6 +5,10 @@
     <% end %>
   </td>
 
+  <td>
+    <address><%= donation.address %></address>
+  </td>
+
   <td class="pickup-confirmation <%= status_for_pickup(donation) %>">
     <%= label_for_pickup(donation) %>
   </td>
