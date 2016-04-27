@@ -20,7 +20,7 @@
   <tbody>
     <%= render(
       partial: "scheduled_pickups/donation",
-      collection: scheduled_pickup.donations.includes(:donor),
+      collection: scheduled_pickup.donations.order(created_at: :asc).includes(:donor),
       as: :donation,
     ) %>
   </tbody>

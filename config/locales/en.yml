@@ -85,6 +85,10 @@ en:
     edit:
       header: "Donation Info"
       prompt: "Would you like to change your donation status?"
+    history:
+      columns:
+        date: "Date"
+        status: "Pickup Confirmation"
     sizes:
       small: "Small"
       medium: "Medium"
@@ -146,7 +150,7 @@ en:
       success: "Donation pickup undone."
     statuses:
       no_donation: "Not donating"
-      pending: "Donating - Not yet picked up"
+      pending: "Donating - Confirmation data not yet entered"
       success: "Picked up"
     update:
       success: "Donation pickup confirmed."

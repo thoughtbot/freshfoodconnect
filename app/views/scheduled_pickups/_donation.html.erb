@@ -4,5 +4,8 @@
       <%= donation.donor.name %>
     <% end %>
   </td>
-  <td><%= label_for_donation(donation) %></td>
+
+  <td class="pickup-confirmation <%= status_for_pickup(donation) %>">
+    <%= label_for_pickup(donation) %>
+  </td>
 </tr>

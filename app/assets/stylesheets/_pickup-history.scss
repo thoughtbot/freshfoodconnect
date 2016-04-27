@@ -22,4 +22,8 @@
       background-color: $label-font-color;
     }
   }
+
+  &.pending::before {
+    background-color: $brand-orange;
+  }
 }
