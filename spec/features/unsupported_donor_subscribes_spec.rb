@@ -16,6 +16,20 @@ feature "Unsupported donor subscribes" do
     )
   end
 
+  context "to a supported ZIP" do
+    scenario "they're redirected to the registration page" do
+      supported_zone = create(:zone)
+
+      visit new_zone_subscription_path(supported_zone.zipcode)
+
+      expect(current_path).to be_registration_page_for(supported_zone)
+    end
+
+    def be_registration_page_for(zone)
+      eq(new_zone_registration_path(zone))
+    end
+  end
+
   def have_thank_you_text
     have_text t("pages.thanks.header")
   end

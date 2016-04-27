@@ -21,6 +21,20 @@ feature "Donor signs up" do
     end
   end
 
+  context "for an unsupported ZIP" do
+    scenario "they're redirected to that ZIP's subscribe page" do
+      unsupported_zipcode = "80204"
+
+      visit new_zone_registration_path(unsupported_zipcode)
+
+      expect(current_path).to be_subscription_page_for(unsupported_zipcode)
+    end
+
+    def be_subscription_page_for(zipcode)
+      eq(new_zone_subscription_path(zipcode))
+    end
+  end
+
   context "without accepting the Terms and Conditions" do
     scenario "displays validation errors" do
       zone = create(:zone)

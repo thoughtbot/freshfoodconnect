@@ -1,5 +1,6 @@
 class RegistrationsController < ApplicationController
   skip_before_action :require_login
+  before_action :redirect_if_unsupported, only: [:new]
 
   def new
     @registration = Registration.new(zipcode: zone.zipcode)
@@ -19,8 +20,16 @@ class RegistrationsController < ApplicationController
 
   private
 
+  def redirect_if_unsupported
+    zone = Zone.find_by(zipcode: zipcode)
+
+    if zone.nil?
+      redirect_to new_zone_subscription_url(zipcode)
+    end
+  end
+
   def zone
-    Zone.find_by!(zipcode: params[:zone_id])
+    Zone.find_by!(zipcode: zipcode)
   end
 
   def build_registration
@@ -40,5 +49,9 @@ class RegistrationsController < ApplicationController
         :terms_and_conditions_accepted,
       ).
       merge(zipcode: zone.zipcode)
+  end
+
+  def zipcode
+    params[:zone_id]
   end
 end

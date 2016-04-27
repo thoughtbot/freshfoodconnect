@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   skip_before_action :require_login
+  before_action :redirect_if_supported, only: [:new, :create]
 
   def new
     @subscription = Subscription.new(zipcode: zipcode)
@@ -16,6 +17,12 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
+  def redirect_if_supported
+    if Zone.supported?(zipcode)
+      redirect_to new_zone_registration_url(zipcode)
+    end
+  end
 
   def build_subscription
     Subscription.new(subscription_params)
