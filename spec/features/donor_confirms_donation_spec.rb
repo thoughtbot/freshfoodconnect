@@ -30,7 +30,7 @@ feature "Donor confirms donation" do
   end
 
   def have_size_options
-    have_text t("donations.sizes.medium")
+    have_text t("simple_form.options.donation.size.medium")
   end
 
   def have_confirmation_flash

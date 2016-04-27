@@ -89,10 +89,6 @@ en:
       columns:
         date: "Date"
         status: "Pickup Confirmation"
-    sizes:
-      small: "Small"
-      medium: "Medium"
-      large: "Large"
     status:
       html: Donation Status for <span class="next-pickup-date">%{date}</span>
       text: "Would you like to change your donation status?"

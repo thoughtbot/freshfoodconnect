@@ -68,9 +68,9 @@ en:
     options:
       donation:
         size:
-          large: "Large"
-          medium: "Medium"
-          small: "Small"
+          large: "16+ lbs (more than one reusable grocery bag)"
+          medium: "6-15 lbs (reusable grocery bag)"
+          small: "1-5 lbs (shoebox size)"
       location:
         grown_on_site:
           "false": "Somewhere other than the pickup location."

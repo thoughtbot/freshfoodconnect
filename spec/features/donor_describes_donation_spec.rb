@@ -23,7 +23,7 @@ feature "Donor describes donation" do
     click_on t("donations.donation.edit")
 
     if size.present?
-      choose t("simple_form.options.donation.size.#{size}")
+      choose size_i18n(size)
     end
 
     fill_form_and_submit(:donation, :edit, attributes)
@@ -38,6 +38,6 @@ feature "Donor describes donation" do
   end
 
   def size_i18n(size)
-    t("donations.sizes.#{size}")
+    t("simple_form.options.donation.size.#{size}")
   end
 end
