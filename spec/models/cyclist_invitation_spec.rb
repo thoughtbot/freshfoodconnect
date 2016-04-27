@@ -5,7 +5,7 @@ describe CyclistInvitation do
     context "when valid" do
       it "creates a Cyclist user" do
         ensure_zone_exists!
-        user = User.new(email: "cyclist@example.com")
+        user = build(:user, email: "cyclist@example.com")
         cyclist = CyclistInvitation.new(user)
         password_reset_email = stub_password_reset_email_for(user)
 
@@ -21,7 +21,7 @@ describe CyclistInvitation do
     context "when invalid" do
       it "exposes validation errors" do
         ensure_zone_exists!
-        user = User.new(email: nil)
+        user = build(:user, email: nil)
         cyclist = CyclistInvitation.new(user)
         password_reset_email = stub_password_reset_email_for(user)
 

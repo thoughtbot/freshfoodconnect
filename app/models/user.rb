@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_one :location, dependent: :destroy
 
   validates :email, presence: true, email: true
+  validates :name, presence: true
   validates :organic_growth_asserted_at, presence: {
     message: I18n.t("validations.accepted"),
   }

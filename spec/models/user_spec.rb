@@ -6,6 +6,7 @@ describe User do
   it { should belong_to(:assigned_zone) }
 
   it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:name) }
   it { should validate_presence_of(:password).on(:create) }
 
   it do
