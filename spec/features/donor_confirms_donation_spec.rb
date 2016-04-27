@@ -11,9 +11,9 @@ feature "Donor confirms donation" do
 
     expect(last_donation.donor).to belong_to(email)
     expect(last_donation).to be_confirmed
-    expect(page).to have_confirmation_flash
     expect(page).to have_confirmed_status
     expect(page).to have_size_options
+    expect(page).not_to have_flash
   end
 
   scenario "directly from the edit page" do
@@ -31,10 +31,6 @@ feature "Donor confirms donation" do
 
   def have_size_options
     have_text t("simple_form.options.donation.size.medium")
-  end
-
-  def have_confirmation_flash
-    have_text t("confirmations.create.success")
   end
 
   def have_confirmed_status

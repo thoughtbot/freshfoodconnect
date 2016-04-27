@@ -11,9 +11,9 @@ feature "Donor declines donation" do
 
     expect(last_donation).to be_declined
     expect(last_donation.donor).to belong_to(email)
-    expect(page).to have_success_flash
     expect(page).to have_declined_status
     expect(page).to be_redirected_to_profile
+    expect(page).not_to have_flash
   end
 
   def be_redirected_to_profile
@@ -48,10 +48,6 @@ feature "Donor declines donation" do
       declined?: true,
       pending?: false,
     )
-  end
-
-  def have_success_flash
-    have_text t("confirmations.destroy.success")
   end
 
   def have_declined_status

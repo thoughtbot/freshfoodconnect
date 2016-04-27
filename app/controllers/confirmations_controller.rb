@@ -4,8 +4,6 @@ class ConfirmationsController < ApplicationController
 
     @confirmation.confirm!
 
-    flash[:success] = t(".success")
-
     redirect_to edit_donation_url(@confirmation.donation)
   end
 
@@ -14,8 +12,6 @@ class ConfirmationsController < ApplicationController
 
     @donation.update!(confirmation_params)
 
-    flash[:success] = t(".success")
-
     redirect_to :back
   end
 
@@ -23,8 +19,6 @@ class ConfirmationsController < ApplicationController
     @confirmation = build_confirmation
 
     @confirmation.decline!
-
-    flash[:success] = t(".success")
 
     redirect_to profile_url
   end
