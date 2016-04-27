@@ -17,7 +17,6 @@ class PickupsController < ApplicationController
     zone_scheduled_pickup_checklist_url(
       donation.zone,
       donation.scheduled_pickup,
-      donation,
     )
   end
 

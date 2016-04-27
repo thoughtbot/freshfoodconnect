@@ -4,20 +4,26 @@ feature "Cyclist views pickup checklist" do
   scenario "for a scheduled donation" do
     scheduled_pickup = create(:scheduled_pickup)
     cyclist = create(:cyclist)
-    confirmed_donation = schedule_donation_for(scheduled_pickup, :confirmed)
-    declined_donation = schedule_donation_for(scheduled_pickup, :declined)
+    confirmed_donations = [
+      schedule_donation_for(scheduled_pickup, :confirmed),
+      schedule_donation_for(scheduled_pickup, :confirmed),
+    ]
+    schedule_donation_for(scheduled_pickup, :declined)
 
     sign_in_as(cyclist)
 
-    expect(page).to have_donor_for(confirmed_donation)
-    expect(page).not_to have_donor_for(declined_donation)
+    expect(donor_names).to eq donors_for(confirmed_donations)
+  end
+
+  def donor_names
+    all("[data-role=donor]").map(&:text)
+  end
+
+  def donors_for(donations)
+    donations.map(&:donor).map(&:name)
   end
 
   def schedule_donation_for(scheduled_pickup, *traits)
     create(:donation, *traits, scheduled_pickup: scheduled_pickup)
-  end
-
-  def have_donor_for(donation)
-    have_name(donation.donor)
   end
 end
