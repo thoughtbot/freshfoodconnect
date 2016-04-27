@@ -283,6 +283,6 @@ en:
       prompt: "Be sure to select a day and time range that pickups will typically be scheduled for."
 
     show:
-      no_pickup: "There are no pickups scheduled for this week."
+      no_pickup: "Fresh Food Connect is not currently available in your area. There are currently no scheduled pickups in your area."
     update:
       success: "Future pickups for this zipcode have been rescheduled."
