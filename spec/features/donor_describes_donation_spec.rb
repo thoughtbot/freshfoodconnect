@@ -2,13 +2,10 @@ require "rails_helper"
 
 feature "Donor describes donation" do
   scenario "after confirming their donation" do
-    donation = create(:donation, :confirmed, size: "small", notes: "grains")
+    donation = create(:donation, :confirmed, size: "small", donor_notes: "grains")
 
     visit profile_path(as: donation.donor)
-    edit_donation(
-      size: "medium",
-      notes: "vegetables",
-    )
+    edit_donation(size: "medium", donor_notes: "vegetables")
 
     expect(page).to have_success_flash
     expect(page).to have_size(:medium)

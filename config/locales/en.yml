@@ -80,7 +80,7 @@ en:
       text: "Not Donating"
     donation:
       edit: "Change my Donation"
-      notes: "Donation Details"
+      donor_notes: "Donation Details"
       size: "Donation Size"
     edit:
       header: "Donation Info"

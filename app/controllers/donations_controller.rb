@@ -16,7 +16,7 @@ class DonationsController < ApplicationController
   private
 
   def donation_params
-    params.require(:donation).permit(:notes, :size)
+    params.require(:donation).permit(:donor_notes, :size)
   end
 
   def find_donation

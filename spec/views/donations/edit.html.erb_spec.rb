@@ -27,7 +27,7 @@ describe "donations/edit" do
       expect(rendered).to have_enabled_button(:decline)
       expect(rendered).to have_donation_status(:confirmed)
       expect(rendered).to have_name("size")
-      expect(rendered).to have_name("notes")
+      expect(rendered).to have_name("donor_notes")
       expect(rendered).to have_update_button
       expect(rendered).to have_edit_prompt
     end
@@ -50,7 +50,7 @@ describe "donations/edit" do
 
   def expect_rendered_not_to_have_form
     expect(rendered).not_to have_name("size")
-    expect(rendered).not_to have_name("notes")
+    expect(rendered).not_to have_name("donor_notes")
     expect(rendered).not_to have_update_button
   end
 

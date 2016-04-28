@@ -37,14 +37,14 @@ en:
       default_message: "Please review the problems below:"
     labels:
       confirmation:
-        notes: "What's in your donation?"
+        donor_notes: "What's in your donation?"
         size: "Donation Size"
       cyclist_invitation:
         email: "Email"
         name: "Name"
       donation:
         size: "How big is your donation?"
-        notes: "Provide a short description of your donation:"
+        donor_notes: "Provide a short description of your donation:"
       location:
         grown_on_site: "Where are you growing the food you are donating?"
         location_type: "Pickup Location Type"
