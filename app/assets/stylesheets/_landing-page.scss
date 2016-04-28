@@ -111,7 +111,7 @@
     padding: $small-spacing $small-spacing 0;
 
     @include media($medium-screen-up) {
-      padding-bottom: $xlarge-spacing * 1.5;
+      padding-bottom: $xlarge-spacing;
     }
   }
 
@@ -177,6 +177,45 @@
     img {
       border-radius: $base-border-radius;
       margin-bottom: $base-spacing;
+    }
+  }
+}
+
+.attributions {
+  @include clearfix;
+  border-top: $base-border;
+  color: $action-color;
+  padding: $base-spacing 0;
+  text-align: center;
+
+  @include media($medium-screen-up) {
+    padding: $xlarge-spacing 0;
+  }
+
+  &-container {
+    @include clearfix;
+    width: 100%;
+
+    @include media($medium-screen-up) {
+      @include span-columns(5 of 12);
+      @include shift(3.5 of 12);
+    }
+  }
+}
+
+.logo-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: $large-spacing;
+
+  .logo-link {
+    flex: 1;
+    max-width: 150px;
+    padding: $base-spacing;
+
+    &:hover {
+      opacity: 0.75;
     }
   }
 }
