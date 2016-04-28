@@ -238,3 +238,12 @@ span.radio label {
 .button_to {
   display: inline-block;
 }
+
+.terms-and-safety-links {
+  margin-bottom: $base-spacing;
+
+  a {
+    margin-right: $small-spacing;
+    text-decoration: underline;
+  }
+}

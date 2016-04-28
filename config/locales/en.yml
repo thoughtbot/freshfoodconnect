@@ -204,6 +204,8 @@ en:
   registrations:
     form:
       prompt: "In order to participate in Fresh Food Connect, you'll need to create an account. We'll need your address so we know where to pick up your donated veggies, and your other contact information so we can communicate with you about pickup times:"
+      food_safety_policy: "Food Safety Policy"
+      terms_and_conditions_accepted: "Terms and Conditions"
     new:
       header: "Our service is available in your area!"
   subscriptions:

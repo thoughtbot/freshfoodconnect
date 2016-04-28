@@ -49,12 +49,11 @@ en:
         grown_on_site: "Where are you growing the food you are donating?"
         location_type: "Pickup Location Type"
         organic_growth_asserted: "The food I donate will be grown without the use of non-organic pesticides, herbicides and fertilizers."
-        terms_and_conditions_accepted: I agree to the Terms and Conditions
       profile:
         address: "Street Address for Pickup"
         notes: "Pickup Notes"
       registration:
-        terms_and_conditions_accepted: I agree to the Terms and Conditions
+        terms_and_conditions_accepted: "The food I donate will be clean, safe to eat, and in accordance with the Fresh Food Connect Food Safety policy and the Terms and Conditions."
         organic_growth_asserted: "The food I donate will be grown without the use of non-organic pesticides, herbicides and fertilizers."
         location_type: "Pickup Location Type"
         grown_on_site: "Where are you growing the food you are donating?"
