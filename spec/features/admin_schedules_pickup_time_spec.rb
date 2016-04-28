@@ -17,10 +17,15 @@ feature "Admin schedules pickup time" do
     visit zone_path(zone, as: create(:admin))
     schedule_pickup_with_defaults
 
+    expect(page).to have_success_flash
     expect(page).to have_text(zone.zipcode)
     expect(page).to have_text(start_hour.label)
     expect(page).to have_text(end_hour.label)
     expect(page).to have_text(weekday.label)
+  end
+
+  def have_success_flash
+    have_text t("scheduled_pickups.create.success")
   end
 
   def schedule_pickup_with_defaults

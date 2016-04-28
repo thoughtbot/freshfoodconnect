@@ -173,6 +173,8 @@ en:
       success: "%{name} is no longer an administrator."
 
   scheduled_pickups:
+    create:
+      success: "The pickup has been scheduled."
     edit:
       header: "Reschedule this week's pickup"
       prompt: "Be sure to include the earliest and latest pickup times."

@@ -11,10 +11,7 @@ class ScheduledPickupsController < ApplicationController
     @scheduled_pickup = build_scheduled_pickup_with_defaults
 
     if @scheduled_pickup.persisted?
-      redirect_to edit_zone_scheduled_pickup_url(
-        zone,
-        @scheduled_pickup,
-      )
+      redirect_to edit_zone_scheduled_pickup_url(zone, @scheduled_pickup)
     end
   end
 
@@ -23,10 +20,7 @@ class ScheduledPickupsController < ApplicationController
 
     @scheduled_pickup.save!
 
-    redirect_to zone_scheduled_pickup_url(
-      zone,
-      @scheduled_pickup,
-    )
+    redirect_to_scheduled_pickup
   end
 
   def update
@@ -34,15 +28,17 @@ class ScheduledPickupsController < ApplicationController
 
     @scheduled_pickup.update!(scheduled_pickup_params)
 
-    flash[:success] = t(".success")
-
-    redirect_to zone_scheduled_pickup_url(
-      zone,
-      @scheduled_pickup,
-    )
+    redirect_to_scheduled_pickup
   end
 
   private
+
+  def redirect_to_scheduled_pickup
+    redirect_to(
+      zone_scheduled_pickup_url(zone, @scheduled_pickup),
+      flash: { success: t(".success") },
+    )
+  end
 
   def scheduled_pickup_params
     params.require(:scheduled_pickup).permit(:start_at, :end_at)
