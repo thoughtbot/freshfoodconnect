@@ -23,7 +23,15 @@
     }
   }
 
-  &.pending::before {
+  &.confirmed::before {
     background-color: $brand-orange;
+  }
+
+  &.pending {
+    color: $medium-gray;
+
+    &::before {
+      background-color: $medium-gray;
+    }
   }
 }

@@ -145,8 +145,9 @@ en:
     destroy:
       success: "Donation pickup undone."
     statuses:
+      confirmed: "Donating - Confirmation data not yet entered"
       no_donation: "Not donating"
-      pending: "Donating - Confirmation data not yet entered"
+      pending: "Unconfirmed"
       success: "Picked up"
     update:
       success: "Donation pickup confirmed."

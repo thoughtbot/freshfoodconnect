@@ -18,6 +18,8 @@ module DonationsHelper
       :success
     elsif donation.declined?
       :no_donation
+    elsif donation.confirmed?
+      :confirmed
     else
       :pending
     end
