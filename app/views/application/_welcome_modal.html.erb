@@ -2,7 +2,7 @@
   <div id="welcome"></div>
 
   <div class="modal-fade-screen">
-    <div class="modal-inner content-container">
+    <div class="modal-inner">
       <div class="modal-content">
         <h3><%= t(".header") %></h3>
         <ol class="next-steps">
@@ -15,11 +15,11 @@
             </li>
           <% end %>
         </ol>
-        <div class="modal-actions">
-          <%= link_to "#", class: "btn modal-confirm" do %>
-            <%= t(".close") %>
-          <% end %>
-        </div>
+      </div>
+      <div class="modal-actions">
+        <%= link_to "#", class: "btn modal-confirm" do %>
+          <%= t(".close") %>
+        <% end %>
       </div>
     </div>
   </div>

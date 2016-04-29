@@ -190,7 +190,7 @@ en:
       edit: "Reschedule"
       time: "Scheduled Pickup Time"
     donations:
-      checklist: "Cyclist Checklist"
+      checklist: "View Cyclist Checklist"
       columns:
         address: "Address"
         name: "Supplier"

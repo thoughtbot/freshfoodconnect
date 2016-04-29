@@ -34,6 +34,31 @@
   float: right;
 }
 
+.pickup-checklist-link {
+  border: 1px solid $blue;
+  border-radius: $base-border-radius;
+  color: $blue;
+  display: inline-block;
+  margin: $small-spacing 0;
+  padding: $xsmall-spacing $small-spacing;
+
+  &::after {
+    content: "→";
+    padding-left: $xsmall-spacing / 2;
+    transition: all 0.15s ease-in-out;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: lighten($blue, 15%);
+
+    &::after {
+      padding-left: $xsmall-spacing;
+    }
+  }
+}
+
 .map-placeholder {
   @include size(100%, 300px);
   background: $light-gray;

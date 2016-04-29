@@ -1,11 +1,5 @@
 <h2 class="section-label"><%= t(".header") %></h2>
 
-<%= link_to(
-  [@scheduled_pickup.zone, @scheduled_pickup, :checklist],
-) do %>
-  <%= t(".checklist") %>
-<% end %>
-
 <table>
   <thead>
     <tr>
@@ -28,3 +22,9 @@
     ) %>
   </tbody>
 </table>
+
+<%= link_to(
+  [@scheduled_pickup.zone, @scheduled_pickup, :checklist], class: "pickup-checklist-link"
+) do %>
+  <%= t(".checklist") %>
+<% end %>

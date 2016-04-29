@@ -217,6 +217,10 @@
     &:hover {
       opacity: 0.75;
     }
+
+    &:first-of-type {
+      max-width: 250px;
+    }
   }
 }
 
