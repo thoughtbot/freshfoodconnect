@@ -94,3 +94,26 @@ body {
     display: inline-block;
   }
 }
+
+.terms-and-conditions,
+.food-safety-policy {
+  h2 {
+    color: $action-color;
+    margin-bottom: $large-spacing;
+    text-align: center;
+  }
+
+  h3 {
+    margin-top: $base-spacing;
+  }
+
+  li {
+    margin-bottom: $xsmall-spacing;
+
+    &::before {
+      color: $action-color;
+      content: "• ";
+      margin-right: $xsmall-spacing;
+    }
+  }
+}
