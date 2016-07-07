@@ -13,7 +13,7 @@
       <%= t(".grow_information") %>
     </h2>
     <span><%= t(".grow_information_sentence",
-            is_is_not: is_or_isnt_on_site(@donor),
+            on_site: on_site?(@donor),
             location_type: @donor.location_type) %></span>
 
   </section>

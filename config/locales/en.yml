@@ -110,9 +110,11 @@ en:
   donors:
     show:
       grow_information: "Grow information"
-      grow_information_sentence: "The produce %{is_is_not} grown at the pickup location which is a %{location_type}."
+      grow_information_sentence: "The produce %{on_site} grown at the pickup location which is a %{location_type}."
       address: "Address"
       header: "Donation History"
+      grown_on_site: "is"
+      grown_off_site: "is not"
 
   google_maps:
     google_map:

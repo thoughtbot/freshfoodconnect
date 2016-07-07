@@ -1,5 +1,9 @@
 module DonorsHelper
-  def is_or_isnt_on_site(donor)
-    donor.location.grown_on_site ? "is" : "is not"
+  def on_site?(donor)
+    if donor.location.grown_on_site
+      t(".grown_on_site")
+    else
+      t(".grown_of_site")
+    end
   end
 end
