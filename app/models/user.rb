@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     message: I18n.t("validations.accepted"),
   }
 
-  delegate(:address, :zipcode, to: :location)
+  delegate(:address, :zipcode, :location_type, to: :location)
 
   def self.active
     where(deleted_at: nil)

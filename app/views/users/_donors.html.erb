@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <%= render_user_rows(donors) do |donor| %>
-      <td><%= donor.name %></td>
+      <td><%= donor.name %> (<%= donor.email %>)</td>
       <td><%= donor.address %> <%= donor.zipcode %></td>
       <td class="table-actions">
         <% unless donor.admin? %>
@@ -17,7 +17,7 @@
         <% end %>
 
         <%= link_to(donor_path(donor), class: "table-link")do %>
-          <%= t("users.donors.history") %>
+          <%= t("users.donors.profile_and_history") %>
         <% end %>
       </td>
     <% end %>
