@@ -109,7 +109,10 @@ en:
 
   donors:
     show:
-      header: "Donation History for"
+      grow_information: "Grow information"
+      grow_information_sentence: "The produce %{is_is_not} grown at the pickup location which is a %{location_type}."
+      address: "Address"
+      header: "Donation History"
 
   google_maps:
     google_map:
@@ -260,7 +263,7 @@ en:
         address: "Address"
         name: "Name"
       header: "Suppliers"
-      history: "Donation History"
+      profile_and_history: "Donation History"
     promote:
       confirm: "Are you sure you want to promote this user?"
       text: "Make Admin"

@@ -20,6 +20,7 @@ describe User do
 
   it { should delegate_method(:address).to(:location) }
   it { should delegate_method(:zipcode).to(:location) }
+  it { should delegate_method(:location_type).to(:location) }
 
   describe ".active" do
     it "excludes deleted Users" do

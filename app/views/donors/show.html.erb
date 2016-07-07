@@ -1,7 +1,26 @@
 <div class="content-wrapper-narrow content-container">
-  <h3>
+  <section class="donor-content-section">
+    <h3>
+      <span class="supplier-name"><%= @donor.name %> (<%=@donor.email %>)</span>
+    </h3>
+
+    <h2 class="section-label">
+      <%= t(".address") %>
+    </h2>
+    <span><%= @donor.address %></span>
+
+    <h2 class="section-label">
+      <%= t(".grow_information") %>
+    </h2>
+    <span><%= t(".grow_information_sentence",
+            is_is_not: is_or_isnt_on_site(@donor),
+            location_type: @donor.location_type) %></span>
+
+  </section>
+  <section class="donation-content-section">
+  <h3 class="section-label">
     <%= t(".header") %>
-    <span class="supplier-name"><%= @donor.name %></span>:
   </h3>
-  <%= render("donations/history", donations: @donor.donations) %>
+    <%= render("donations/history", donations: @donor.donations) %>
+  </section>
 </div>
