@@ -22,7 +22,7 @@ feature "Admin views donor's page" do
     visit_donor_page_for(donor)
 
     expect(page).to have_text(donor.email)
-    expect(page).to have_text("is grown")
+    expect(page).to have_text(t("donors.show.grown_on_site"))
     expect(page).to have_text(donor.location_type)
   end
 
