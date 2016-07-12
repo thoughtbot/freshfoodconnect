@@ -1,0 +1,17 @@
+<div class="content-wrapper-large content-container">
+  <h2 class="section-label"><%= t(".header", zipcode: @zipcode) %></h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th><%= t(".columns.name") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%- @subscriptions.each do |subscription| %>
+        <td><%= subscription.email %></td>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

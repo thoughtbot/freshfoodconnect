@@ -13,6 +13,14 @@
 
   <section class="zipcode-group">
     <h2 class="section-label"><%= t(".inactive") %></h2>
+    <% @subscription_zipcodes.each do |zipcode| %>
+      <%= link_to subscriptions_path(zipcode: zipcode), class: "zipcode-tile" do %>
+        <h3 class="zipcode-tile__zipcode"><%= zipcode %></h2>
+        <span class="zipcode-tile__subscriber-count">
+          <%= t(".subscriptions", count: subscriptions_count(zipcode)) %>
+        </span>
+      <% end %>
+    <% end %>
   </section>
 
   <%= link_to new_zone_path, class: "btn" do %>

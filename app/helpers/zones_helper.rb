@@ -12,4 +12,8 @@ module ZonesHelper
       day: weekday.label,
     )
   end
+
+  def subscriptions_count(zipcode)
+    Subscription.where(zipcode: zipcode).count
+  end
 end
