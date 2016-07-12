@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     resources :donations, only: [:show] do
       resource :pickup, only: [:update, :destroy]
     end
+    resources :subscriptions, only: [:index]
 
     resources :zones, only: [] do
       resources(

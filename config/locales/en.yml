@@ -214,6 +214,10 @@ en:
       decline: "No thanks, take me back to the homepage."
     new:
       header: "We're sorry, our service is not available in your area at this time."
+    index:
+      header: "People wishing to donate in %{zipcode}"
+      columns:
+        name: "Email"
 
   time:
     formats:
@@ -284,6 +288,9 @@ en:
       suppliers:
         one: "%{count} Supplier"
         other: "%{count} Suppliers"
+      subscriptions:
+        one: "%{count} Subscription"
+        other: "%{count} Subscriptions"
     new:
       header: "Activate a Zipcode"
       prompt: "Be sure to select a day and time range that pickups will typically be scheduled for."

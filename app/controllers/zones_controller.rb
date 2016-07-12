@@ -1,6 +1,7 @@
 class ZonesController < ApplicationController
   def index
     @zones = Zone.all
+    @subscription_zipcodes = Subscription.pluck(:zipcode)
   end
 
   def edit

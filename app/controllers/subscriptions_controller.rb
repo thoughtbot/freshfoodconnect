@@ -16,6 +16,11 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def index
+    @zipcode = params[:zipcode]
+    @subscriptions = Subscription.where(zipcode: @zipcode)
+  end
+
   private
 
   def redirect_if_supported
