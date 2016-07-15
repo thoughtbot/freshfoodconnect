@@ -9,7 +9,9 @@
     </thead>
     <tbody>
       <%- @subscriptions.each do |subscription| %>
-        <td><%= subscription.email %></td>
+        <tr>
+          <td><%= subscription.email %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>
