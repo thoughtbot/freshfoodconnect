@@ -1,4 +1,7 @@
 .terms-and-conditions {
+  p.uppercase {
+    text-transform: uppercase;
+  }
 
   ul {
     list-style-type: lower-alpha;
