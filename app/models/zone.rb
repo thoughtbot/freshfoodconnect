@@ -24,6 +24,7 @@ class Zone < ActiveRecord::Base
   has_many :locations, foreign_key: :zipcode, primary_key: :zipcode
   has_many :scheduled_pickups
   has_many :users, through: :locations
+  belongs_to :region
 
   def self.supported?(zipcode)
     where(zipcode: zipcode).any?
