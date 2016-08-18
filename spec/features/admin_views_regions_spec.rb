@@ -27,7 +27,7 @@ feature "Admin views regions" do
 
       visit_regions_page(as: admin)
 
-      expect(page).to have_content(I18n.t(".regions.index.no_regions"))
+      expect(page).to have_content(t("regions.index.no_regions"))
     end
   end
 
@@ -37,7 +37,7 @@ feature "Admin views regions" do
   end
 
   def have_zipcode_count(record)
-    zipcode_count = I18n.t(".regions.index.zones", count: record.zones.count)
+    zipcode_count = t("regions.index.zones", count: record.zones.count)
     have_content(zipcode_count)
   end
 end

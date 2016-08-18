@@ -4,12 +4,12 @@
 
     <% if @regions.count > 0 %>
       <% @regions.each do |region| %>
-        <a class="region-tile">
+        <%= link_to region, class: "region-tile" do %>
           <h3 class="region-tile__region"><%= region.name %></h3>
           <span class="region-tile__zipcode-count">
             <%= t(".zones", count: region.zones.count) %>
           </span>
-        </a>
+        <% end %>
       <% end %>
     <% else %>
       <%= t(".no_regions") %>

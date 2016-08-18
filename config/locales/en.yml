@@ -214,6 +214,8 @@ en:
       zones:
         one: "%{count} Zipcode"
         other: "%{count} Zipcodes"
+    show:
+      no_zones: "There are currently no zipcodes associated with this region. Please add one."
 
   registrations:
     form:

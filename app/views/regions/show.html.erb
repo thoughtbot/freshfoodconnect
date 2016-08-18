@@ -1,0 +1,17 @@
+<div class="content-wrapper-large content-container">
+  <header class="zone-header">
+    <h2><%= @region.name %></h2>
+  </header>
+
+  <% if @region.zones.count > 0 %>
+    <ul>
+      <% @region.zones.each do |zone| %>
+        <li>
+          <%= zone.zipcode %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <%= t(".no_zones") %>
+  <% end %>
+</div>
