@@ -1,0 +1,18 @@
+<div class="content-wrapper-narrow">
+  <section>
+    <h2 class="section-label"><%= t(".title") %></h2>
+
+    <% if @regions.count > 0 %>
+      <% @regions.each do |region| %>
+        <a class="region-tile">
+          <h3 class="region-tile__region"><%= region.name %></h3>
+          <span class="region-tile__zipcode-count">
+            <%= t(".zones", count: region.zones.count) %>
+          </span>
+        </a>
+      <% end %>
+    <% else %>
+      <%= t(".no_regions") %>
+    <% end %>
+  </section>
+</div>

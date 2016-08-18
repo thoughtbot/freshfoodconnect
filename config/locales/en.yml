@@ -36,6 +36,7 @@ en:
   application:
     header:
       profile: "Profile"
+      regions: "Regions"
       sign_in: "Sign In"
       sign_out: "Sign Out"
       users: "Users"
@@ -205,6 +206,14 @@ en:
       success: "The pickup has been rescheduled."
     zone:
       edit: "Schedule"
+
+  regions:
+    index:
+      title: "Regions"
+      no_regions: "There are currently no regions. Please create one."
+      zones:
+        one: "%{count} Zipcode"
+        other: "%{count} Zipcodes"
 
   registrations:
     form:
