@@ -3,7 +3,7 @@
     <h2 class="section-label"><%= t(".active") %></h2>
     <% @zones.each do |zone| %>
       <%= link_to zone, class: "zipcode-tile" do %>
-        <h3 class="zipcode-tile__zipcode"><%= zone.zipcode %></h2>
+        <h3 class="zipcode-tile__zipcode"><%= zone.zipcode %></h3>
         <span class="zipcode-tile__supplier-count">
           <%= t(".suppliers", count: zone.locations.count) %>
         </span>
@@ -15,7 +15,7 @@
     <h2 class="section-label"><%= t(".inactive") %></h2>
     <% @subscription_zipcodes.each do |zipcode| %>
       <%= link_to subscriptions_path(zipcode: zipcode), class: "zipcode-tile" do %>
-        <h3 class="zipcode-tile__zipcode"><%= zipcode %></h2>
+        <h3 class="zipcode-tile__zipcode"><%= zipcode %></h3>
         <span class="zipcode-tile__subscriber-count">
           <%= t(".subscriptions", count: subscriptions_count(zipcode)) %>
         </span>
