@@ -208,8 +208,12 @@ en:
       edit: "Schedule"
 
   region_zones:
+    create:
+      success: "The %{zipcode} zipcode has been successfully added."
+    destroy:
+      success: "The %{zipcode} zipcode has been successfully removed."
     new:
-      header: "Add a zipcode to the %{region} region"
+      header: "Add a zipcode to the %{name} region"
 
   regions:
     create:

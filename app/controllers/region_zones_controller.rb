@@ -11,7 +11,10 @@ class RegionZonesController < ApplicationController
     @region.zones << @zone
 
     if @region.save
-      redirect_to @region
+      redirect_to(
+        @region,
+        flash: { success: t(".success", zipcode: @zone.zipcode) }
+      )
     else
       render :new
     end
@@ -22,7 +25,10 @@ class RegionZonesController < ApplicationController
 
     @zone.update(region: nil)
 
-    redirect_to @region
+    redirect_to(
+      @region,
+      flash: { success: t(".success", zipcode: @zone.zipcode) }
+    )
   end
 
   private

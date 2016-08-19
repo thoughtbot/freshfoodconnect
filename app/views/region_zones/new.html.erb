@@ -2,7 +2,7 @@
   <div class="content-wrapper-narrow form-container">
     <%= simple_form_for :region, url: region_zones_path, method: :post do |f| %>
       <header class="form-container__header">
-        <h2><%= t(".header", region: @region.name) %></h2>
+        <h2><%= t(".header", name: @region.name) %></h2>
       </header>
 
       <div class="form-container__body">
