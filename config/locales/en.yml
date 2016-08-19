@@ -212,12 +212,17 @@ en:
       header: "Add a zipcode to the %{region} region"
 
   regions:
+    create:
+      success: "The %{name} region has been added."
     index:
       title: "Regions"
+      new: "Add Region"
       no_regions: "There are currently no regions. Please create one."
       zones:
         one: "%{count} Zipcode"
         other: "%{count} Zipcodes"
+    new:
+      header: "Create a new region"
     show:
       add_zone: "Add Zipcode"
       no_unassociated_zones: "There are currently no zipcodes that can be associated with this region.  Please create some."
