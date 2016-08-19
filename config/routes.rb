@@ -38,7 +38,9 @@ Rails.application.routes.draw do
         only: [:edit, :show, :new, :create, :update],
       )
     end
-    resources :regions, only: [:index, :show]
+    resources :regions, only: [:index, :show] do
+      resources(:zones, only: [:create, :new], controller: :region_zones)
+    end
 
     get "/" => redirect("/zones")
   end

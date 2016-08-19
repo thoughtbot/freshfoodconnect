@@ -1,17 +1,27 @@
 <div class="content-wrapper-large content-container">
-  <header class="zone-header">
+  <header class="region-header">
     <h2><%= @region.name %></h2>
   </header>
 
-  <% if @region.zones.count > 0 %>
-    <ul>
-      <% @region.zones.each do |zone| %>
-        <li>
-          <%= zone.zipcode %>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <%= t(".no_zones") %>
-  <% end %>
+  <section class="region-content-section">
+    <h3 class="section-label"><%= t(".zones") %></h3>
+
+    <% if @region.zones.count > 0 %>
+      <ul>
+        <% @region.zones.each do |zone| %>
+          <li><%= link_to zone.zipcode, zone %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p><%= t(".no_zones") %></p>
+    <% end %>
+  </section>
+
+  <section class="region-content-section">
+    <% if unassociated_zones? %>
+      <%= link_to t(".add_zone"), new_region_zone_path(@region), class: "btn" %>
+    <% else %>
+      <p><%= t(".no_unassociated_zones") %></p>
+    <% end %>
+  </section>
 </div>

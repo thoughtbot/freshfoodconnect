@@ -207,6 +207,10 @@ en:
     zone:
       edit: "Schedule"
 
+  region_zones:
+    new:
+      header: "Add a zipcode to the %{region} region"
+
   regions:
     index:
       title: "Regions"
@@ -215,7 +219,10 @@ en:
         one: "%{count} Zipcode"
         other: "%{count} Zipcodes"
     show:
+      add_zone: "Add Zipcode"
+      no_unassociated_zones: "There are currently no zipcodes that can be associated with this region.  Please create some."
       no_zones: "There are currently no zipcodes associated with this region. Please add one."
+      zones: "Zipcodes"
 
   registrations:
     form:
