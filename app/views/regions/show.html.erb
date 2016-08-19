@@ -7,11 +7,27 @@
     <h3 class="section-label"><%= t(".zones") %></h3>
 
     <% if @region.zones.count > 0 %>
-      <ul>
-        <% @region.zones.each do |zone| %>
-          <li><%= link_to zone.zipcode, zone %></li>
-        <% end %>
-      </ul>
+      <table>
+        <tbody>
+          <% @region.zones.each do |zone| %>
+            <tr>
+              <td><%= link_to zone.zipcode, zone %></td>
+              <td class="table-actions">
+                <%= button_to(
+                  region_zone_path(@region, zone),
+                  class: "table-link table-delete",
+                  data: {
+                    confirm: t(".remove_zone.confirm", zipcode: zone.zipcode),
+                  },
+                  method: :delete,
+                ) do %>
+                  <%= t(".remove_zone.text") %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     <% else %>
       <p><%= t(".no_zones") %></p>
     <% end %>

@@ -222,6 +222,9 @@ en:
       add_zone: "Add Zipcode"
       no_unassociated_zones: "There are currently no zipcodes that can be associated with this region.  Please create some."
       no_zones: "There are currently no zipcodes associated with this region. Please add one."
+      remove_zone:
+        confirm: "Are you sure you want to remove zipcode %{zipcode} from this region?"
+        text: "Remove"
       zones: "Zipcodes"
 
   registrations:

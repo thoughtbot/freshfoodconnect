@@ -6,7 +6,7 @@ class RegionZonesController < ApplicationController
   end
 
   def create
-    @zone = Zone.find_by(zipcode: region_zones_params["zones"])
+    @zone = Zone.find_by(zipcode: region_zones_params[:zones])
 
     @region.zones << @zone
 
@@ -15,6 +15,14 @@ class RegionZonesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @zone = Zone.find_by(zipcode: params[:id])
+
+    @zone.update(region: nil)
+
+    redirect_to @region
   end
 
   private
