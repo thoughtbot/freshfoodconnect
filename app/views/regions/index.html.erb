@@ -9,6 +9,19 @@
           <span class="region-tile__zipcode-count">
             <%= t(".zones", count: region.zones.count) %>
           </span>
+
+          <div class="region-tile__delete-region">
+            <%= button_to(
+              region_path(region),
+              class: "region-delete-action",
+              data: {
+                confirm: t(".destroy.confirm", name: region.name),
+              },
+              method: :delete,
+            ) do %>
+              <%= t(".destroy.text") %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     <% else %>

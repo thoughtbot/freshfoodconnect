@@ -38,7 +38,7 @@ Rails.application.routes.draw do
         only: [:edit, :show, :new, :create, :update],
       )
     end
-    resources :regions, only: [:create, :index, :new, :show] do
+    resources :regions, only: [:create, :destroy, :index, :new, :show] do
       resources(
         :zones,
         only: [:create, :destroy, :new],

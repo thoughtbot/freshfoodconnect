@@ -12,6 +12,23 @@ class RegionsController < ApplicationController
     end
   end
 
+  def destroy
+    @region = Region.find(params[:id])
+
+    if @region.destroy
+      @region.zones.each { |zone| zone.update(region: nil) }
+      redirect_to(
+        regions_path,
+        flash: { success: t(".success", name: @region.name) }
+      )
+    else
+      redirect_to(
+        regions_path,
+        flash: { failure: t(".failure", name: @region.name) }
+      )
+    end
+  end
+
   def index
     @regions = Region.order(:name).all
   end
