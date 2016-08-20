@@ -7,37 +7,17 @@
     <h3 class="section-label"><%= t(".zones") %></h3>
 
     <% if @region.zones.count > 0 %>
-      <table>
-        <tbody>
-          <% @region.zones.each do |zone| %>
-            <tr>
-              <td><%= link_to zone.zipcode, zone %></td>
-              <td class="table-actions">
-                <%= button_to(
-                  region_zone_path(@region, zone),
-                  class: "table-link table-delete",
-                  data: {
-                    confirm: t(".remove_zone.confirm", zipcode: zone.zipcode),
-                  },
-                  method: :delete,
-                ) do %>
-                  <%= t(".remove_zone.text") %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <%= render "zones", region: @region %>
     <% else %>
       <p><%= t(".no_zones") %></p>
     <% end %>
   </section>
 
-  <section class="region-content-section">
+  <footer class="region-footer">
     <% if unassociated_zones? %>
       <%= link_to t(".add_zone"), new_region_zone_path(@region), class: "btn" %>
     <% else %>
       <p><%= t(".no_unassociated_zones") %></p>
     <% end %>
-  </section>
+  </footer>
 </div>

@@ -7,7 +7,7 @@ feature "Admin removes zone from region" do
     zone = create(:zone, region: region)
 
     visit_region_page(region, as: admin)
-    click_on(t("regions.show.remove_zone.text"))
+    click_on(t("region_zones.destroy.text"))
 
     zone.reload
     expect(zone.region).to be_nil

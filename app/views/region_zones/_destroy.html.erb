@@ -1,0 +1,10 @@
+<%= button_to(
+  region_zone_path(region, zone),
+  class: "table-link table-delete",
+  data: {
+    confirm: t(".confirm", zipcode: zone.zipcode),
+  },
+  method: :delete,
+) do %>
+  <%= t(".text") %>
+<% end %>
