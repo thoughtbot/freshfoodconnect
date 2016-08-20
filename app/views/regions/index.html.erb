@@ -3,27 +3,7 @@
     <h2 class="section-label"><%= t(".title") %></h2>
 
     <% if @regions.count > 0 %>
-      <% @regions.each do |region| %>
-        <%= link_to region, class: "region-tile" do %>
-          <h3 class="region-tile__region"><%= region.name %></h3>
-          <span class="region-tile__zipcode-count">
-            <%= t(".zones", count: region.zones.count) %>
-          </span>
-
-          <div class="region-tile__delete-region">
-            <%= button_to(
-              region_path(region),
-              class: "region-delete-action",
-              data: {
-                confirm: t(".destroy.confirm", name: region.name),
-              },
-              method: :delete,
-            ) do %>
-              <%= t(".destroy.text") %>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
+      <%= render partial: "region", collection: @regions %>
     <% else %>
       <%= t(".no_regions") %>
     <% end %>

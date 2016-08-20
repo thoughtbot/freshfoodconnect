@@ -221,20 +221,20 @@ en:
     create:
       success: "The %{name} region has been added."
     destroy:
+      confirm: "Are you sure you want to delete the %{name} region?"
       failure: "There was a problem trying to delete the %{name} region. Please try again later."
       success: "The %{name} region has been successfully deleted."
+      text: "Delete"
     index:
-      destroy:
-        confirm: "Are you sure you want to delete the %{name} region?"
-        text: "Delete"
       new: "Add Region"
       no_regions: "There are currently no regions. Please create one."
       title: "Regions"
+    new:
+      header: "Create a new region"
+    region:
       zones:
         one: "%{count} Zipcode"
         other: "%{count} Zipcodes"
-    new:
-      header: "Create a new region"
     show:
       add_zone: "Add Zipcode"
       no_unassociated_zones: "There are currently no zipcodes that can be associated with this region.  Please create some."

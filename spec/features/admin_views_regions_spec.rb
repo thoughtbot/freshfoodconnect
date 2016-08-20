@@ -37,7 +37,7 @@ feature "Admin views regions" do
   end
 
   def have_zipcode_count(record)
-    zipcode_count = t("regions.index.zones", count: record.zones.count)
+    zipcode_count = t("regions.region.zones", count: record.zones.count)
     have_content(zipcode_count)
   end
 end

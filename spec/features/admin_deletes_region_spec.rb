@@ -7,7 +7,7 @@ feature "Admin deletes region" do
     visit_regions_page_as_admin
 
     expect do
-      click_on t("regions.index.destroy.text")
+      click_on t("regions.destroy.text")
     end.to change{Region.count}.from(1).to(0)
   end
 

@@ -1,0 +1,12 @@
+<div class="region-tile__delete-region">
+  <%= button_to(
+    region_path(region),
+    class: "region-delete-action",
+    data: {
+      confirm: t(".confirm", name: region.name),
+    },
+    method: :delete,
+  ) do %>
+    <%= t(".text") %>
+  <% end %>
+</div>
