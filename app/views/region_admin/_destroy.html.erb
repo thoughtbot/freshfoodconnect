@@ -1,0 +1,10 @@
+<%= button_to(
+  region_admin_path(region, admin),
+  class: "table-link table-delete",
+  data: {
+    confirm: t(".confirm", admin_name: region.admin.name),
+  },
+  method: :delete,
+) do %>
+  <%= t(".text") %>
+<% end %>

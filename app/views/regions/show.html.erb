@@ -4,6 +4,24 @@
   </header>
 
   <section class="region-content-section">
+    <h3 class="section-label"><%= t(".admin") %></h3>
+    <% if @region.has_admin? %>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <strong><%= @region.admin.name %> &lt;<%= @region.admin.email %>&gt;</strong>
+            </td>
+            <td class="table-actions">
+              <%= render "region_admin/destroy", region: @region, admin: @region.admin %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <% else %>
+      <p><%= t(".no_admin") %></p>
+    <% end %>
+
     <h3 class="section-label"><%= t(".zones") %></h3>
 
     <% if @region.zones.count > 0 %>
@@ -14,6 +32,10 @@
   </section>
 
   <footer class="region-footer">
+    <%= link_to t( !@region.has_admin? ? ".assign_admin" : ".change_admin"),
+                new_region_admin_path(@region),
+                class: "btn" %>
+
     <% if unassociated_zones? %>
       <%= link_to t(".add_zone"), new_region_zone_path(@region), class: "btn" %>
     <% else %>

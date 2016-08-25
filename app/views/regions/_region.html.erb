@@ -1,5 +1,14 @@
 <%= link_to region, class: "region-tile" do %>
   <h3 class="region-tile__region"><%= region.name %></h3>
+
+  <span>
+    <% if region.has_admin? %>
+      Administrator is <strong><%= region.admin.name %></strong>
+    <% else %>
+      No administrator set
+    <% end %>
+  </span>
+
   <span class="region-tile__zipcode-count">
     <%= t(".zones", count: region.zones.count) %>
   </span>

@@ -15,6 +15,9 @@ en:
         create: "Create Region"
       region_zone:
         create: "Add Zipcode"
+      region_admin:
+        create: "Assign Administrator"
+        update: "Update Administrator"
       registration:
         create: "Sign Up"
       scheduled_pickup:
