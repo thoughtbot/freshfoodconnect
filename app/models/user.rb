@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :donations, through: :location
   has_one :location, dependent: :destroy
 
+  has_many :regions
+
   validates :email, presence: true, email: true
   validates :name, presence: true
   validates :organic_growth_asserted_at, presence: {
