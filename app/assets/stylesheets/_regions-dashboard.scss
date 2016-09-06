@@ -9,8 +9,8 @@
     @extend .table-actions;
 
     .region-delete-action {
-        @extend .table-link;
-        @extend .table-delete;
+      @extend .table-link;
+      @extend .table-delete;
     }
   }
 
@@ -18,8 +18,8 @@
     @extend .table-actions;
 
     .region-delete-action {
-        @extend .table-link;
-        @extend .table-delete;
+      @extend .table-link;
+      @extend .table-delete;
     }
   }
 }

@@ -1,7 +1,7 @@
 class RegionAdminController < ApplicationController
   before_action :find_region
 
-  def new ; end
+  def new; end
 
   def create
     @admin = User.find(region_admin_params[:admin])
@@ -11,7 +11,7 @@ class RegionAdminController < ApplicationController
     if @region.save
       redirect_to(
         @region,
-        flash: { success: t(".success", admin_name: @region.admin.name) }
+        flash: { success: t(".success", admin_name: @region.admin.name) },
       )
     else
       render :new
@@ -24,7 +24,7 @@ class RegionAdminController < ApplicationController
 
     redirect_to(
       @region,
-      flash: { success: t(".success", admin_name: @admin.name ) }
+      flash: { success: t(".success", admin_name: @admin.name ) },
     )
   end
 
