@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20160823141208) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "size",                default: 0, null: false
-    t.datetime "requested_at"
     t.text     "notes"
+    t.datetime "requested_at"
     t.datetime "picked_up_at"
   end
 
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20160823141208) do
     t.string  "zipcode",                                                null: false
     t.text    "notes",                                   default: "",   null: false
     t.integer "user_id",                                                null: false
-    t.decimal "latitude",      precision: 15, scale: 10
-    t.decimal "longitude",     precision: 15, scale: 10
     t.integer "location_type",                           default: 0,    null: false
     t.boolean "grown_on_site",                           default: true, null: false
+    t.decimal "latitude",      precision: 15, scale: 10
+    t.decimal "longitude",     precision: 15, scale: 10
   end
 
   create_table "regions", force: :cascade do |t|

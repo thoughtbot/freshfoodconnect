@@ -1,15 +1,16 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Admin changes admin for region' do
-  scenario 'from the regions dashboard' do
+feature "Admin changes admin for region" do
+  scenario "from the regions dashboard" do
     visit_regions_page_as_admin
 
-    region = create_region(name: 'My Region')
+    region = create_region(name: "My Region")
     current_admin = create(:admin, name: "Current Admin")
     new_admin = create(:admin, name: "New Admin")
     assign_admin_to_region(current_admin, region)
 
-    expect(page).to have_text("Administrator #{current_admin.name} <#{current_admin.email}>")
+    expected = "Administrator #{current_admin.name} <#{current_admin.email}>"
+    expect(page).to have_text(expected)
 
     assign_admin_to_region(new_admin, region)
 
@@ -32,11 +33,11 @@ feature 'Admin changes admin for region' do
 
   def visit_regions_page_as_admin
     visit root_path(as: create(:admin))
-    click_on t('application.header.regions')
+    click_on t("application.header.regions")
   end
 
   def create_region(**attributes)
-    click_on(t('regions.index.new'))
+    click_on(t("regions.index.new"))
     fill_form_and_submit(:region, :new, attributes)
 
     Region.last

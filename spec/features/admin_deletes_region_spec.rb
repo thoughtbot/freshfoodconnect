@@ -2,13 +2,13 @@ require "rails_helper"
 
 feature "Admin deletes region" do
   scenario "from the regions dashboard" do
-    region = create(:region, :with_zones)
+    create(:region, :with_zones)
 
     visit_regions_page_as_admin
 
     expect do
       click_on t("regions.destroy.text")
-    end.to change{Region.count}.from(1).to(0)
+    end.to change{ Region.count }.from(1).to(0)
   end
 
   def visit_regions_page_as_admin

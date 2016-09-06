@@ -7,7 +7,7 @@ feature "Admin views regions" do
       region_1 = create(:region)
       region_2 = create(:region, :with_zones)
 
-      visit_regions_page(as: admin)
+      visit_regions_page_as(admin)
 
       within ".regions a.region-tile:first" do
         expect(page).to have_name(region_1)
@@ -25,14 +25,14 @@ feature "Admin views regions" do
     scenario "shows an appropriate message" do
       admin = create(:admin)
 
-      visit_regions_page(as: admin)
+      visit_regions_page_as(admin)
 
       expect(page).to have_content(t("regions.index.no_regions"))
     end
   end
 
-  def visit_regions_page(as:)
-    visit root_path(as: as)
+  def visit_regions_page_as(user)
+    visit root_path(as: user)
     click_on t("application.header.regions")
   end
 

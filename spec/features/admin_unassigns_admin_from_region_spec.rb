@@ -1,14 +1,15 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Admin unassigns admin to region' do
-  scenario 'from the regions dashboard' do
+feature "Admin unassigns admin to region" do
+  scenario "from the regions dashboard" do
     visit_regions_page_as_admin
 
-    region = create_region(name: 'My Region')
+    region = create_region(name: "My Region")
     to_be_deleted = create(:admin, name: "To Be Deleted")
     assign_admin_to_region(to_be_deleted, region)
 
-    expect(page).to have_text("Administrator #{to_be_deleted.name} <#{to_be_deleted.email}>")
+    expected = "Administrator #{to_be_deleted.name} <#{to_be_deleted.email}>"
+    expect(page).to have_text(expected)
 
     click_on t("region_admin.destroy.text")
 
@@ -31,11 +32,11 @@ feature 'Admin unassigns admin to region' do
 
   def visit_regions_page_as_admin
     visit root_path(as: create(:admin))
-    click_on t('application.header.regions')
+    click_on t("application.header.regions")
   end
 
   def create_region(**attributes)
-    click_on(t('regions.index.new'))
+    click_on(t("regions.index.new"))
     fill_form_and_submit(:region, :new, attributes)
 
     Region.last
