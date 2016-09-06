@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Admin assigns admin to region' do
-  scenario 'from the regions dashboard' do
+feature "Admin assigns admin to region" do
+  scenario "from the regions dashboard" do
     visit_regions_page_as_admin
 
-    region = create_region(name: 'My Region')
+    region = create_region(name: "My Region")
     admin = create(:admin)
 
-    expect(page).to have_text('No administrator set')
+    expect(page).to have_text("No administrator set")
 
     expect(region.admin).to be_nil
     assign_admin_to_region(admin, region)
@@ -25,11 +25,11 @@ feature 'Admin assigns admin to region' do
 
   def visit_regions_page_as_admin
     visit root_path(as: create(:admin))
-    click_on t('application.header.regions')
+    click_on t("application.header.regions")
   end
 
   def create_region(**attributes)
-    click_on(t('regions.index.new'))
+    click_on(t("regions.index.new"))
     fill_form_and_submit(:region, :new, attributes)
 
     Region.last
