@@ -6,7 +6,7 @@ feature "Admin changes admin for region" do
 
     region = create_region(name: "My Region")
     current_admin = create(:admin, name: "Current Admin")
-    new_admin = create(:admin, name: "New Admin")
+    new_admin = create(:user, name: "New Admin")
     assign_admin_to_region(current_admin, region)
 
     expected = "Administrator #{current_admin.name} <#{current_admin.email}>"

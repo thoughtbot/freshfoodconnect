@@ -8,7 +8,7 @@
       <div class="form-container__body">
         <%= f.input(
           :admin,
-          collection: User.where(admin: true),
+          collection: User.all,
           include_blank: false
         ) %>
       </div>
