@@ -1,7 +1,12 @@
 <div class="content-wrapper-large content-container">
-  <section class="user-type-section" data-role="admins">
-    <%= render("users/admins", admins: @users.admins) %>
-  </section>
+
+  <% if signed_in? %>
+    <% if current_user.admin? %>
+      <section class="user-type-section" data-role="admins">
+        <%= render("users/admins", admins: @users.admins) %>
+      </section>
+    <% end %>
+  <% end %>
 
   <section class="user-type-section" data-role="cyclists">
     <%= render("users/cyclists", cyclists: @users.cyclists) %>
@@ -10,4 +15,5 @@
   <section class="user-type-section" data-role="donors">
     <%= render("users/donors", donors: @users.donors) %>
   </section>
+
 </div>

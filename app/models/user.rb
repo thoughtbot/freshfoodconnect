@@ -52,10 +52,15 @@ class User < ActiveRecord::Base
   end
 
   def staff?
-    admin? || cyclist?
+    regional_admin? || cyclist?
   end
 
   def current_donation
     donations.current.first
   end
+
+  def regional_admin?
+    admin? || regions.any?
+  end
+
 end

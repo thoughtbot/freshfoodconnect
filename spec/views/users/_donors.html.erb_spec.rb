@@ -1,7 +1,10 @@
 require "rails_helper"
+require "clearance/rspec"
 
 describe "users/_donors" do
   it "displays donor information" do
+    sign_in_as create(:admin)
+
     donor = build_donor(
       name: "first last",
       address: "123 fake st.",

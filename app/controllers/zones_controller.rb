@@ -1,6 +1,10 @@
 class ZonesController < ApplicationController
   def index
-    @zones = Zone.all
+    if current_user.admin?
+      @zones = Zone.all
+    else
+      @zones = Zone.where(region: current_user.regions.pluck(:id))
+    end
     @subscription_zipcodes = Subscription.pluck(:zipcode).uniq
   end
 

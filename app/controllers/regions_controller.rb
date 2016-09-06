@@ -30,7 +30,11 @@ class RegionsController < ApplicationController
   end
 
   def index
-    @regions = Region.order(:name).all
+    if current_user.admin?
+      @regions = Region.order(:name).all
+    else
+      @regions = current_user.regions.order(:name)
+    end
   end
 
   def new
