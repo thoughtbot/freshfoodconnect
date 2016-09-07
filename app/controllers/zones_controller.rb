@@ -5,7 +5,9 @@ class ZonesController < ApplicationController
     else
       @zones = Zone.where(region: current_user.regions.pluck(:id))
     end
-    @subscription_zipcodes = Subscription.pluck(:zipcode).uniq
+
+    # If a zipcode was "activated", don't show in the inactive Subscription
+    @subscription_zipcodes = Subscription.pluck(:zipcode).uniq - Zone.all.pluck(:zipcode)
   end
 
   def edit
