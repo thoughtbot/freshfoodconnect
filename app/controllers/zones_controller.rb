@@ -44,7 +44,7 @@ class ZonesController < ApplicationController
   end
 
   def new
-    @zone = Zone.new
+    @zone = Zone.new(zipcode: params[:zipcode])
   end
 
   private
