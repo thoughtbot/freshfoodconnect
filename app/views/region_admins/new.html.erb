@@ -1,13 +1,14 @@
 <div class="page-wrapper">
   <div class="content-wrapper-narrow form-container">
-    <%= simple_form_for :region, url: region_admin_path, method: :post do |f| %>
+    <%= simple_form_for :region_admin, url: region_admins_path, method: :post do |f| %>
       <header class="form-container__header">
         <h2><%= t(".header", name: @region.name) %></h2>
       </header>
 
       <div class="form-container__body">
+        <%= f.hidden_field :region_id, value: @region.id %>
         <%= f.input(
-          :admin,
+          :user_id,
           collection: User.all,
           include_blank: false
         ) %>

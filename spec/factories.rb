@@ -90,6 +90,11 @@ FactoryGirl.define do
     end
   end
 
+  factory :region_admin do
+    region { build(:region) }
+    admin { build(:user) }
+  end
+
   factory :registration do
     address "123 Fake Street"
     name "New User"

@@ -9,16 +9,16 @@ feature "Admin assigns admin to region" do
 
     expect(page).to have_text("No administrator set")
 
-    expect(region.admin).to be_nil
+    expect(region.admins).to be_empty
     assign_admin_to_region(admin, region)
     region.reload
-    expect(region.admin).to eq(admin)
+    expect(region.admins.first).to eq(admin)
   end
 
   def assign_admin_to_region(admin, region)
-    visit new_region_admin_path(region)
+    visit new_region_admin_path(region_id: region.id)
 
-    select(admin.name, from: "Admin")
+    select(admin.name, from: "region_admin_user_id")
 
     click_on(t("helpers.submit.region_admin.create"))
   end

@@ -217,7 +217,7 @@ en:
     new:
       header: "Add a zipcode to the %{name} region"
 
-  region_admin:
+  region_admins:
     destroy:
       confirm: "Are you sure you want to remove %{admin_name} as administrator for this region?"
       text: "Unassign"
@@ -252,7 +252,7 @@ en:
     show:
       admin: "Administrator"
       assign_admin: "Assign Administrator"
-      change_admin: "Change Administrator"
+      add_admin: "Add Administrator"
       no_admin: "No Administrator assigned to this region"
       add_zone: "Add Zipcode"
       no_unassociated_zones: "There are currently no zipcodes that can be associated with this region.  Please create some."

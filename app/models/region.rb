@@ -2,9 +2,11 @@ class Region < ActiveRecord::Base
   has_many :zones
   validates :name, presence: true, uniqueness: true
 
-  belongs_to :admin, foreign_key: "user_id", class_name: "User"
+  has_many :region_admins
+  has_many :admins, through: :region_admins
+  #belongs_to :admin, foreign_key: "user_id", class_name: "User"
 
   def has_admin?
-    !admin.nil?
+    !admins.empty?
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823141208) do
+ActiveRecord::Schema.define(version: 20160907171048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,15 +59,18 @@ ActiveRecord::Schema.define(version: 20160823141208) do
     t.decimal "longitude",     precision: 15, scale: 10
   end
 
+  create_table "region_admins", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "region_id"
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
   end
 
   add_index "regions", ["name"], name: "index_regions_on_name", unique: true, using: :btree
-  add_index "regions", ["user_id"], name: "index_regions_on_user_id", using: :btree
 
   create_table "scheduled_pickups", force: :cascade do |t|
     t.integer  "zone_id",    null: false

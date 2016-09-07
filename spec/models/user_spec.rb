@@ -48,7 +48,8 @@ describe User do
   describe ".regional_admins" do
     it "is anyone who has a region" do
       donor = create(:donor, name: "Donor")
-      create(:region, admin: donor)
+      region = create(:region)
+      create(:region_admin, admin: donor, region: region)
 
       expect(donor.regional_admin?).to be_truthy
     end

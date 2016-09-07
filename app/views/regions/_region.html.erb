@@ -3,7 +3,7 @@
 
   <span>
     <% if region.has_admin? %>
-      Administrator is <strong><%= region.admin.name %></strong>
+      <%= pluralize(region.admins.count, "Administrator") %> assigned to Region
     <% else %>
       No administrator set
     <% end %>

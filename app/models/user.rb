@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :donations, through: :location
   has_one :location, dependent: :destroy
 
-  has_many :regions
+  has_many :region_admins
+  has_many :regions, through: :region_admins
 
   validates :email, presence: true, email: true
   validates :name, presence: true

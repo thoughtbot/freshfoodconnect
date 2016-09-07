@@ -44,11 +44,10 @@ Rails.application.routes.draw do
         only: [:create, :destroy, :new],
         controller: :region_zones
       )
-      resource(
-        :admin,
-        controller: :region_admin
-      )
     end
+
+    resources :region_admins, only: [:new, :create, :destroy]
+
 
     get "/" => redirect("/zones")
   end

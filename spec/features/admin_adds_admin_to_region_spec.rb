@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Admin changes admin for region" do
+feature "Admin adds admin for region" do
   scenario "from the regions dashboard" do
     visit_regions_page_as_admin
 
@@ -9,26 +9,25 @@ feature "Admin changes admin for region" do
     new_admin = create(:user, name: "New Admin")
     assign_admin_to_region(current_admin, region)
 
-    expected = "Administrator #{current_admin.name} <#{current_admin.email}>"
-    expect(page).to have_text(expected)
+    expect(page).to have_text("1 Administrator assigned")
 
     assign_admin_to_region(new_admin, region)
 
     expect(page).to have_success_flash(new_admin)
 
-    expect(region.reload.admin).to eq(new_admin)
+    expect(region.admins.length).to eq(2)
   end
 
   def have_success_flash(admin)
-    have_text t("region_admin.update.success", admin_name: admin.name)
+    have_text t("region_admins.update.success", admin_name: admin.name)
   end
 
   def assign_admin_to_region(admin, region)
-    visit new_region_admin_path(region)
+    visit new_region_admin_path(region_id: region.id)
 
-    select(admin.name, from: "Admin")
+    select(admin.name, from: "region_admin_user_id")
 
-    click_on(t("helpers.submit.region_admin.create"))
+    click_on("Assign Administrator")
   end
 
   def visit_regions_page_as_admin

@@ -8,14 +8,16 @@
     <% if @region.has_admin? %>
       <table>
         <tbody>
-          <tr>
-            <td>
-              <strong><%= @region.admin.name %> &lt;<%= @region.admin.email %>&gt;</strong>
-            </td>
-            <td class="table-actions">
-              <%= render "region_admin/destroy", region: @region, admin: @region.admin %>
-            </td>
-          </tr>
+          <%- @region.region_admins.each do |region_admin| %>
+            <tr>
+              <td>
+                <strong><%= region_admin.admin.name %> &lt;<%= region_admin.admin.email %>&gt;</strong>
+              </td>
+              <td class="table-actions">
+                <%= render "region_admins/destroy", region_admin: region_admin %>
+              </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     <% else %>
@@ -32,8 +34,8 @@
   </section>
 
   <footer class="region-footer">
-    <%= link_to t( !@region.has_admin? ? ".assign_admin" : ".change_admin"),
-                new_region_admin_path(@region),
+    <%= link_to t( !@region.has_admin? ? ".assign_admin" : ".add_admin"),
+                new_region_admin_path(region_id: @region.id),
                 class: "btn" %>
 
     <% if unassociated_zones? %>
