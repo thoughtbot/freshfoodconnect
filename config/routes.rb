@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/pages/*id" => 'pages#show', as: :page, format: false
 
-  constraints Clearance::Constraints::SignedIn.new(&:admin?) do
+  constraints Clearance::Constraints::SignedIn.new(&:regional_admin?) do
     resources :cyclist_invitations, only: [:new, :create, :show]
     resources :donors, only: [:show]
     resources :users, only: [:index, :destroy] do
@@ -38,6 +38,16 @@ Rails.application.routes.draw do
         only: [:edit, :show, :new, :create, :update],
       )
     end
+    resources :regions, only: [:create, :destroy, :index, :new, :show] do
+      resources(
+        :zones,
+        only: [:create, :destroy, :new],
+        controller: :region_zones
+      )
+    end
+
+    resources :region_admins, only: [:new, :create, :destroy]
+
 
     get "/" => redirect("/zones")
   end

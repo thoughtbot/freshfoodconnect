@@ -12,7 +12,7 @@
       <td><%= donor.name %> (<%= donor.email %>)</td>
       <td><%= donor.address %> <%= donor.zipcode %></td>
       <td class="table-actions">
-        <% unless donor.admin? %>
+        <% if signed_in? && current_user.admin? && !donor.admin? %>
           <%= render("users/promote", user: donor) %>
         <% end %>
 

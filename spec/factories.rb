@@ -82,6 +82,19 @@ FactoryGirl.define do
     end
   end
 
+  factory :region do
+    sequence(:name) { |i| "Region #{i}" }
+
+    trait :with_zones do
+      zones { build_list :zone, 2 }
+    end
+  end
+
+  factory :region_admin do
+    region { build(:region) }
+    admin { build(:user) }
+  end
+
   factory :registration do
     address "123 Fake Street"
     name "New User"

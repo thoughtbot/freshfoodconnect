@@ -1,0 +1,15 @@
+<div class="content-wrapper-narrow">
+  <section>
+    <h2 class="section-label"><%= t(".title") %></h2>
+
+    <% if @regions.count > 0 %>
+      <%= render partial: "region", collection: @regions %>
+    <% else %>
+      <%= t(".no_regions") %>
+    <% end %>
+  </section>
+
+  <%= link_to new_region_path, class: "btn" do %>
+    <%= t(".new") %>
+  <% end %>
+</div>

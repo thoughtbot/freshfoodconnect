@@ -1,0 +1,47 @@
+<div class="content-wrapper-large content-container">
+  <header class="region-header">
+    <h2><%= @region.name %></h2>
+  </header>
+
+  <section class="region-content-section">
+    <h3 class="section-label"><%= t(".admin") %></h3>
+    <% if @region.has_admin? %>
+      <table>
+        <tbody>
+          <%- @region.region_admins.each do |region_admin| %>
+            <tr>
+              <td>
+                <strong><%= region_admin.admin.name %> &lt;<%= region_admin.admin.email %>&gt;</strong>
+              </td>
+              <td class="table-actions">
+                <%= render "region_admins/destroy", region_admin: region_admin %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p><%= t(".no_admin") %></p>
+    <% end %>
+
+    <h3 class="section-label"><%= t(".zones") %></h3>
+
+    <% if @region.zones.count > 0 %>
+      <%= render "zones", region: @region %>
+    <% else %>
+      <p><%= t(".no_zones") %></p>
+    <% end %>
+  </section>
+
+  <footer class="region-footer">
+    <%= link_to t( !@region.has_admin? ? ".assign_admin" : ".add_admin"),
+                new_region_admin_path(region_id: @region.id),
+                class: "btn" %>
+
+    <% if unassociated_zones? %>
+      <%= link_to t(".add_zone"), new_region_zone_path(@region), class: "btn" %>
+    <% else %>
+      <p><%= t(".no_unassociated_zones") %></p>
+    <% end %>
+  </footer>
+</div>

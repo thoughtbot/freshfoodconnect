@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :donations, through: :location
   has_one :location, dependent: :destroy
 
+  has_many :region_admins
+  has_many :regions, through: :region_admins
+
   validates :email, presence: true, email: true
   validates :name, presence: true
   validates :organic_growth_asserted_at, presence: {
@@ -50,10 +53,15 @@ class User < ActiveRecord::Base
   end
 
   def staff?
-    admin? || cyclist?
+    regional_admin? || cyclist?
   end
 
   def current_donation
     donations.current.first
   end
+
+  def regional_admin?
+    admin? || regions.any?
+  end
+
 end

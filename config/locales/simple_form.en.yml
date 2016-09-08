@@ -11,6 +11,13 @@ en:
         create: "Donate"
       profile:
         update: "Update Profile"
+      region:
+        create: "Create Region"
+      region_zone:
+        create: "Add Zipcode"
+      region_admin:
+        create: "Assign Administrator"
+        update: "Update Administrator"
       registration:
         create: "Sign Up"
       scheduled_pickup:
@@ -52,6 +59,9 @@ en:
       profile:
         address: "Street Address for Pickup"
         notes: "Pickup Notes"
+      region:
+        name: "Region name"
+        zones: "Zipcode"
       registration:
         terms_and_conditions_accepted: "The food I donate will be clean, safe to eat, and in accordance with the Fresh Food Connect Food Safety policy and the Terms and Conditions."
         organic_growth_asserted: "The food I donate will be grown without the use of non-organic pesticides, herbicides and fertilizers."

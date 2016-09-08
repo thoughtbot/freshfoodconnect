@@ -16,8 +16,14 @@
               <% end %>
             </li>
           <% end %>
-
           <% if current_user.admin? %>
+            <li>
+              <%= link_to regions_path do %>
+                <%= t(".regions") %>
+              <% end %>
+            </li>
+          <% end %>
+          <% if current_user.regional_admin? %>
             <li>
               <%= link_to zones_path do %>
                 <%= t(".zipcodes") %>

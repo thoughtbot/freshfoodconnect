@@ -1,0 +1,25 @@
+.region-tile {
+  @extend .zipcode-tile;
+
+  span {
+    display: block;
+  }
+
+  &__delete-region {
+    @extend .table-actions;
+
+    .region-delete-action {
+      @extend .table-link;
+      @extend .table-delete;
+    }
+  }
+
+  &__delete-admin {
+    @extend .table-actions;
+
+    .region-delete-action {
+      @extend .table-link;
+      @extend .table-delete;
+    }
+  }
+}

@@ -45,6 +45,16 @@ describe User do
     end
   end
 
+  describe ".regional_admins" do
+    it "is anyone who has a region" do
+      donor = create(:donor, name: "Donor")
+      region = create(:region)
+      create(:region_admin, admin: donor, region: region)
+
+      expect(donor.regional_admin?).to be_truthy
+    end
+  end
+
   describe ".cyclists" do
     it "includes cyclists" do
       create(:zone)

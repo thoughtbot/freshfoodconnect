@@ -1,0 +1,17 @@
+<section>
+  <div class="content-wrapper-narrow form-container">
+    <%= simple_form_for @region do |f| %>
+      <header class="form-container__header">
+        <h3><%= t(".header") %></h3>
+      </header>
+
+      <div class="form-container__body">
+        <%= f.input :name %>
+      </div>
+
+      <footer class="form-container__footer">
+        <%= f.submit %>
+      </footer>
+    <% end %>
+  </div>
+</section>

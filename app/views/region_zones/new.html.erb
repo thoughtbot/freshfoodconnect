@@ -1,0 +1,21 @@
+<div class="page-wrapper">
+  <div class="content-wrapper-narrow form-container">
+    <%= simple_form_for :region, url: region_zones_path, method: :post do |f| %>
+      <header class="form-container__header">
+        <h2><%= t(".header", name: @region.name) %></h2>
+      </header>
+
+      <div class="form-container__body">
+        <%= f.input(
+          :zones,
+          collection: @unassigned_zones.map(&:zipcode),
+          include_blank: false
+        ) %>
+      </div>
+
+      <footer class="form-container__footer">
+        <%= f.submit t("helpers.submit.region_zone.create") %>
+      </footer>
+    <% end %>
+  </div>
+</div>

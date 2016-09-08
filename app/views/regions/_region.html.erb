@@ -1,0 +1,17 @@
+<%= link_to region, class: "region-tile" do %>
+  <h3 class="region-tile__region"><%= region.name %></h3>
+
+  <span>
+    <% if region.has_admin? %>
+      <%= pluralize(region.admins.count, "Administrator") %> assigned to Region
+    <% else %>
+      No administrator set
+    <% end %>
+  </span>
+
+  <span class="region-tile__zipcode-count">
+    <%= t(".zones", count: region.zones.count) %>
+  </span>
+
+  <%= render "destroy", region: region %>
+<% end %>

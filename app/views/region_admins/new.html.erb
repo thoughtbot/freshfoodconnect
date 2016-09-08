@@ -1,0 +1,22 @@
+<div class="page-wrapper">
+  <div class="content-wrapper-narrow form-container">
+    <%= simple_form_for :region_admin, url: region_admins_path, method: :post do |f| %>
+      <header class="form-container__header">
+        <h2><%= t(".header", name: @region.name) %></h2>
+      </header>
+
+      <div class="form-container__body">
+        <%= f.hidden_field :region_id, value: @region.id %>
+        <%= f.input(
+          :user_id,
+          collection: User.all,
+          include_blank: false
+        ) %>
+      </div>
+
+      <footer class="form-container__footer">
+        <%= f.submit t("helpers.submit.region_admin.create") %>
+      </footer>
+    <% end %>
+  </div>
+</div>
