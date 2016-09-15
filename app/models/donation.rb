@@ -37,10 +37,13 @@ class Donation < ActiveRecord::Base
   end
 
   def self.scheduled_for_pick_up_within(hours:)
+    cutoff = hours.hours.from_now
+
     joins(:scheduled_pickup).
       where(
-        "scheduled_pickups.start_at BETWEEN NOW() AND :cutoff",
-        cutoff: hours.hours.from_now,
+        "scheduled_pickups.start_at BETWEEN :now AND :cutoff",
+        now: Time.current,
+        cutoff: cutoff.end_of_day,
       )
   end
 

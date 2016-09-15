@@ -72,16 +72,24 @@ describe Donation do
 
   describe ".scheduled_for_pick_up_within" do
     it "includes donations to be picked the number of hours in the future" do
-      past_pickup = schedule_pickup(starting: 1.hour.ago)
-      current_pickup = schedule_pickup(starting: 48.hours.from_now)
-      future_pickup = schedule_pickup(starting: 49.hours.from_now)
-      create(:donation, scheduled_pickup: past_pickup)
-      create(:donation, scheduled_pickup: future_pickup)
-      current_donation = create(:donation, scheduled_pickup: current_pickup)
+      thursday = Date.new(2016, 9, 15).beginning_of_day
+      wednesday = thursday - 1.hour
+      saturday = Date.new(2016, 9, 17).beginning_of_day + 8.hours
+      sunday = Date.new(2016, 9, 18).beginning_of_day
 
-      results = Donation.scheduled_for_pick_up_within(hours: 48)
+      Timecop.freeze(thursday) do
+        past_pickup = schedule_pickup(starting: wednesday)
+        current_pickup = schedule_pickup(starting: saturday)
+        future_pickup = schedule_pickup(starting: sunday)
+        create(:donation, scheduled_pickup: past_pickup)
+        create(:donation, scheduled_pickup: future_pickup)
+        create(:donation, scheduled_pickup: current_pickup)
 
-      expect(results).to eq([current_donation])
+        results = Donation.scheduled_for_pick_up_within(hours: 48)
+        pickup_times = results.map(&:scheduled_pickup).map(&:start_at)
+
+        expect(pickup_times).to eq([saturday])
+      end
     end
 
     def schedule_pickup(starting:)

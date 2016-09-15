@@ -2,23 +2,24 @@ require "rails_helper"
 require "rake"
 
 feature "System requests confirmation from donor" do
-  around do |example|
-    Timecop.freeze { example.run }
-  end
-
   scenario "48 hours in advance of a scheduled pickup" do
-    scheduled_pickup = schedule_pickup(48.hours.from_now)
-    donation = create(:donation, :pending, scheduled_pickup: scheduled_pickup)
-    donor = donation.donor
-    ensure_donor_is_signed_in(donor)
+    scheduled_task_time = Date.new(2016, 9, 13).beginning_of_day
+    pickup = Date.new(2016, 9, 15) + 8.hours
 
-    schedule_initial_confirmation_requests!
-    open_email(donor.email)
-    edit_donation_through_email_link
+    Timecop.freeze(scheduled_task_time) do
+      scheduled_pickup = schedule_pickup(pickup)
+      donation = create(:donation, :pending, scheduled_pickup: scheduled_pickup)
+      donor = donation.donor
+      ensure_donor_is_signed_in(donor)
 
-    expect(page).to have_donation_edit_header
-    expect(current_email.subject).
-      to have_confirmation_request_subject_for(donation)
+      schedule_initial_confirmation_requests!
+      open_email(donor.email)
+      edit_donation_through_email_link
+
+      expect(page).to have_donation_edit_header
+      expect(current_email.subject).
+        to have_confirmation_request_subject_for(donation)
+    end
   end
 
   def have_donation_edit_header
