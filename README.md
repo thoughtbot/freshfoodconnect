@@ -10,7 +10,7 @@ make pick up the excess food. Then, the food is delivered to free grocery
 programs and low-cost farmers markets in low-income neighborhoods.
 
 The app has three user types, admins, cyclists, and gardeners. Gardeners can
-sign up for food delivery and set their locaiton as well as indicate how much
+sign up for food delivery and set their location as well as indicate how much
 and what type of food they have for delivery. Cyclists then log on to the app to
 view the upcoming pick ups and update a delivery report as each pick up is
 completed. Admins can set the upcoming food pick up times and create cyclist and
